@@ -3,236 +3,628 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ã¥Â°ÂÃ§ÂºÂ¢Ã¤Â¹Â¦Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿ Ã¢ÂÂ Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯</title>
+  <title>叽里呱啦 × 小红书 Performance Dashboard</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/recharts@2.12.7/umd/Recharts.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
-      /* Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ green */
-      --green-50: #f0fdf4;
-      --green-100: #dcfce7;
-      --green-400: #4ade80;
-      --green-500: #22c55e;
-      --green-600: #16a34a;
-      --green-700: #15803d;
-      /* Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ red */
-      --red-50: #fef2f2;
-      --red-100: #fee2e2;
-      --red-200: #fecaca;
-      --red-400: #f87171;
-      --red-500: #ef4444;
-      --red-600: #dc2626;
-      --red-700: #b91c1c;
-      --red-800: #991b1b;
-      /* Warm tones */
-      --peach-50: #fff7ed;
-      --peach-100: #ffedd5;
-      --peach-200: #fed7aa;
-      --peach-400: #fb923c;
-      /* Neutral */
-      --gray-50: #fafafa;
-      --gray-100: #f5f5f5;
-      --gray-200: #e5e5e5;
-      --gray-300: #d4d4d4;
-      --gray-400: #a3a3a3;
-      --gray-500: #737373;
-      --gray-600: #525252;
-      --gray-700: #404040;
-      --gray-800: #262626;
-      --gray-900: #171717;
-      /* Brand */
-      --brand-primary: #dc2626;
-      --brand-secondary: #16a34a;
-      --brand-bg: linear-gradient(135deg, #fef2f2 0%, #f0fdf4 50%, #fff7ed 100%);
-      --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-      --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
-      --radius: 16px;
-      --radius-sm: 10px;
+      /* Brand Colors */
+      --color-xhs-red: #FF2442;
+      --color-xhs-red-hover: #E01F3A;
+      --color-xhs-red-active: #C41A32;
+      --color-jlgl-green: #7EC883;
+      --color-warm-orange: #FF9B4E;
+
+      /* Neutrals */
+      --color-text-primary: #2D2D3F;
+      --color-text-secondary: #6B7280;
+      --color-border: #E5E7EB;
+      --color-bg-page: #FAFBFC;
+      --color-bg-card: #FFFFFF;
+
+      /* Pastel Tints */
+      --color-tint-pink: #FFF0F3;
+      --color-tint-green: #EEFBEF;
+      --color-tint-peach: #FFF4EC;
+      --color-tint-blue: #EDF6FF;
+      --color-tint-purple: #F3F0FF;
+
+      /* Status */
+      --color-positive: #15803D;
+      --color-positive-bg: #EEFBEF;
+      --color-negative: #DC2626;
+      --color-negative-bg: #FFF0F3;
+
+      /* Chart series */
+      --chart-1: #FF2442;
+      --chart-2: #7EC883;
+      --chart-3: #FF9B4E;
+      --chart-4: #5B9BD5;
+      --chart-5: #A78BFA;
+      --chart-6: #F472B6;
+
+      /* Typography */
+      --font-primary: 'Inter', 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 12px;
+      --space-base: 16px;
+      --space-lg: 20px;
+      --space-xl: 24px;
+      --space-2xl: 32px;
+      --space-3xl: 48px;
+
+      /* Border Radius */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--brand-bg);
-      min-height: 100vh;
-      color: var(--gray-800);
+      font-family: var(--font-primary);
+      background: var(--color-bg-page);
+      color: var(--color-text-primary);
+      font-size: 14px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    .dashboard { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
-
-    /* Header */
-    .header {
-      display: flex; align-items: center; gap: 16px;
-      margin-bottom: 28px; padding: 20px 24px;
-      background: white; border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
+    /* Animations */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .header-avatar { width: 52px; height: 52px; border-radius: 14px; object-fit: cover; }
-    .header-text h1 { font-size: 22px; font-weight: 800; color: var(--gray-900); }
-    .header-text p { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
-    .header-badge {
-      margin-left: auto; padding: 6px 14px;
-      background: var(--green-100); color: var(--green-700);
-      border-radius: 20px; font-size: 12px; font-weight: 700;
+    @keyframes countUp {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* KPI cards row */
-    .kpi-row {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px; margin-bottom: 24px;
+    .animate-in {
+      animation: fadeSlideUp 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      opacity: 0;
     }
-    .kpi-card {
-      background: white; border-radius: var(--radius-sm); padding: 18px 20px;
-      box-shadow: var(--card-shadow); transition: box-shadow 0.2s;
-      border-left: 4px solid transparent;
-    }
-    .kpi-card:hover { box-shadow: var(--card-shadow-hover); }
-    .kpi-card.green { border-left-color: var(--green-500); }
-    .kpi-card.red { border-left-color: var(--red-500); }
-    .kpi-card.peach { border-left-color: var(--peach-400); }
-    .kpi-label { font-size: 12px; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .kpi-value { font-size: 28px; font-weight: 800; margin-top: 4px; color: var(--gray-900); }
-    .kpi-sub { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
-    .kpi-change { font-size: 12px; font-weight: 700; margin-top: 4px; }
-    .kpi-change.up { color: var(--green-600); }
-    .kpi-change.down { color: var(--red-600); }
+    .delay-1 { animation-delay: 50ms; }
+    .delay-2 { animation-delay: 100ms; }
+    .delay-3 { animation-delay: 150ms; }
+    .delay-4 { animation-delay: 200ms; }
+    .delay-5 { animation-delay: 250ms; }
 
-    /* Section */
-    .section {
-      background: white; border-radius: var(--radius); padding: 24px;
-      box-shadow: var(--card-shadow); margin-bottom: 20px;
+    /* Top Nav */
+    .top-nav {
+      height: 60px;
+      background: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-3xl);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .section-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px;
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
     }
-    .section-title {
-      font-size: 16px; font-weight: 800; color: var(--gray-800);
-      display: flex; align-items: center; gap: 8px;
+    .nav-brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--color-jlgl-green), var(--color-xhs-red));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
     }
-    .section-title .icon { font-size: 20px; }
+    .nav-brand-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-base);
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 0;
+    }
+    .nav-tab {
+      padding: var(--space-sm) var(--space-base);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition-fast);
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-primary);
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-tab:hover {
+      color: var(--color-text-primary);
+    }
+    .nav-tab.active {
+      color: var(--color-xhs-red);
+      border-bottom-color: var(--color-xhs-red);
+    }
 
-    /* Tabs */
-    .tabs { display: flex; gap: 4px; background: var(--gray-100); border-radius: 10px; padding: 3px; }
-    .tab {
-      padding: 6px 16px; border-radius: 8px; border: none;
-      background: transparent; font-size: 13px; font-weight: 600;
-      color: var(--gray-500); cursor: pointer; transition: all 0.2s;
-      font-family: inherit;
-    }
-    .tab.active { background: white; color: var(--gray-800); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-    .tab:hover:not(.active) { color: var(--gray-700); }
-
-    /* Channel toggle */
-    .channel-tabs { display: flex; gap: 6px; }
-    .channel-tab {
-      padding: 5px 14px; border-radius: 20px; border: 2px solid var(--gray-200);
-      background: transparent; font-size: 12px; font-weight: 700;
-      color: var(--gray-500); cursor: pointer; transition: all 0.2s;
-      font-family: inherit;
-    }
-    .channel-tab.active-kz { border-color: var(--green-400); background: var(--green-50); color: var(--green-700); }
-    .channel-tab.active-yy { border-color: var(--red-400); background: var(--red-50); color: var(--red-700); }
-    .channel-tab.active-all { border-color: var(--peach-400); background: var(--peach-50); color: var(--peach-400); }
-
-    /* Table */
-    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .data-table th {
-      text-align: left; padding: 10px 12px; font-weight: 700; color: var(--gray-500);
-      border-bottom: 2px solid var(--gray-100); font-size: 11px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-    }
-    .data-table td {
-      padding: 10px 12px; border-bottom: 1px solid var(--gray-100);
-      color: var(--gray-700);
-    }
-    .data-table tr:hover td { background: var(--gray-50); }
-    .data-table .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
-    .data-table .period-label { font-weight: 700; color: var(--gray-800); }
-    .data-table .in-progress { opacity: 0.6; font-style: italic; }
-    .caa-pos { color: var(--red-600); font-weight: 700; }
-    .caa-neg { color: var(--green-600); font-weight: 700; }
-
-    /* Legend */
-    .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray-500); }
-    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
-
-    /* Tooltip */
-    .custom-tooltip {
-      background: white; border-radius: 10px; padding: 12px 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12); border: none;
+    .badge-info {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-full);
       font-size: 12px;
+      font-weight: 500;
+      background: var(--color-tint-blue);
+      color: #2563EB;
     }
-    .tooltip-label { font-weight: 700; color: var(--gray-800); margin-bottom: 6px; }
-    .tooltip-row { display: flex; justify-content: space-between; gap: 16px; padding: 2px 0; }
-    .tooltip-name { color: var(--gray-500); }
-    .tooltip-val { font-weight: 700; }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-3xl);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+    @media (max-width: 1024px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .main-content { padding: var(--space-base); }
+      .top-nav { padding: 0 var(--space-base); }
+    }
+
+    .kpi-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-md);
+      transition: box-shadow var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+    }
+    .kpi-card.accent-red::before { background: var(--color-xhs-red); }
+    .kpi-card.accent-green::before { background: var(--color-jlgl-green); }
+    .kpi-card.accent-orange::before { background: var(--color-warm-orange); }
+    .kpi-card.accent-blue::before { background: var(--chart-4); }
+    .kpi-card.accent-purple::before { background: var(--chart-5); }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .kpi-value {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-sm);
+    }
+    .kpi-value.smaller {
+      font-size: 28px;
+    }
+    .kpi-change {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+    }
+    .kpi-change.positive {
+      background: var(--color-positive-bg);
+      color: var(--color-positive);
+    }
+    .kpi-change.negative {
+      background: var(--color-negative-bg);
+      color: var(--color-negative);
+    }
+    .kpi-change.neutral {
+      background: #F3F4F6;
+      color: var(--color-text-secondary);
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-xs);
+    }
+
+    /* Chart Cards */
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+    .chart-grid.single {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 1024px) {
+      .chart-grid { grid-template-columns: 1fr; }
+    }
+
+    .chart-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .chart-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-base);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .chart-card-title .icon {
+      width: 20px;
+      height: 20px;
+      color: var(--color-text-secondary);
+    }
+
+    /* Data Table */
+    .table-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: var(--space-2xl);
+    }
+    .table-card-header {
+      padding: var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .table-card-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead th {
+      background: var(--color-bg-page);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-secondary);
+      padding: var(--space-md) var(--space-base);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      white-space: nowrap;
+    }
+    thead th.num {
+      text-align: right;
+    }
+    tbody td {
+      padding: 10px var(--space-base);
+      font-size: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    tbody td.num {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+    tbody tr:nth-child(even) {
+      background: var(--color-bg-page);
+    }
+    tbody tr:hover {
+      background: var(--color-tint-pink);
+    }
+
+    .badge-channel {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .badge-channel.kz {
+      background: var(--color-tint-blue);
+      color: #2563EB;
+    }
+    .badge-channel.yy {
+      background: var(--color-tint-peach);
+      color: #C2410C;
+    }
+    .badge-channel.overall {
+      background: var(--color-tint-pink);
+      color: var(--color-xhs-red);
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .badge-status.complete {
+      background: var(--color-positive-bg);
+      color: var(--color-positive);
+    }
+    .badge-status.in-progress {
+      background: var(--color-tint-peach);
+      color: #C2410C;
+    }
 
     /* Footer */
-    .footer { text-align: center; padding: 20px; color: var(--gray-400); font-size: 12px; }
+    .footer {
+      text-align: center;
+      padding: var(--space-2xl) 0;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+    }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .dashboard { padding: 16px 12px 40px; }
-      .header { flex-wrap: wrap; }
-      .kpi-row { grid-template-columns: repeat(2, 1fr); }
-      .section { padding: 16px; }
+    /* Tooltip override for Recharts */
+    .recharts-default-tooltip {
+      background: var(--color-text-primary) !important;
+      border: none !important;
+      border-radius: var(--radius-md) !important;
+      box-shadow: var(--shadow-xl) !important;
+    }
+    .recharts-tooltip-label {
+      color: #fff !important;
+      font-weight: 600 !important;
+    }
+    .recharts-tooltip-item {
+      color: #e0e0e0 !important;
+    }
+
+    /* Channel filter buttons */
+    .channel-filters {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-base);
+    }
+    .channel-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-card);
+      font-family: var(--font-primary);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .channel-btn:hover {
+      background: var(--color-bg-page);
+    }
+    .channel-btn.active {
+      background: var(--color-xhs-red);
+      color: white;
+      border-color: var(--color-xhs-red);
+    }
+
+    /* Recharts legend fix */
+    .recharts-legend-item-text {
+      font-family: var(--font-primary) !important;
+      font-size: 12px !important;
+      color: var(--color-text-secondary) !important;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: var(--space-3xl);
+      color: var(--color-text-secondary);
+    }
+
+    /* Scrollbar */
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    /* Period selector */
+    .period-selector {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .period-selector select {
+      padding: 6px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+      font-family: var(--font-primary);
+      font-size: 13px;
+      color: var(--color-text-primary);
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div id="root"></div>
+
   <script type="text/babel">
-    const { useState, useEffect, useMemo } = React;
     const {
-      ResponsiveContainer, ComposedChart, BarChart, Bar, Line, Area,
-      XAxis, YAxis, CartesianGrid, Tooltip, Legend: RLegend, Cell,
-      ReferenceLine
+      LineChart, Line, BarChart, Bar, ComposedChart, Area, XAxis, YAxis,
+      CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell, ReferenceLine
     } = Recharts;
 
     // ============================================================
-    // Color palette
+    // Utility helpers
     // ============================================================
-    const COLORS = {
-      kz: '#16a34a',       // Green (Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦)
-      kzLight: '#bbf7d0',
-      kzBar: '#4ade80',
-      yy: '#dc2626',       // Red (Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯)
-      yyLight: '#fecaca',
-      yyBar: '#f87171',
-      total: '#fb923c',    // Peach
-      cpl: '#7c3aed',      // Purple
-      caaPos: '#dc2626',   // Red (positive CAA = bad)
-      caaNeg: '#16a34a',   // Green (negative CAA = good)
-      spend: '#f59e0b',    // Amber
-      grid: '#f3f4f6',
-      axis: '#9ca3af',
+    const fmt = (n, decimals = 0) => {
+      if (n == null || isNaN(n)) return '—';
+      return n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    };
+    const fmtCurrency = (n) => {
+      if (n == null || isNaN(n)) return '—';
+      return '¥' + fmt(Math.abs(n), 0);
+    };
+    const fmtPct = (n, d = 2) => {
+      if (n == null || isNaN(n)) return '—';
+      return fmt(n, d) + '%';
+    };
+    const pctChange = (curr, prev) => {
+      if (!prev || prev === 0) return null;
+      return ((curr - prev) / prev) * 100;
     };
 
     // ============================================================
-    // Data loading
+    // Custom Tooltip
+    // ============================================================
+    function CustomTooltip({ active, payload, label }) {
+      if (!active || !payload || !payload.length) return null;
+      return (
+        <div style={{
+          background: '#2D2D3F', color: '#fff', borderRadius: 8,
+          padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+          fontSize: 13, lineHeight: 1.6
+        }}>
+          <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
+          {payload.map((p, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{
+                width: 10, height: 10, borderRadius: '50%',
+                background: p.color, display: 'inline-block'
+              }} />
+              <span style={{ color: '#ccc' }}>{p.name}:</span>
+              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                {typeof p.value === 'number' ? (p.name.includes('%') || p.name.includes('Rate') || p.name.includes('率')
+                  ? fmtPct(p.value) : p.name.includes('CPL') || p.name.includes('CAA') || p.name.includes('Spend') || p.name.includes('投放')
+                  ? fmtCurrency(p.value) : fmt(p.value)) : p.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    // ============================================================
+    // KPI Card
+    // ============================================================
+    function KPICard({ label, value, change, accent, sub, icon, delay = 0 }) {
+      const changeClass = change > 0 ? 'positive' : change < 0 ? 'negative' : 'neutral';
+      const arrow = change > 0 ? '▲' : change < 0 ? '▼' : '—';
+      return (
+        <div className={`kpi-card accent-${accent} animate-in delay-${delay}`}>
+          <div className="kpi-label">
+            {icon && <span dangerouslySetInnerHTML={{ __html: icon }} />}
+            {label}
+          </div>
+          <div className={`kpi-value ${String(value).length > 6 ? 'smaller' : ''}`}>{value}</div>
+          {change != null && (
+            <span className={`kpi-change ${changeClass}`}>
+              {arrow} {change > 0 ? '+' : ''}{fmt(change, 1)}% vs prev
+            </span>
+          )}
+          {sub && <div className="kpi-sub">{sub}</div>}
+        </div>
+      );
+    }
+
+    // ============================================================
+    // Main App
     // ============================================================
     function App() {
-      const [weekly, setWeekly] = useState(null);
-      const [daily, setDaily] = useState(null);
-      const [loading, setLoading] = useState(true);
-      const [channel, setChannel] = useState('kz');  // kz | yy | all
-      const [dailyRange, setDailyRange] = useState(30);
+      const [weeklyData, setWeeklyData] = React.useState(null);
+      const [dailyData, setDailyData] = React.useState(null);
+      const [activeTab, setActiveTab] = React.useState('overview');
+      const [channelFilter, setChannelFilter] = React.useState('overall');
+      const [loading, setLoading] = React.useState(true);
 
-      useEffect(() => {
+      React.useEffect(() => {
         Promise.all([
           fetch('data/weekly.json').then(r => r.json()),
           fetch('data/daily.json').then(r => r.json()),
         ]).then(([w, d]) => {
-          setWeekly(w);
-          setDaily(d);
+          setWeeklyData(w);
+          setDailyData(d);
           setLoading(false);
         }).catch(err => {
           console.error('Failed to load data:', err);
@@ -240,429 +632,589 @@
         });
       }, []);
 
-      if (loading) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#a3a3a3'}}>Ã¥ÂÂ Ã¨Â½Â½Ã¤Â¸Â­...</div>;
-      if (!weekly || !daily) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#ef4444'}}>Ã¦ÂÂ°Ã¦ÂÂ®Ã¥ÂÂ Ã¨Â½Â½Ã¥Â¤Â±Ã¨Â´Â¥</div>;
-
-      return (
-        <div className="dashboard">
-          <Header config={weekly.config} generatedAt={weekly.generated_at} />
-          <KPICards weekly={weekly} channel={channel} />
-          <WeeklySection weekly={weekly} channel={channel} setChannel={setChannel} />
-          <DailySection daily={daily} channel={channel} setChannel={setChannel} range={dailyRange} setRange={setDailyRange} />
-          <div className="footer">
-            Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿ ÃÂ· Ã¦ÂÂ°Ã¦ÂÂ®Ã¦ÂÂ´Ã¦ÂÂ°: {weekly.generated_at}
-          </div>
-        </div>
-      );
-    }
-
-    // ============================================================
-    // Header
-    // ============================================================
-    function Header({ config, generatedAt }) {
-      return (
-        <div className="header">
-          <div className="header-text">
-            <h1>Ã¥Â°ÂÃ§ÂºÂ¢Ã¤Â¹Â¦Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿</h1>
-            <p>Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ ÃÂ· Ã¦ÂÂ°Ã¦ÂÂ®Ã¦ÂÂªÃ¨ÂÂ³ {generatedAt}</p>
-          </div>
-          <div className="header-badge">LTV ÃÂ¥{config.ltv.toLocaleString()}</div>
-        </div>
-      );
-    }
-
-    // ============================================================
-    // KPI Cards
-    // ============================================================
-    function KPICards({ weekly, channel }) {
-      const weeks = weekly.weeks;
-      const complete = weeks.filter(w => w.is_complete);
-      const latest = complete[complete.length - 1];
-      const prev = complete.length > 1 ? complete[complete.length - 2] : null;
-      const inProgress = weeks.filter(w => !w.is_complete);
-
-      function getVal(week, field) {
-        if (!week) return null;
-        if (channel === 'all') return week.overall?.[field] ?? null;
-        return week[channel]?.[field] ?? null;
-      }
-
-      function pctChange(cur, prev) {
-        if (!cur || !prev || prev === 0) return null;
-        return ((cur - prev) / prev * 100).toFixed(1);
-      }
-
-      const latestLeads = getVal(latest, 'leads');
-      const prevLeads = getVal(prev, 'leads');
-      const leadsChange = pctChange(latestLeads, prevLeads);
-
-      const latestConv = getVal(latest, 'conversion_rate');
-      const prevConv = getVal(prev, 'conversion_rate');
-      const convChange = latestConv && prevConv ? (latestConv - prevConv).toFixed(2) : null;
-
-      const latestCPL = getVal(latest, 'cpl');
-      const prevCPL = getVal(prev, 'cpl');
-      const cplChange = pctChange(latestCPL, prevCPL);
-
-      const latestCAA = getVal(latest, 'caa');
-
-      const ipLeads = inProgress.reduce((sum, w) => sum + (getVal(w, 'leads') || 0), 0);
-
-      return (
-        <div className="kpi-row">
-          <div className="kpi-card green">
-            <div className="kpi-label">Latest Leads ({latest?.label}Ã¦ÂÂ)</div>
-            <div className="kpi-value">{latestLeads?.toLocaleString() ?? 'Ã¢ÂÂ'}</div>
-            {leadsChange && <div className={`kpi-change ${parseFloat(leadsChange) >= 0 ? 'up' : 'down'}`}>
-              {parseFloat(leadsChange) >= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(leadsChange)}% vs {prev?.label}
-            </div>}
-          </div>
-          <div className="kpi-card red">
-            <div className="kpi-label">Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ</div>
-            <div className="kpi-value">{latestConv ? latestConv.toFixed(2) + '%' : 'Ã¢ÂÂ'}</div>
-            {convChange && <div className={`kpi-change ${parseFloat(convChange) >= 0 ? 'up' : 'down'}`}>
-              {parseFloat(convChange) >= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(convChange)}pp vs {prev?.label}
-            </div>}
-          </div>
-          <div className="kpi-card peach">
-            <div className="kpi-label">CPL</div>
-            <div className="kpi-value">{latestCPL ? 'ÃÂ¥' + Math.round(latestCPL).toLocaleString() : 'Ã¢ÂÂ'}</div>
-            {cplChange && <div className={`kpi-change ${parseFloat(cplChange) <= 0 ? 'up' : 'down'}`}>
-              {parseFloat(cplChange) <= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(cplChange)}%
-            </div>}
-          </div>
-          <div className="kpi-card green">
-            <div className="kpi-label">CAA</div>
-            <div className="kpi-value" style={{color: latestCAA > 0 ? '#dc2626' : '#16a34a'}}>
-              {latestCAA ? 'ÃÂ¥' + Math.round(latestCAA).toLocaleString() : 'Ã¢ÂÂ'}
-            </div>
-            <div className="kpi-sub">{latestCAA > 0 ? 'Ã¤ÂºÂÃ¦ÂÂ' : latestCAA ? 'Ã§ÂÂÃ¥ÂÂ©' : ''}</div>
-          </div>
-          <div className="kpi-card red">
-            <div className="kpi-label">Ã¨Â¿ÂÃ¨Â¡ÂÃ¤Â¸Â­ Leads</div>
-            <div className="kpi-value">{ipLeads > 0 ? ipLeads.toLocaleString() : 'Ã¢ÂÂ'}</div>
-            <div className="kpi-sub">{inProgress.map(w => w.label + 'Ã¦ÂÂ').join(', ')}</div>
-          </div>
-        </div>
-      );
-    }
-
-    // ============================================================
-    // Weekly Section
-    // ============================================================
-    function WeeklySection({ weekly, channel, setChannel }) {
-      const [view, setView] = useState('chart');
-      const weeks = weekly.weeks;
-
-      const chartData = useMemo(() => {
-        return weeks.map(w => {
-          const ch = channel === 'all' ? 'overall' : channel;
-          const d = w[ch] || {};
-          return {
-            label: w.label + (w.is_complete ? '' : '*'),
-            period: w.period,
-            leads: d.leads || 0,
-            conversion_rate: d.conversion_rate || 0,
-            cpl: d.cpl || null,
-            caa: d.caa || null,
-            spend: d.spend || null,
-            is_complete: w.is_complete,
-          };
-        });
-      }, [weeks, channel]);
-
-      return (
-        <div className="section">
-          <div className="section-header">
-            <div className="section-title">
-              <span className="icon">Ã°ÂÂÂ</span> Ã¥ÂÂ¨Ã§Â»Â´Ã¥ÂºÂ¦Ã¨Â¶ÂÃ¥ÂÂ¿
-            </div>
-            <div style={{display:'flex',gap:8,alignItems:'center'}}>
-              <ChannelTabs channel={channel} setChannel={setChannel} />
-              <div className="tabs">
-                <button className={`tab ${view==='chart'?'active':''}`} onClick={()=>setView('chart')}>Ã¥ÂÂ¾Ã¨Â¡Â¨</button>
-                <button className={`tab ${view==='table'?'active':''}`} onClick={()=>setView('table')}>Ã¨Â¡Â¨Ã¦Â Â¼</button>
-              </div>
-            </div>
-          </div>
-          {view === 'chart' ? <WeeklyChart data={chartData} channel={channel} /> : <WeeklyTable weeks={weeks} channel={channel} />}
-        </div>
-      );
-    }
-
-    function ChannelTabs({ channel, setChannel }) {
-      return (
-        <div className="channel-tabs">
-          <button className={`channel-tab ${channel==='kz'?'active-kz':''}`} onClick={()=>setChannel('kz')}>Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ</button>
-          <button className={`channel-tab ${channel==='yy'?'active-yy':''}`} onClick={()=>setChannel('yy')}>Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿</button>
-          <button className={`channel-tab ${channel==='all'?'active-all':''}`} onClick={()=>setChannel('all')}>Ã¦ÂÂ´Ã¤Â½Â</button>
-        </div>
-      );
-    }
-
-    function WeeklyChart({ data, channel }) {
-      const barColor = channel === 'kz' ? COLORS.kzBar : channel === 'yy' ? COLORS.yyBar : COLORS.total;
-      const lineColor = channel === 'kz' ? COLORS.kz : channel === 'yy' ? COLORS.yy : COLORS.total;
-
-      const CustomTooltip = ({ active, payload, label }) => {
-        if (!active || !payload?.length) return null;
+      if (loading) {
         return (
-          <div className="custom-tooltip">
-            <div className="tooltip-label">{label}Ã¦ÂÂ</div>
-            {payload.map((p, i) => (
-              <div key={i} className="tooltip-row">
-                <span className="tooltip-name">{p.name}</span>
-                <span className="tooltip-val" style={{color: p.color}}>
-                  {p.name === 'Leads' ? p.value.toLocaleString() :
-                   p.name === 'Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ' ? p.value.toFixed(2) + '%' :
-                   p.name === 'CPL' ? (p.value ? 'ÃÂ¥' + Math.round(p.value).toLocaleString() : 'N/A') :
-                   p.name === 'CAA' ? (p.value ? 'ÃÂ¥' + Math.round(p.value).toLocaleString() : 'N/A') :
-                   p.value}
-                </span>
-              </div>
-            ))}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column', gap: 16 }}>
+            <div className="nav-brand-icon" style={{ width: 48, height: 48, fontSize: 20 }}>XHS</div>
+            <div style={{ color: 'var(--color-text-secondary)' }}>Loading dashboard data...</div>
           </div>
         );
-      };
+      }
+
+      if (!weeklyData || !dailyData) {
+        return <div className="empty-state">Failed to load data. Make sure data/weekly.json and data/daily.json exist.</div>;
+      }
+
+      const weeks = weeklyData.weeks;
+      const completeWeeks = weeks.filter(w => w.is_complete);
+      const latestComplete = completeWeeks[completeWeeks.length - 1];
+      const prevComplete = completeWeeks.length > 1 ? completeWeeks[completeWeeks.length - 2] : null;
+      const inProgressWeeks = weeks.filter(w => !w.is_complete);
+      const latestWeek = weeks[weeks.length - 1];
+
+      // KPI values from latest complete week
+      const latestLeads = latestComplete?.overall?.leads || 0;
+      const prevLeads = prevComplete?.overall?.leads || 0;
+      const leadsChange = pctChange(latestLeads, prevLeads);
+
+      const latestConv = latestComplete?.overall?.conversion_rate || 0;
+      const prevConv = prevComplete?.overall?.conversion_rate || 0;
+      const convChange = pctChange(latestConv, prevConv);
+
+      // CPL - use kz as primary
+      const latestCPL = latestComplete?.kz?.cpl;
+      const prevCPL = prevComplete?.kz?.cpl;
+      const cplChange = pctChange(latestCPL, prevCPL);
+
+      // CAA
+      const latestCAA = latestComplete?.kz?.caa;
+      const prevCAA = prevComplete?.kz?.caa;
+
+      // Compute total spend for latest complete week
+      const latestSpend = (latestComplete?.kz?.spend || 0) + (latestComplete?.yy?.spend || 0);
+      const prevSpend = (prevComplete?.kz?.spend || 0) + (prevComplete?.yy?.spend || 0);
+      const spendChange = pctChange(latestSpend, prevSpend);
+
+      // Weekly chart data
+      const weeklyChartData = weeks.map(w => ({
+        label: w.label + (w.is_complete ? '' : '*'),
+        period: w.period,
+        isComplete: w.is_complete,
+        leads: w.overall?.leads || 0,
+        kzLeads: w.kz?.leads || 0,
+        yyLeads: w.yy?.leads || 0,
+        convRate: w.overall?.conversion_rate || null,
+        kzConvRate: w.kz?.conversion_rate || null,
+        yyConvRate: w.yy?.conversion_rate || null,
+        kzCPL: w.kz?.cpl || null,
+        yyCPL: w.yy?.cpl || null,
+        kzCAA: w.kz?.caa || null,
+        yyCAA: w.yy?.caa || null,
+        kzSpend: w.kz?.spend || 0,
+        yySpend: w.yy?.spend || 0,
+        totalSpend: (w.kz?.spend || 0) + (w.yy?.spend || 0),
+      }));
+
+      // Daily chart data — last 14 days with leads > 0
+      const recentDays = dailyData.days
+        .filter(d => d.total_leads > 0 || d.total_spend > 0)
+        .slice(-21);
+
+      const dailyChartData = recentDays.map(d => {
+        const date = new Date(d.date);
+        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        return {
+          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          dayLabel: `${date.getMonth() + 1}/${date.getDate()} ${dayNames[date.getDay()]}`,
+          kzLeads: d.kz_leads,
+          yyLeads: d.yy_leads,
+          totalLeads: d.total_leads,
+          kzSpend: d.kz_spend,
+          yySpend: d.yy_spend,
+          totalSpend: d.total_spend,
+          kzCPL: d.kz_cpl,
+          yyCPL: d.yy_cpl,
+          totalCPL: d.total_cpl,
+        };
+      });
 
       return (
         <div>
-          <ResponsiveContainer width="100%" height={340}>
-            <ComposedChart data={data} margin={{top:20,right:30,left:10,bottom:10}}>
-              <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
-              <XAxis dataKey="label" tick={{fontSize:12,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} />
-              <YAxis yAxisId="left" tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} label={{value:'Leads',angle:-90,position:'insideLeft',style:{fontSize:11,fill:COLORS.axis}}} />
-              <YAxis yAxisId="right" orientation="right" tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => v+'%'} label={{value:'Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ',angle:90,position:'insideRight',style:{fontSize:11,fill:COLORS.axis}}} />
-              <Tooltip content={<CustomTooltip />} />
-              <Bar yAxisId="left" dataKey="leads" name="Leads" radius={[6,6,0,0]} maxBarSize={40}>
-                {data.map((d, i) => (
-                  <Cell key={i} fill={d.is_complete ? barColor : barColor + '60'} />
-                ))}
-              </Bar>
-              <Line yAxisId="right" type="monotone" dataKey="conversion_rate" name="Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ" stroke={lineColor} strokeWidth={2.5} dot={{r:4,fill:'white',stroke:lineColor,strokeWidth:2}} activeDot={{r:6}} />
-            </ComposedChart>
-          </ResponsiveContainer>
+          {/* Top Navigation */}
+          <nav className="top-nav">
+            <div className="nav-brand">
+              <div className="nav-brand-icon">XHS</div>
+              <span className="nav-brand-text">叽里呱啦 × 小红书 Performance</span>
+            </div>
+            <div className="nav-tabs">
+              <button className={`nav-tab ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
+                Overview
+              </button>
+              <button className={`nav-tab ${activeTab === 'daily' ? 'active' : ''}`} onClick={() => setActiveTab('daily')}>
+                Daily Trends
+              </button>
+              <button className={`nav-tab ${activeTab === 'economics' ? 'active' : ''}`} onClick={() => setActiveTab('economics')}>
+                Unit Economics
+              </button>
+            </div>
+            <div className="nav-right">
+              <span className="badge-info">
+                Updated: {weeklyData.generated_at}
+              </span>
+            </div>
+          </nav>
 
-          {/* CPL/CAA chart */}
-          {data.some(d => d.cpl) && (
-            <div style={{marginTop:24}}>
-              <div style={{fontSize:14,fontWeight:700,color:'#404040',marginBottom:12}}>CPL & CAA</div>
-              <ResponsiveContainer width="100%" height={240}>
-                <ComposedChart data={data.filter(d => d.cpl)} margin={{top:10,right:30,left:10,bottom:10}}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
-                  <XAxis dataKey="label" tick={{fontSize:12,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} />
-                  <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'ÃÂ¥'+v} />
+          <div className="main-content">
+            {activeTab === 'overview' && (
+              <OverviewTab
+                weeks={weeks}
+                weeklyChartData={weeklyChartData}
+                latestComplete={latestComplete}
+                prevComplete={prevComplete}
+                latestLeads={latestLeads}
+                leadsChange={leadsChange}
+                latestConv={latestConv}
+                convChange={convChange}
+                latestCPL={latestCPL}
+                cplChange={cplChange}
+                latestSpend={latestSpend}
+                spendChange={spendChange}
+                inProgressWeeks={inProgressWeeks}
+                channelFilter={channelFilter}
+                setChannelFilter={setChannelFilter}
+              />
+            )}
+            {activeTab === 'daily' && (
+              <DailyTab dailyChartData={dailyChartData} />
+            )}
+            {activeTab === 'economics' && (
+              <EconomicsTab
+                weeklyChartData={weeklyChartData}
+                config={weeklyData.config}
+              />
+            )}
+          </div>
+
+          <footer className="footer">
+            Powered by 叽里呱啦 Marketing Team &middot; Data refreshed {weeklyData.generated_at}
+          </footer>
+        </div>
+      );
+    }
+
+    // ============================================================
+    // Overview Tab
+    // ============================================================
+    function OverviewTab({ weeks, weeklyChartData, latestComplete, prevComplete,
+      latestLeads, leadsChange, latestConv, convChange,
+      latestCPL, cplChange, latestSpend, spendChange,
+      inProgressWeeks, channelFilter, setChannelFilter }) {
+
+      const latestLabel = latestComplete?.label || '';
+
+      // Compute in-progress totals
+      const ipLeads = inProgressWeeks.reduce((s, w) => s + (w.overall?.leads || 0), 0);
+
+      return (
+        <div>
+          {/* Section: Latest Complete Period KPIs */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-sm)', marginBottom: 'var(--space-lg)' }}>
+            <h2 className="section-title" style={{ marginBottom: 0 }}>
+              {latestLabel}期 Weekly Summary
+            </h2>
+            {inProgressWeeks.length > 0 && (
+              <span className="badge-status in-progress">
+                {inProgressWeeks.map(w => w.label).join(', ')}期 in progress — {ipLeads} leads so far
+              </span>
+            )}
+          </div>
+
+          <div className="kpi-grid">
+            <KPICard
+              label="TOTAL LEADS"
+              value={fmt(latestLeads)}
+              change={leadsChange}
+              accent="red"
+              sub={`客资收集 ${fmt(latestComplete?.kz?.leads || 0)} · 应用推广 ${fmt(latestComplete?.yy?.leads || 0)}`}
+              delay={1}
+            />
+            <KPICard
+              label="CONVERSION RATE"
+              value={fmtPct(latestConv)}
+              change={convChange}
+              accent="green"
+              sub={`客资收集 ${fmtPct(latestComplete?.kz?.conversion_rate)} · 应用推广 ${fmtPct(latestComplete?.yy?.conversion_rate)}`}
+              delay={2}
+            />
+            <KPICard
+              label="AD SPEND"
+              value={`¥${fmt(latestSpend)}`}
+              change={spendChange}
+              accent="orange"
+              sub={`客资收集 ¥${fmt(latestComplete?.kz?.spend || 0)} · 应用推广 ¥${fmt(latestComplete?.yy?.spend || 0)}`}
+              delay={3}
+            />
+            <KPICard
+              label="CPL (客资收集)"
+              value={latestCPL != null ? `¥${fmt(latestCPL)}` : '—'}
+              change={cplChange != null ? -cplChange : null}
+              accent="purple"
+              sub={latestComplete?.kz?.caa != null ? `CAA: ¥${fmt(latestComplete.kz.caa)}` : 'CAA: —'}
+              delay={4}
+            />
+          </div>
+
+          {/* Weekly Trends Chart */}
+          <div className="chart-grid single animate-in delay-3">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Weekly Leads & Conversion Rate
+              </div>
+              <div className="channel-filters">
+                {['overall', 'kz', 'yy'].map(ch => (
+                  <button key={ch} className={`channel-btn ${channelFilter === ch ? 'active' : ''}`}
+                    onClick={() => setChannelFilter(ch)}>
+                    {ch === 'overall' ? '整体' : ch === 'kz' ? '客资收集' : '应用推广'}
+                  </button>
+                ))}
+              </div>
+              <ResponsiveContainer width="100%" height={360}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis yAxisId="leads" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis yAxisId="rate" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
+                    tickFormatter={v => `${v}%`} domain={[0, 'auto']} />
                   <Tooltip content={<CustomTooltip />} />
-                  <ReferenceLine y={0} stroke={COLORS.axis} strokeDasharray="3 3" />
-                  <Bar dataKey="cpl" name="CPL" radius={[4,4,0,0]} maxBarSize={32} fill={COLORS.cpl} fillOpacity={0.8} />
-                  <Line type="monotone" dataKey="caa" name="CAA" strokeWidth={2.5} dot={{r:4,fill:'white',strokeWidth:2}}>
-                    {data.filter(d => d.cpl).map((d, i) => {
-                      const color = d.caa >= 0 ? COLORS.caaPos : COLORS.caaNeg;
-                      return null;  // handled via stroke
-                    })}
-                  </Line>
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar yAxisId="leads"
+                    dataKey={channelFilter === 'kz' ? 'kzLeads' : channelFilter === 'yy' ? 'yyLeads' : 'leads'}
+                    name="Leads"
+                    fill="#FF2442" fillOpacity={0.15} stroke="#FF2442" strokeWidth={0}
+                    radius={[6, 6, 0, 0]} barSize={40}>
+                    {weeklyChartData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.isComplete ? '#FF2442' : '#FFB3BF'}
+                        fillOpacity={entry.isComplete ? 0.2 : 0.12} />
+                    ))}
+                  </Bar>
+                  <Line yAxisId="rate" type="monotone"
+                    dataKey={channelFilter === 'kz' ? 'kzConvRate' : channelFilter === 'yy' ? 'yyConvRate' : 'convRate'}
+                    name="Conversion Rate (%)"
+                    stroke="#7EC883" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#7EC883', stroke: '#fff', strokeWidth: 2 }}
+                    activeDot={{ r: 6 }}
+                    connectNulls={false} />
                 </ComposedChart>
               </ResponsiveContainer>
-              <div className="legend">
-                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.cpl}}></div>CPL</div>
-                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaPos}}></div>CAA {'>'} 0 (Ã¤ÂºÂÃ¦ÂÂ)</div>
-                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaNeg}}></div>CAA {'<'} 0 (Ã§ÂÂÃ¥ÂÂ©)</div>
-              </div>
             </div>
-          )}
+          </div>
+
+          {/* Sub-channel comparison bars */}
+          <div className="chart-grid animate-in delay-4">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                Leads by Sub-Channel
+              </div>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar dataKey="kzLeads" name="客资收集" stackId="a"
+                    fill="#5B9BD5" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="yyLeads" name="应用推广" stackId="a"
+                    fill="#FF9B4E" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                Conversion Rate by Sub-Channel
+              </div>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `${v}%`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Line type="monotone" dataKey="kzConvRate" name="客资收集 (%)"
+                    stroke="#5B9BD5" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#5B9BD5', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                  <Line type="monotone" dataKey="yyConvRate" name="应用推广 (%)"
+                    stroke="#FF9B4E" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#FF9B4E', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Data Table */}
+          <WeeklyTable weeks={weeks} />
         </div>
       );
     }
 
-    function WeeklyTable({ weeks, channel }) {
-      const ch = channel === 'all' ? 'overall' : channel;
-      const showCPL = channel !== 'all';
-
+    // ============================================================
+    // Daily Tab
+    // ============================================================
+    function DailyTab({ dailyChartData }) {
       return (
-        <div style={{overflowX:'auto'}}>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Ã¦ÂÂÃ¦Â¬Â¡</th>
-                <th className="num">Leads</th>
-                <th className="num">Ã¨Â½Â¬Ã¥ÂÂ</th>
-                <th className="num">Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ</th>
-                {showCPL && <th className="num">Ã¦ÂÂÃ¦ÂÂ¾</th>}
-                {showCPL && <th className="num">CPL</th>}
-                {showCPL && <th className="num">CAA</th>}
-                <th>Ã§ÂÂ¶Ã¦ÂÂ</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...weeks].reverse().map((w, i) => {
-                const d = w[ch] || {};
-                const rowClass = w.is_complete ? '' : 'in-progress';
-                return (
-                  <tr key={i} className={rowClass}>
-                    <td className="period-label">{w.label}Ã¦ÂÂ</td>
-                    <td className="num">{d.leads?.toLocaleString() || 'Ã¢ÂÂ'}</td>
-                    <td className="num">{d.conversions?.toLocaleString() || 'Ã¢ÂÂ'}</td>
-                    <td className="num">{d.conversion_rate ? d.conversion_rate.toFixed(2)+'%' : 'Ã¢ÂÂ'}</td>
-                    {showCPL && <td className="num">{d.spend ? 'ÃÂ¥'+Math.round(d.spend).toLocaleString() : 'Ã¢ÂÂ'}</td>}
-                    {showCPL && <td className="num">{d.cpl ? 'ÃÂ¥'+Math.round(d.cpl).toLocaleString() : 'Ã¢ÂÂ'}</td>}
-                    {showCPL && <td className={`num ${d.caa > 0 ? 'caa-pos' : d.caa < 0 ? 'caa-neg' : ''}`}>
-                      {d.caa ? 'ÃÂ¥'+Math.round(d.caa).toLocaleString() : 'Ã¢ÂÂ'}
-                    </td>}
-                    <td>{w.is_complete ? <span style={{color:COLORS.kz}}>Ã¢ÂÂ Ã¥Â®ÂÃ¦ÂÂ</span> : <span style={{color:COLORS.total}}>Ã¢ÂÂ³ Ã¨Â¿ÂÃ¨Â¡ÂÃ¤Â¸Â­</span>}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <div>
+          <h2 className="section-title">Daily Leads Trend</h2>
+
+          <div className="chart-grid single animate-in delay-1">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Daily Leads — Stacked by Sub-Channel
+              </div>
+              <ResponsiveContainer width="100%" height={400}>
+                <ComposedChart data={dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={0} angle={-45} textAnchor="end" height={50} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar dataKey="kzLeads" name="客资收集" stackId="leads"
+                    fill="#5B9BD5" />
+                  <Bar dataKey="yyLeads" name="应用推广" stackId="leads"
+                    fill="#FF9B4E" radius={[4, 4, 0, 0]} />
+                  <Line type="monotone" dataKey="totalLeads" name="Total Leads"
+                    stroke="#2D2D3F" strokeWidth={2}
+                    dot={{ r: 3, fill: '#2D2D3F', stroke: '#fff', strokeWidth: 1.5 }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          <div className="chart-grid animate-in delay-2">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                Daily Ad Spend
+              </div>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={1} angle={-45} textAnchor="end" height={50} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${(v/1000).toFixed(0)}k`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar dataKey="kzSpend" name="客资收集 Spend" stackId="spend"
+                    fill="#A78BFA" />
+                  <Bar dataKey="yySpend" name="应用推广 Spend" stackId="spend"
+                    fill="#F472B6" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Daily CPL Trend
+              </div>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={dailyChartData.filter(d => d.totalCPL != null)} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={1} angle={-45} textAnchor="end" height={50} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Line type="monotone" dataKey="kzCPL" name="客资收集 CPL"
+                    stroke="#5B9BD5" strokeWidth={2}
+                    dot={{ r: 3 }} connectNulls={false} />
+                  <Line type="monotone" dataKey="yyCPL" name="应用推广 CPL"
+                    stroke="#FF9B4E" strokeWidth={2}
+                    dot={{ r: 3 }} connectNulls={false} />
+                  <Line type="monotone" dataKey="totalCPL" name="Overall CPL"
+                    stroke="#2D2D3F" strokeWidth={2} strokeDasharray="5 5"
+                    dot={{ r: 3 }} connectNulls={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
       );
     }
 
     // ============================================================
-    // Daily Section
+    // Unit Economics Tab
     // ============================================================
-    function DailySection({ daily, channel, setChannel, range, setRange }) {
-      const [metric, setMetric] = useState('leads');
-
-      const chartData = useMemo(() => {
-        const days = daily.days.slice(-range);
-        return days.map(d => ({
-          date: d.date.slice(5),  // MM-DD
-          fullDate: d.date,
-          kz_leads: d.kz_leads,
-          yy_leads: d.yy_leads,
-          total_leads: d.total_leads,
-          kz_spend: d.kz_spend,
-          yy_spend: d.yy_spend,
-          total_spend: d.total_spend,
-          kz_cpl: d.kz_cpl,
-          yy_cpl: d.yy_cpl,
-          total_cpl: d.total_cpl,
-        }));
-      }, [daily, range]);
-
-      const getDataKeys = () => {
-        if (metric === 'leads') {
-          if (channel === 'kz') return [{ key: 'kz_leads', color: COLORS.kzBar, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
-          if (channel === 'yy') return [{ key: 'yy_leads', color: COLORS.yyBar, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
-          return [
-            { key: 'kz_leads', color: COLORS.kzBar, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' },
-            { key: 'yy_leads', color: COLORS.yyBar, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' },
-          ];
-        }
-        if (metric === 'spend') {
-          if (channel === 'kz') return [{ key: 'kz_spend', color: COLORS.kz, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
-          if (channel === 'yy') return [{ key: 'yy_spend', color: COLORS.yy, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
-          return [
-            { key: 'kz_spend', color: COLORS.kz, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' },
-            { key: 'yy_spend', color: COLORS.yy, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' },
-          ];
-        }
-        if (metric === 'cpl') {
-          if (channel === 'kz') return [{ key: 'kz_cpl', color: COLORS.cpl, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
-          if (channel === 'yy') return [{ key: 'yy_cpl', color: COLORS.cpl + 'aa', name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
-          return [
-            { key: 'kz_cpl', color: COLORS.cpl, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ CPL' },
-            { key: 'yy_cpl', color: COLORS.cpl + '80', name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿ CPL' },
-          ];
-        }
-        return [];
-      };
-
-      const dataKeys = getDataKeys();
-
-      const fmtValue = (v, m) => {
-        if (v == null) return 'N/A';
-        if (m === 'leads') return v.toLocaleString();
-        return 'ÃÂ¥' + Math.round(v).toLocaleString();
-      };
-
-      const DailyTooltip = ({ active, payload, label }) => {
-        if (!active || !payload?.length) return null;
-        return (
-          <div className="custom-tooltip">
-            <div className="tooltip-label">{label}</div>
-            {payload.map((p, i) => (
-              <div key={i} className="tooltip-row">
-                <span className="tooltip-name">{p.name}</span>
-                <span className="tooltip-val" style={{color: p.color}}>{fmtValue(p.value, metric)}</span>
-              </div>
-            ))}
-          </div>
-        );
-      };
-
+    function EconomicsTab({ weeklyChartData, config }) {
       return (
-        <div className="section">
-          <div className="section-header">
-            <div className="section-title">
-              <span className="icon">Ã°ÂÂÂ</span> Ã¦ÂÂ¥Ã§Â»Â´Ã¥ÂºÂ¦Ã¦ÂÂ°Ã¦ÂÂ®
+        <div>
+          <h2 className="section-title">Unit Economics</h2>
+
+          {/* Config info */}
+          <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)' }}>
+            <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`Unit price ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% margin`} delay={1} />
+            <KPICard label="SALES COST / LEAD" value={`¥${fmt(config.sales_cost)}`} accent="blue" sub="Fixed cost per lead" delay={2} />
+            <KPICard label="REBATE" value={fmtPct(config.rebate * 100, 0)} accent="orange" sub="Ad platform rebate" delay={3} />
+            <KPICard label="FORMULA" value="CAA" accent="purple" sub="LTV - (CPL×(1-rebate) + sales_cost) / conv_rate" delay={4} />
+          </div>
+
+          <div className="chart-grid animate-in delay-3">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                CPL Trend (Cost Per Lead)
+              </div>
+              <ResponsiveContainer width="100%" height={320}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
+                  <YAxis yAxisId="spend" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
+                    tickFormatter={v => `¥${(v/1000).toFixed(0)}k`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar yAxisId="spend" dataKey="totalSpend" name="Total Spend"
+                    fill="#E5E7EB" fillOpacity={0.5} radius={[4, 4, 0, 0]} barSize={30} />
+                  <Line type="monotone" dataKey="kzCPL" name="客资收集 CPL"
+                    stroke="#5B9BD5" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#5B9BD5', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                  <Line type="monotone" dataKey="yyCPL" name="应用推广 CPL"
+                    stroke="#FF9B4E" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#FF9B4E', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                </ComposedChart>
+              </ResponsiveContainer>
             </div>
-            <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
-              <ChannelTabs channel={channel} setChannel={setChannel} />
-              <div className="tabs">
-                <button className={`tab ${metric==='leads'?'active':''}`} onClick={()=>setMetric('leads')}>Leads</button>
-                <button className={`tab ${metric==='spend'?'active':''}`} onClick={()=>setMetric('spend')}>Ã¦ÂÂÃ¦ÂÂ¾</button>
-                <button className={`tab ${metric==='cpl'?'active':''}`} onClick={()=>setMetric('cpl')}>CPL</button>
+
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                CAA Trend (Customer Acquisition Advantage)
               </div>
-              <div className="tabs">
-                <button className={`tab ${range===14?'active':''}`} onClick={()=>setRange(14)}>14Ã¥Â¤Â©</button>
-                <button className={`tab ${range===30?'active':''}`} onClick={()=>setRange(30)}>30Ã¥Â¤Â©</button>
-                <button className={`tab ${range===60?'active':''}`} onClick={()=>setRange(60)}>60Ã¥Â¤Â©</button>
-                <button className={`tab ${range===999?'active':''}`} onClick={()=>setRange(999)}>Ã¥ÂÂ¨Ã©ÂÂ¨</button>
-              </div>
+              <ResponsiveContainer width="100%" height={320}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <ReferenceLine y={0} stroke="#E5E7EB" strokeWidth={2} />
+                  <Bar dataKey="kzCAA" name="客资收集 CAA" barSize={24}
+                    radius={[4, 4, 0, 0]}>
+                    {weeklyChartData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#7EC883' : '#FF2442'}
+                        fillOpacity={0.7} />
+                    ))}
+                  </Bar>
+                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}
+                    radius={[4, 4, 0, 0]}>
+                    {weeklyChartData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.yyCAA != null && entry.yyCAA >= 0 ? '#34D399' : '#F472B6'}
+                        fillOpacity={0.7} />
+                    ))}
+                  </Bar>
+                </ComposedChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
-          <ResponsiveContainer width="100%" height={300}>
-            {metric === 'leads' && channel === 'all' ? (
-              <BarChart data={chartData} margin={{top:10,right:20,left:10,bottom:10}}>
-                <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
-                <XAxis dataKey="date" tick={{fontSize:10,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} interval={Math.max(0, Math.floor(chartData.length / 15))} />
-                <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} />
-                <Tooltip content={<DailyTooltip />} />
-                {dataKeys.map(dk => (
-                  <Bar key={dk.key} dataKey={dk.key} name={dk.name} stackId="leads" fill={dk.color} radius={dk.key === 'yy_leads' ? [4,4,0,0] : [0,0,0,0]} maxBarSize={12} />
-                ))}
-              </BarChart>
-            ) : metric === 'leads' ? (
-              <BarChart data={chartData} margin={{top:10,right:20,left:10,bottom:10}}>
-                <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
-                <XAxis dataKey="date" tick={{fontSize:10,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} interval={Math.max(0, Math.floor(chartData.length / 15))} />
-                <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} />
-                <Tooltip content={<DailyTooltip />} />
-                {dataKeys.map(dk => (
-                  <Bar key={dk.key} dataKey={dk.key} name={dk.name} fill={dk.color} radius={[4,4,0,0]} maxBarSize={16} />
-                ))}
-              </BarChart>
-            ) : (
-              <ComposedChart data={chartData} margin={{top:10,right:20,left:10,bottom:10}}>
-                <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
-                <XAxis dataKey="date" tick={{fontSize:10,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} interval={Math.max(0, Math.floor(chartData.length / 15))} />
-                <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'ÃÂ¥'+v} />
-                <Tooltip content={<DailyTooltip />} />
-                {dataKeys.map(dk => (
-                  <Line key={dk.key} type="monotone" dataKey={dk.key} name={dk.name} stroke={dk.color} strokeWidth={2} dot={false} connectNulls />
-                ))}
-              </ComposedChart>
-            )}
-          </ResponsiveContainer>
-
-          <div className="legend">
-            {dataKeys.map(dk => (
-              <div key={dk.key} className="legend-item">
-                <div className="legend-dot" style={{background:dk.color}}></div>{dk.name}
+          {/* Spend vs Leads efficiency */}
+          <div className="chart-grid single animate-in delay-4">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Weekly Ad Spend vs Leads
               </div>
-            ))}
+              <ResponsiveContainer width="100%" height={360}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis yAxisId="spend" tick={{ fontSize: 12, fill: '#6B7280' }}
+                    tickFormatter={v => `¥${(v/1000).toFixed(0)}k`} />
+                  <YAxis yAxisId="leads" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Bar yAxisId="spend" dataKey="kzSpend" name="客资收集 Spend" stackId="spend"
+                    fill="#A78BFA" fillOpacity={0.6} />
+                  <Bar yAxisId="spend" dataKey="yySpend" name="应用推广 Spend" stackId="spend"
+                    fill="#F472B6" fillOpacity={0.6} radius={[4, 4, 0, 0]} />
+                  <Line yAxisId="leads" type="monotone" dataKey="leads" name="Total Leads"
+                    stroke="#FF2442" strokeWidth={2.5}
+                    dot={{ r: 5, fill: '#FF2442', stroke: '#fff', strokeWidth: 2 }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
       );
     }
 
     // ============================================================
-    // Render
+    // Weekly Data Table
     // ============================================================
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    function WeeklyTable({ weeks }) {
+      const sorted = [...weeks].reverse();
+      return (
+        <div className="table-card animate-in delay-5">
+          <div className="table-card-header">
+            <span className="table-card-title">Weekly Detail</span>
+          </div>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Status</th>
+                  <th className="num">Leads</th>
+                  <th className="num">客资收集</th>
+                  <th className="num">应用推广</th>
+                  <th className="num">Conv Rate</th>
+                  <th className="num">客资 Conv</th>
+                  <th className="num">应用 Conv</th>
+                  <th className="num">Total Spend</th>
+                  <th className="num">CPL (客资)</th>
+                  <th className="num">CAA (客资)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sorted.map((w, i) => {
+                  const totalSpend = (w.kz?.spend || 0) + (w.yy?.spend || 0);
+                  return (
+                    <tr key={i}>
+                      <td style={{ fontWeight: 600 }}>{w.label}期</td>
+                      <td>
+                        <span className={`badge-status ${w.is_complete ? 'complete' : 'in-progress'}`}>
+                          {w.is_complete ? 'Complete' : 'In Progress'}
+                        </span>
+                      </td>
+                      <td className="num" style={{ fontWeight: 600 }}>{fmt(w.overall?.leads)}</td>
+                      <td className="num">{fmt(w.kz?.leads)}</td>
+                      <td className="num">{fmt(w.yy?.leads || 0)}</td>
+                      <td className="num" style={{ fontWeight: 600, color: (w.overall?.conversion_rate || 0) > 5 ? 'var(--color-positive)' : 'inherit' }}>
+                        {fmtPct(w.overall?.conversion_rate)}
+                      </td>
+                      <td className="num">{fmtPct(w.kz?.conversion_rate)}</td>
+                      <td className="num">{fmtPct(w.yy?.conversion_rate)}</td>
+                      <td className="num">{totalSpend > 0 ? `¥${fmt(totalSpend)}` : '—'}</td>
+                      <td className="num">{w.kz?.cpl != null ? `¥${fmt(w.kz.cpl)}` : '—'}</td>
+                      <td className="num" style={{
+                        color: w.kz?.caa != null ? (w.kz.caa >= 0 ? 'var(--color-positive)' : 'var(--color-negative)') : 'inherit',
+                        fontWeight: w.kz?.caa != null ? 600 : 400
+                      }}>
+                        {w.kz?.caa != null ? `¥${fmt(w.kz.caa)}` : '—'}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+
+    // ============================================================
+    // Mount
+    // ============================================================
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
   </script>
 </body>
 </html>

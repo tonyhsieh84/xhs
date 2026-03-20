@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-03-20 17:21",
+  "generated_at": "2026-03-20 19:43",
   "config": {
     "rebate": 0.05,
     "sales_cost": 12,
     "unit_price": 2000,
     "margin": 0.74,
-    "ltv": 1480
+    "ltv": 1480.0
   },
   "weeks": [
     {
@@ -46,16 +46,16 @@
         "lesson1_rate": 21.02,
         "spend": 33532.58,
         "cpl": 213.58,
-        "cac": 3374,
-        "caa": -1894
+        "cac": 3374.0,
+        "caa": -1894.0
       },
       "yy": {
         "leads": 3,
         "conversions": 0,
-        "conversion_rate": 0,
-        "friend_rate": 100,
-        "lesson1_rate": 100,
-        "spend": 0,
+        "conversion_rate": 0.0,
+        "friend_rate": 100.0,
+        "lesson1_rate": 100.0,
+        "spend": 0.0,
         "cpl": null,
         "cac": null,
         "caa": null
@@ -84,10 +84,10 @@
       "yy": {
         "leads": 1,
         "conversions": 0,
-        "conversion_rate": 0,
-        "friend_rate": 100,
-        "lesson1_rate": 100,
-        "spend": 0,
+        "conversion_rate": 0.0,
+        "friend_rate": 100.0,
+        "lesson1_rate": 100.0,
+        "spend": 0.0,
         "cpl": null,
         "cac": null,
         "caa": null
@@ -116,9 +116,9 @@
       "yy": {
         "leads": 1,
         "conversions": 0,
-        "conversion_rate": 0,
-        "friend_rate": 100,
-        "lesson1_rate": 0,
+        "conversion_rate": 0.0,
+        "friend_rate": 100.0,
+        "lesson1_rate": 0.0,
         "spend": 1.54,
         "cpl": 1.54,
         "cac": null,
@@ -181,7 +181,7 @@
         "leads": 38,
         "conversions": 5,
         "conversion_rate": 13.16,
-        "friend_rate": 50,
+        "friend_rate": 50.0,
         "lesson1_rate": 23.68,
         "spend": 8443.82,
         "cpl": 222.21,
@@ -196,14 +196,14 @@
       "overall": {
         "leads": 245,
         "conversions": 0,
-        "conversion_rate": 0
+        "conversion_rate": 0.0
       },
       "kz": {
         "leads": 144,
         "conversions": 0,
-        "conversion_rate": 0,
+        "conversion_rate": 0.0,
         "friend_rate": 32.64,
-        "lesson1_rate": 0,
+        "lesson1_rate": 0.0,
         "spend": 25922.51,
         "cpl": 180.02,
         "cac": null,
@@ -212,9 +212,9 @@
       "yy": {
         "leads": 102,
         "conversions": 0,
-        "conversion_rate": 0,
+        "conversion_rate": 0.0,
         "friend_rate": 49.02,
-        "lesson1_rate": 0,
+        "lesson1_rate": 0.0,
         "spend": 15538.67,
         "cpl": 152.34,
         "cac": null,
