@@ -654,27 +654,48 @@
       const inProgressWeeks = weeks.filter(w => !w.is_complete);
       const latestWeek = weeks[weeks.length - 1];
 
-      // KPI values from latest complete week
-      const latestLeads = latestComplete?.overall?.leads || 0;
-      const prevLeads = prevComplete?.overall?.leads || 0;
+      // Blended unit economics helper
+      // CAA = LTV - (CPL*(1-rebate) + sales_cost) / conv_rate
+      const cfg = weeklyData.config;
+      const blendedMetrics = (w) => {
+        if (!w) return { leads: 0, spend: 0, cpl: null, caa: null, convRate: 0 };
+        const leads = w.overall?.leads || 0;
+        const spend = (w.kz?.spend || 0) + (w.yy?.spend || 0);
+        const cpl = leads > 0 && spend > 0 ? spend / leads : null;
+        const convRate = (w.overall?.conversion_rate || 0) / 100; // decimal
+        let caa = null;
+        if (cpl != null && convRate > 0) {
+          const cac = (cpl * (1 - cfg.rebate) + cfg.sales_cost) / convRate;
+          caa = cfg.ltv - cac;
+        }
+        return { leads, spend, cpl, caa, convRate: w.overall?.conversion_rate || 0 };
+      };
+
+      const latest = blendedMetrics(latestComplete);
+      const prev = blendedMetrics(prevComplete);
+
+      // KPI values from latest complete week (all blended/overall)
+      const latestLeads = latest.leads;
+      const prevLeads = prev.leads;
       const leadsChange = pctChange(latestLeads, prevLeads);
 
-      const latestConv = latestComplete?.overall?.conversion_rate || 0;
-      const prevConv = prevComplete?.overall?.conversion_rate || 0;
+      const latestConv = latest.convRate;
+      const prevConv = prev.convRate;
       const convChange = pctChange(latestConv, prevConv);
 
-      // CPL - use kz as primary
-      const latestCPL = latestComplete?.kz?.cpl;
-      const prevCPL = prevComplete?.kz?.cpl;
+      // Blended CPL (total spend / total leads)
+      const latestCPL = latest.cpl;
+      const prevCPL = prev.cpl;
       const cplChange = pctChange(latestCPL, prevCPL);
 
-      // CAA
-      const latestCAA = latestComplete?.kz?.caa;
-      const prevCAA = prevComplete?.kz?.caa;
+      // Blended CAA
+      const latestCAA = latest.caa;
+      const prevCAA = prev.caa;
+      const caaChange = pctChange(latestCAA != null ? Math.abs(latestCAA) : null, prevCAA != null ? Math.abs(prevCAA) : null);
 
       // Compute total spend for latest complete week
-      const latestSpend = (latestComplete?.kz?.spend || 0) + (latestComplete?.yy?.spend || 0);
-      const prevSpend = (prevComplete?.kz?.spend || 0) + (prevComplete?.yy?.spend || 0);
+      const latestSpend = latest.spend;
+      const prevSpend = prev.spend;
       const spendChange = pctChange(latestSpend, prevSpend);
 
       // Weekly chart data
@@ -759,6 +780,7 @@
                 convChange={convChange}
                 latestCPL={latestCPL}
                 cplChange={cplChange}
+                latestCAA={latestCAA}
                 latestSpend={latestSpend}
                 spendChange={spendChange}
                 inProgressWeeks={inProgressWeeks}
@@ -789,7 +811,7 @@
     // ============================================================
     function OverviewTab({ weeks, weeklyChartData, latestComplete, prevComplete,
       latestLeads, leadsChange, latestConv, convChange,
-      latestCPL, cplChange, latestSpend, spendChange,
+      latestCPL, cplChange, latestCAA, latestSpend, spendChange,
       inProgressWeeks, channelFilter, setChannelFilter }) {
 
       const latestLabel = latestComplete?.label || '';
@@ -821,7 +843,7 @@
               delay={1}
             />
             <KPICard
-              label="CPL (客资收集)"
+              label="BLENDED CPL"
               value={latestCPL != null ? `¥${fmt(latestCPL)}` : '—'}
               change={cplChange != null ? -cplChange : null}
               accent="orange"
@@ -837,11 +859,11 @@
               delay={3}
             />
             <KPICard
-              label="CAA (客资收集)"
-              value={latestComplete?.kz?.caa != null ? `¥${fmt(latestComplete.kz.caa)}` : '—'}
+              label="BLENDED CAA"
+              value={latestCAA != null ? `¥${fmt(latestCAA)}` : '—'}
               change={null}
               accent="purple"
-              sub={latestComplete?.yy?.caa != null ? `应用推广 CAA: ¥${fmt(latestComplete.yy.caa)}` : '应用推广 CAA: —'}
+              sub={`客资收集 ¥${fmt(latestComplete?.kz?.caa || 0)} · 应用推广 ¥${fmt(latestComplete?.yy?.caa || 0)}`}
               delay={4}
             />
           </div>
