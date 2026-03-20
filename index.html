@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>å°çº¢ä¹¦è¿è¥çæ¿ â å½éå±å¦ x å°çº¢è¯</title>
+  <title>Ã¥Â°ÂÃ§ÂºÂ¢Ã¤Â¹Â¦Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿ Ã¢ÂÂ Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/recharts@2.12.7/umd/Recharts.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* å½éå±å¦ green */
+      /* Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ green */
       --green-50: #f0fdf4;
       --green-100: #dcfce7;
       --green-400: #4ade80;
       --green-500: #22c55e;
       --green-600: #16a34a;
       --green-700: #15803d;
-      /* å°çº¢è¯ red */
+      /* Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ red */
       --red-50: #fef2f2;
       --red-100: #fee2e2;
       --red-200: #fecaca;
@@ -200,10 +201,10 @@
     // Color palette
     // ============================================================
     const COLORS = {
-      kz: '#16a34a',       // Green (å½éå±å¦)
+      kz: '#16a34a',       // Green (Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦)
       kzLight: '#bbf7d0',
       kzBar: '#4ade80',
-      yy: '#dc2626',       // Red (å°çº¢è¯)
+      yy: '#dc2626',       // Red (Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯)
       yyLight: '#fecaca',
       yyBar: '#f87171',
       total: '#fb923c',    // Peach
@@ -239,8 +240,8 @@
         });
       }, []);
 
-      if (loading) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#a3a3a3'}}>å è½½ä¸­...</div>;
-      if (!weekly || !daily) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#ef4444'}}>æ°æ®å è½½å¤±è´¥</div>;
+      if (loading) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#a3a3a3'}}>Ã¥ÂÂ Ã¨Â½Â½Ã¤Â¸Â­...</div>;
+      if (!weekly || !daily) return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh',fontSize:18,color:'#ef4444'}}>Ã¦ÂÂ°Ã¦ÂÂ®Ã¥ÂÂ Ã¨Â½Â½Ã¥Â¤Â±Ã¨Â´Â¥</div>;
 
       return (
         <div className="dashboard">
@@ -249,7 +250,7 @@
           <WeeklySection weekly={weekly} channel={channel} setChannel={setChannel} />
           <DailySection daily={daily} channel={channel} setChannel={setChannel} range={dailyRange} setRange={setDailyRange} />
           <div className="footer">
-            å½éå±å¦ x å°çº¢è¯ è¿è¥çæ¿ Â· æ°æ®æ´æ°: {weekly.generated_at}
+            Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿ ÃÂ· Ã¦ÂÂ°Ã¦ÂÂ®Ã¦ÂÂ´Ã¦ÂÂ°: {weekly.generated_at}
           </div>
         </div>
       );
@@ -262,10 +263,10 @@
       return (
         <div className="header">
           <div className="header-text">
-            <h1>å°çº¢ä¹¦è¿è¥çæ¿</h1>
-            <p>å½éå±å¦ x å°çº¢è¯ Â· æ°æ®æªè³ {generatedAt}</p>
+            <h1>Ã¥Â°ÂÃ§ÂºÂ¢Ã¤Â¹Â¦Ã¨Â¿ÂÃ¨ÂÂ¥Ã§ÂÂÃ¦ÂÂ¿</h1>
+            <p>Ã¥ÂÂ½Ã©ÂÂÃ¥ÂÂ±Ã¥ÂÂ¦ x Ã¥Â°ÂÃ§ÂºÂ¢Ã¨ÂÂ¯ ÃÂ· Ã¦ÂÂ°Ã¦ÂÂ®Ã¦ÂÂªÃ¨ÂÂ³ {generatedAt}</p>
           </div>
-          <div className="header-badge">LTV Â¥{config.ltv.toLocaleString()}</div>
+          <div className="header-badge">LTV ÃÂ¥{config.ltv.toLocaleString()}</div>
         </div>
       );
     }
@@ -310,37 +311,37 @@
       return (
         <div className="kpi-row">
           <div className="kpi-card green">
-            <div className="kpi-label">Latest Leads ({latest?.label}æ)</div>
-            <div className="kpi-value">{latestLeads?.toLocaleString() ?? 'â'}</div>
+            <div className="kpi-label">Latest Leads ({latest?.label}Ã¦ÂÂ)</div>
+            <div className="kpi-value">{latestLeads?.toLocaleString() ?? 'Ã¢ÂÂ'}</div>
             {leadsChange && <div className={`kpi-change ${parseFloat(leadsChange) >= 0 ? 'up' : 'down'}`}>
-              {parseFloat(leadsChange) >= 0 ? 'â' : 'â'} {Math.abs(leadsChange)}% vs {prev?.label}
+              {parseFloat(leadsChange) >= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(leadsChange)}% vs {prev?.label}
             </div>}
           </div>
           <div className="kpi-card red">
-            <div className="kpi-label">è½¬åç</div>
-            <div className="kpi-value">{latestConv ? latestConv.toFixed(2) + '%' : 'â'}</div>
+            <div className="kpi-label">Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ</div>
+            <div className="kpi-value">{latestConv ? latestConv.toFixed(2) + '%' : 'Ã¢ÂÂ'}</div>
             {convChange && <div className={`kpi-change ${parseFloat(convChange) >= 0 ? 'up' : 'down'}`}>
-              {parseFloat(convChange) >= 0 ? 'â' : 'â'} {Math.abs(convChange)}pp vs {prev?.label}
+              {parseFloat(convChange) >= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(convChange)}pp vs {prev?.label}
             </div>}
           </div>
           <div className="kpi-card peach">
             <div className="kpi-label">CPL</div>
-            <div className="kpi-value">{latestCPL ? 'Â¥' + Math.round(latestCPL).toLocaleString() : 'â'}</div>
+            <div className="kpi-value">{latestCPL ? 'ÃÂ¥' + Math.round(latestCPL).toLocaleString() : 'Ã¢ÂÂ'}</div>
             {cplChange && <div className={`kpi-change ${parseFloat(cplChange) <= 0 ? 'up' : 'down'}`}>
-              {parseFloat(cplChange) <= 0 ? 'â' : 'â'} {Math.abs(cplChange)}%
+              {parseFloat(cplChange) <= 0 ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} {Math.abs(cplChange)}%
             </div>}
           </div>
           <div className="kpi-card green">
             <div className="kpi-label">CAA</div>
             <div className="kpi-value" style={{color: latestCAA > 0 ? '#dc2626' : '#16a34a'}}>
-              {latestCAA ? 'Â¥' + Math.round(latestCAA).toLocaleString() : 'â'}
+              {latestCAA ? 'ÃÂ¥' + Math.round(latestCAA).toLocaleString() : 'Ã¢ÂÂ'}
             </div>
-            <div className="kpi-sub">{latestCAA > 0 ? 'äºæ' : latestCAA ? 'çå©' : ''}</div>
+            <div className="kpi-sub">{latestCAA > 0 ? 'Ã¤ÂºÂÃ¦ÂÂ' : latestCAA ? 'Ã§ÂÂÃ¥ÂÂ©' : ''}</div>
           </div>
           <div className="kpi-card red">
-            <div className="kpi-label">è¿è¡ä¸­ Leads</div>
-            <div className="kpi-value">{ipLeads > 0 ? ipLeads.toLocaleString() : 'â'}</div>
-            <div className="kpi-sub">{inProgress.map(w => w.label + 'æ').join(', ')}</div>
+            <div className="kpi-label">Ã¨Â¿ÂÃ¨Â¡ÂÃ¤Â¸Â­ Leads</div>
+            <div className="kpi-value">{ipLeads > 0 ? ipLeads.toLocaleString() : 'Ã¢ÂÂ'}</div>
+            <div className="kpi-sub">{inProgress.map(w => w.label + 'Ã¦ÂÂ').join(', ')}</div>
           </div>
         </div>
       );
@@ -374,13 +375,13 @@
         <div className="section">
           <div className="section-header">
             <div className="section-title">
-              <span className="icon">ð</span> å¨ç»´åº¦è¶å¿
+              <span className="icon">Ã°ÂÂÂ</span> Ã¥ÂÂ¨Ã§Â»Â´Ã¥ÂºÂ¦Ã¨Â¶ÂÃ¥ÂÂ¿
             </div>
             <div style={{display:'flex',gap:8,alignItems:'center'}}>
               <ChannelTabs channel={channel} setChannel={setChannel} />
               <div className="tabs">
-                <button className={`tab ${view==='chart'?'active':''}`} onClick={()=>setView('chart')}>å¾è¡¨</button>
-                <button className={`tab ${view==='table'?'active':''}`} onClick={()=>setView('table')}>è¡¨æ ¼</button>
+                <button className={`tab ${view==='chart'?'active':''}`} onClick={()=>setView('chart')}>Ã¥ÂÂ¾Ã¨Â¡Â¨</button>
+                <button className={`tab ${view==='table'?'active':''}`} onClick={()=>setView('table')}>Ã¨Â¡Â¨Ã¦Â Â¼</button>
               </div>
             </div>
           </div>
@@ -392,9 +393,9 @@
     function ChannelTabs({ channel, setChannel }) {
       return (
         <div className="channel-tabs">
-          <button className={`channel-tab ${channel==='kz'?'active-kz':''}`} onClick={()=>setChannel('kz')}>å®¢èµæ¶é</button>
-          <button className={`channel-tab ${channel==='yy'?'active-yy':''}`} onClick={()=>setChannel('yy')}>åºç¨æ¨å¹¿</button>
-          <button className={`channel-tab ${channel==='all'?'active-all':''}`} onClick={()=>setChannel('all')}>æ´ä½</button>
+          <button className={`channel-tab ${channel==='kz'?'active-kz':''}`} onClick={()=>setChannel('kz')}>Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ</button>
+          <button className={`channel-tab ${channel==='yy'?'active-yy':''}`} onClick={()=>setChannel('yy')}>Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿</button>
+          <button className={`channel-tab ${channel==='all'?'active-all':''}`} onClick={()=>setChannel('all')}>Ã¦ÂÂ´Ã¤Â½Â</button>
         </div>
       );
     }
@@ -407,15 +408,15 @@
         if (!active || !payload?.length) return null;
         return (
           <div className="custom-tooltip">
-            <div className="tooltip-label">{label}æ</div>
+            <div className="tooltip-label">{label}Ã¦ÂÂ</div>
             {payload.map((p, i) => (
               <div key={i} className="tooltip-row">
                 <span className="tooltip-name">{p.name}</span>
                 <span className="tooltip-val" style={{color: p.color}}>
                   {p.name === 'Leads' ? p.value.toLocaleString() :
-                   p.name === 'è½¬åç' ? p.value.toFixed(2) + '%' :
-                   p.name === 'CPL' ? (p.value ? 'Â¥' + Math.round(p.value).toLocaleString() : 'N/A') :
-                   p.name === 'CAA' ? (p.value ? 'Â¥' + Math.round(p.value).toLocaleString() : 'N/A') :
+                   p.name === 'Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ' ? p.value.toFixed(2) + '%' :
+                   p.name === 'CPL' ? (p.value ? 'ÃÂ¥' + Math.round(p.value).toLocaleString() : 'N/A') :
+                   p.name === 'CAA' ? (p.value ? 'ÃÂ¥' + Math.round(p.value).toLocaleString() : 'N/A') :
                    p.value}
                 </span>
               </div>
@@ -431,14 +432,14 @@
               <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
               <XAxis dataKey="label" tick={{fontSize:12,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} />
               <YAxis yAxisId="left" tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} label={{value:'Leads',angle:-90,position:'insideLeft',style:{fontSize:11,fill:COLORS.axis}}} />
-              <YAxis yAxisId="right" orientation="right" tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => v+'%'} label={{value:'è½¬åç',angle:90,position:'insideRight',style:{fontSize:11,fill:COLORS.axis}}} />
+              <YAxis yAxisId="right" orientation="right" tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => v+'%'} label={{value:'Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ',angle:90,position:'insideRight',style:{fontSize:11,fill:COLORS.axis}}} />
               <Tooltip content={<CustomTooltip />} />
               <Bar yAxisId="left" dataKey="leads" name="Leads" radius={[6,6,0,0]} maxBarSize={40}>
                 {data.map((d, i) => (
                   <Cell key={i} fill={d.is_complete ? barColor : barColor + '60'} />
                 ))}
               </Bar>
-              <Line yAxisId="right" type="monotone" dataKey="conversion_rate" name="è½¬åç" stroke={lineColor} strokeWidth={2.5} dot={{r:4,fill:'white',stroke:lineColor,strokeWidth:2}} activeDot={{r:6}} />
+              <Line yAxisId="right" type="monotone" dataKey="conversion_rate" name="Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ" stroke={lineColor} strokeWidth={2.5} dot={{r:4,fill:'white',stroke:lineColor,strokeWidth:2}} activeDot={{r:6}} />
             </ComposedChart>
           </ResponsiveContainer>
 
@@ -450,7 +451,7 @@
                 <ComposedChart data={data.filter(d => d.cpl)} margin={{top:10,right:30,left:10,bottom:10}}>
                   <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
                   <XAxis dataKey="label" tick={{fontSize:12,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} />
-                  <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'Â¥'+v} />
+                  <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'ÃÂ¥'+v} />
                   <Tooltip content={<CustomTooltip />} />
                   <ReferenceLine y={0} stroke={COLORS.axis} strokeDasharray="3 3" />
                   <Bar dataKey="cpl" name="CPL" radius={[4,4,0,0]} maxBarSize={32} fill={COLORS.cpl} fillOpacity={0.8} />
@@ -464,8 +465,8 @@
               </ResponsiveContainer>
               <div className="legend">
                 <div className="legend-item"><div className="legend-dot" style={{background:COLORS.cpl}}></div>CPL</div>
-                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaPos}}></div>CAA {'>'} 0 (äºæ)</div>
-                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaNeg}}></div>CAA {'<'} 0 (çå©)</div>
+                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaPos}}></div>CAA {'>'} 0 (Ã¤ÂºÂÃ¦ÂÂ)</div>
+                <div className="legend-item"><div className="legend-dot" style={{background:COLORS.caaNeg}}></div>CAA {'<'} 0 (Ã§ÂÂÃ¥ÂÂ©)</div>
               </div>
             </div>
           )}
@@ -482,14 +483,14 @@
           <table className="data-table">
             <thead>
               <tr>
-                <th>ææ¬¡</th>
+                <th>Ã¦ÂÂÃ¦Â¬Â¡</th>
                 <th className="num">Leads</th>
-                <th className="num">è½¬å</th>
-                <th className="num">è½¬åç</th>
-                {showCPL && <th className="num">ææ¾</th>}
+                <th className="num">Ã¨Â½Â¬Ã¥ÂÂ</th>
+                <th className="num">Ã¨Â½Â¬Ã¥ÂÂÃ§ÂÂ</th>
+                {showCPL && <th className="num">Ã¦ÂÂÃ¦ÂÂ¾</th>}
                 {showCPL && <th className="num">CPL</th>}
                 {showCPL && <th className="num">CAA</th>}
-                <th>ç¶æ</th>
+                <th>Ã§ÂÂ¶Ã¦ÂÂ</th>
               </tr>
             </thead>
             <tbody>
@@ -498,16 +499,16 @@
                 const rowClass = w.is_complete ? '' : 'in-progress';
                 return (
                   <tr key={i} className={rowClass}>
-                    <td className="period-label">{w.label}æ</td>
-                    <td className="num">{d.leads?.toLocaleString() || 'â'}</td>
-                    <td className="num">{d.conversions?.toLocaleString() || 'â'}</td>
-                    <td className="num">{d.conversion_rate ? d.conversion_rate.toFixed(2)+'%' : 'â'}</td>
-                    {showCPL && <td className="num">{d.spend ? 'Â¥'+Math.round(d.spend).toLocaleString() : 'â'}</td>}
-                    {showCPL && <td className="num">{d.cpl ? 'Â¥'+Math.round(d.cpl).toLocaleString() : 'â'}</td>}
+                    <td className="period-label">{w.label}Ã¦ÂÂ</td>
+                    <td className="num">{d.leads?.toLocaleString() || 'Ã¢ÂÂ'}</td>
+                    <td className="num">{d.conversions?.toLocaleString() || 'Ã¢ÂÂ'}</td>
+                    <td className="num">{d.conversion_rate ? d.conversion_rate.toFixed(2)+'%' : 'Ã¢ÂÂ'}</td>
+                    {showCPL && <td className="num">{d.spend ? 'ÃÂ¥'+Math.round(d.spend).toLocaleString() : 'Ã¢ÂÂ'}</td>}
+                    {showCPL && <td className="num">{d.cpl ? 'ÃÂ¥'+Math.round(d.cpl).toLocaleString() : 'Ã¢ÂÂ'}</td>}
                     {showCPL && <td className={`num ${d.caa > 0 ? 'caa-pos' : d.caa < 0 ? 'caa-neg' : ''}`}>
-                      {d.caa ? 'Â¥'+Math.round(d.caa).toLocaleString() : 'â'}
+                      {d.caa ? 'ÃÂ¥'+Math.round(d.caa).toLocaleString() : 'Ã¢ÂÂ'}
                     </td>}
-                    <td>{w.is_complete ? <span style={{color:COLORS.kz}}>â å®æ</span> : <span style={{color:COLORS.total}}>â³ è¿è¡ä¸­</span>}</td>
+                    <td>{w.is_complete ? <span style={{color:COLORS.kz}}>Ã¢ÂÂ Ã¥Â®ÂÃ¦ÂÂ</span> : <span style={{color:COLORS.total}}>Ã¢ÂÂ³ Ã¨Â¿ÂÃ¨Â¡ÂÃ¤Â¸Â­</span>}</td>
                   </tr>
                 );
               })}
@@ -542,27 +543,27 @@
 
       const getDataKeys = () => {
         if (metric === 'leads') {
-          if (channel === 'kz') return [{ key: 'kz_leads', color: COLORS.kzBar, name: 'å®¢èµæ¶é' }];
-          if (channel === 'yy') return [{ key: 'yy_leads', color: COLORS.yyBar, name: 'åºç¨æ¨å¹¿' }];
+          if (channel === 'kz') return [{ key: 'kz_leads', color: COLORS.kzBar, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
+          if (channel === 'yy') return [{ key: 'yy_leads', color: COLORS.yyBar, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
           return [
-            { key: 'kz_leads', color: COLORS.kzBar, name: 'å®¢èµæ¶é' },
-            { key: 'yy_leads', color: COLORS.yyBar, name: 'åºç¨æ¨å¹¿' },
+            { key: 'kz_leads', color: COLORS.kzBar, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' },
+            { key: 'yy_leads', color: COLORS.yyBar, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' },
           ];
         }
         if (metric === 'spend') {
-          if (channel === 'kz') return [{ key: 'kz_spend', color: COLORS.kz, name: 'å®¢èµæ¶é' }];
-          if (channel === 'yy') return [{ key: 'yy_spend', color: COLORS.yy, name: 'åºç¨æ¨å¹¿' }];
+          if (channel === 'kz') return [{ key: 'kz_spend', color: COLORS.kz, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
+          if (channel === 'yy') return [{ key: 'yy_spend', color: COLORS.yy, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
           return [
-            { key: 'kz_spend', color: COLORS.kz, name: 'å®¢èµæ¶é' },
-            { key: 'yy_spend', color: COLORS.yy, name: 'åºç¨æ¨å¹¿' },
+            { key: 'kz_spend', color: COLORS.kz, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' },
+            { key: 'yy_spend', color: COLORS.yy, name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' },
           ];
         }
         if (metric === 'cpl') {
-          if (channel === 'kz') return [{ key: 'kz_cpl', color: COLORS.cpl, name: 'å®¢èµæ¶é' }];
-          if (channel === 'yy') return [{ key: 'yy_cpl', color: COLORS.cpl + 'aa', name: 'åºç¨æ¨å¹¿' }];
+          if (channel === 'kz') return [{ key: 'kz_cpl', color: COLORS.cpl, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ' }];
+          if (channel === 'yy') return [{ key: 'yy_cpl', color: COLORS.cpl + 'aa', name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿' }];
           return [
-            { key: 'kz_cpl', color: COLORS.cpl, name: 'å®¢èµæ¶é CPL' },
-            { key: 'yy_cpl', color: COLORS.cpl + '80', name: 'åºç¨æ¨å¹¿ CPL' },
+            { key: 'kz_cpl', color: COLORS.cpl, name: 'Ã¥Â®Â¢Ã¨ÂµÂÃ¦ÂÂ¶Ã©ÂÂ CPL' },
+            { key: 'yy_cpl', color: COLORS.cpl + '80', name: 'Ã¥ÂºÂÃ§ÂÂ¨Ã¦ÂÂ¨Ã¥Â¹Â¿ CPL' },
           ];
         }
         return [];
@@ -573,7 +574,7 @@
       const fmtValue = (v, m) => {
         if (v == null) return 'N/A';
         if (m === 'leads') return v.toLocaleString();
-        return 'Â¥' + Math.round(v).toLocaleString();
+        return 'ÃÂ¥' + Math.round(v).toLocaleString();
       };
 
       const DailyTooltip = ({ active, payload, label }) => {
@@ -595,20 +596,20 @@
         <div className="section">
           <div className="section-header">
             <div className="section-title">
-              <span className="icon">ð</span> æ¥ç»´åº¦æ°æ®
+              <span className="icon">Ã°ÂÂÂ</span> Ã¦ÂÂ¥Ã§Â»Â´Ã¥ÂºÂ¦Ã¦ÂÂ°Ã¦ÂÂ®
             </div>
             <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
               <ChannelTabs channel={channel} setChannel={setChannel} />
               <div className="tabs">
                 <button className={`tab ${metric==='leads'?'active':''}`} onClick={()=>setMetric('leads')}>Leads</button>
-                <button className={`tab ${metric==='spend'?'active':''}`} onClick={()=>setMetric('spend')}>ææ¾</button>
+                <button className={`tab ${metric==='spend'?'active':''}`} onClick={()=>setMetric('spend')}>Ã¦ÂÂÃ¦ÂÂ¾</button>
                 <button className={`tab ${metric==='cpl'?'active':''}`} onClick={()=>setMetric('cpl')}>CPL</button>
               </div>
               <div className="tabs">
-                <button className={`tab ${range===14?'active':''}`} onClick={()=>setRange(14)}>14å¤©</button>
-                <button className={`tab ${range===30?'active':''}`} onClick={()=>setRange(30)}>30å¤©</button>
-                <button className={`tab ${range===60?'active':''}`} onClick={()=>setRange(60)}>60å¤©</button>
-                <button className={`tab ${range===999?'active':''}`} onClick={()=>setRange(999)}>å¨é¨</button>
+                <button className={`tab ${range===14?'active':''}`} onClick={()=>setRange(14)}>14Ã¥Â¤Â©</button>
+                <button className={`tab ${range===30?'active':''}`} onClick={()=>setRange(30)}>30Ã¥Â¤Â©</button>
+                <button className={`tab ${range===60?'active':''}`} onClick={()=>setRange(60)}>60Ã¥Â¤Â©</button>
+                <button className={`tab ${range===999?'active':''}`} onClick={()=>setRange(999)}>Ã¥ÂÂ¨Ã©ÂÂ¨</button>
               </div>
             </div>
           </div>
@@ -638,7 +639,7 @@
               <ComposedChart data={chartData} margin={{top:10,right:20,left:10,bottom:10}}>
                 <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
                 <XAxis dataKey="date" tick={{fontSize:10,fill:COLORS.axis}} axisLine={{stroke:COLORS.grid}} tickLine={false} interval={Math.max(0, Math.floor(chartData.length / 15))} />
-                <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'Â¥'+v} />
+                <YAxis tick={{fontSize:11,fill:COLORS.axis}} axisLine={false} tickLine={false} tickFormatter={v => 'ÃÂ¥'+v} />
                 <Tooltip content={<DailyTooltip />} />
                 {dataKeys.map(dk => (
                   <Line key={dk.key} type="monotone" dataKey={dk.key} name={dk.name} stroke={dk.color} strokeWidth={2} dot={false} connectNulls />
