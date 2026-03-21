@@ -601,6 +601,48 @@
     }
 
     // ============================================================
+    // UE Tooltip (with blended value)
+    // ============================================================
+    function UETooltip({ active, payload, label, blendedKey, blendedLabel }) {
+      if (!active || !payload || !payload.length) return null;
+      const entry = payload[0]?.payload;
+      const blendedVal = entry ? entry[blendedKey] : null;
+      return (
+        <div style={{
+          background: '#2D2D3F', color: '#fff', borderRadius: 8,
+          padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+          fontSize: 13, lineHeight: 1.6
+        }}>
+          <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
+          {payload.map((p, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{
+                width: 10, height: 10, borderRadius: '50%',
+                background: p.color, display: 'inline-block'
+              }} />
+              <span style={{ color: '#ccc' }}>{p.name}:</span>
+              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                {p.value != null ? `¥${fmt(Math.round(p.value))}` : '—'}
+              </span>
+            </div>
+          ))}
+          {blendedVal != null && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, borderTop: '1px solid rgba(255,255,255,0.15)', marginTop: 6, paddingTop: 6 }}>
+              <span style={{
+                width: 10, height: 10, borderRadius: '50%',
+                background: '#A78BFA', display: 'inline-block'
+              }} />
+              <span style={{ color: '#ccc' }}>{blendedLabel || '综合'}:</span>
+              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>
+                ¥{fmt(Math.round(blendedVal))}
+              </span>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ============================================================
     // KPI Card
     // ============================================================
     function KPICard({ label, value, change, accent, sub, icon, delay = 0 }) {
@@ -671,17 +713,18 @@
       // CAA = LTV - (CPL*(1-rebate) + sales_cost) / conv_rate
       const cfg = weeklyData.config;
       const blendedMetrics = (w) => {
-        if (!w) return { leads: 0, spend: 0, cpl: null, caa: null, convRate: 0 };
+        if (!w) return { leads: 0, spend: 0, cpl: null, cac: null, caa: null, convRate: 0 };
         const leads = w.overall?.leads || 0;
         const spend = (w.kz?.spend || 0) + (w.yy?.spend || 0);
         const cpl = leads > 0 && spend > 0 ? spend / leads : null;
         const convRate = (w.overall?.conversion_rate || 0) / 100; // decimal
+        let cac = null;
         let caa = null;
         if (cpl != null && convRate > 0) {
-          const cac = (cpl * (1 - cfg.rebate) + cfg.sales_cost) / convRate;
+          cac = (cpl * (1 - cfg.rebate) + cfg.sales_cost) / convRate;
           caa = cfg.ltv - cac;
         }
-        return { leads, spend, cpl, caa, convRate: w.overall?.conversion_rate || 0 };
+        return { leads, spend, cpl, cac, caa, convRate: w.overall?.conversion_rate || 0 };
       };
 
       const latest = blendedMetrics(latestComplete);
@@ -732,6 +775,7 @@
         yySpend: w.yy?.spend || 0,
         totalSpend: (w.kz?.spend || 0) + (w.yy?.spend || 0),
         blendedCPL: blendedMetrics(w).cpl,
+        blendedCAC: blendedMetrics(w).cac,
         blendedCAA: blendedMetrics(w).caa,
       }));
 
@@ -817,7 +861,7 @@
           </div>
 
           <footer className="footer">
-            叽里呱啦市场团队 &middot; 数据更新于 {weeklyData.generated_at}
+            叽里呱啦增长特工队 &middot; 数据更新于 {weeklyData.generated_at}
           </footer>
         </div>
       );
@@ -1092,7 +1136,7 @@
 
           {/* Formula explanation — 3 cards */}
           <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)', gridTemplateColumns: 'repeat(3, 1fr)' }}>
-            <KPICard label="CAC" value="CAC" accent="red" sub={`(CPL × (1-返点) + 销售成本) / CVR\n返点 ${fmtPct(config.rebate * 100, 0)}，销售成本 ¥${fmt(config.sales_cost)}/lead`} delay={1} />
+            <KPICard label="CAC" value="CAC" accent="red" sub={`(CPL × (1-返点) + 销售成本) / CVR\n返点：${fmtPct(config.rebate * 100, 0)}、销售成本/Lead：¥${fmt(config.sales_cost)}`} delay={1} />
             <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`客单价 ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% 毛利率`} delay={2} />
             <KPICard label="CAA" value="LTV - CAC" accent="purple" sub="CAA > 0 盈利，CAA < 0 亏损" delay={3} />
           </div>
@@ -1112,7 +1156,7 @@
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
                   <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip content={<UETooltip blendedKey="blendedCAC" blendedLabel="综合 CAC" />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
                   <ReferenceLine y={config.ltv} stroke="#22A856" strokeWidth={1.5} strokeDasharray="8 4"
@@ -1124,6 +1168,10 @@
                   <Line type="monotone" dataKey="yyCAC" name="应用推广 CAC"
                     stroke="#FF9B4E" strokeWidth={2.5}
                     dot={{ r: 4, fill: '#FF9B4E', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                  <Line type="monotone" dataKey="blendedCAC" name="综合 CAC"
+                    stroke="#A78BFA" strokeWidth={2.5} strokeDasharray="5 5"
+                    dot={{ r: 4, fill: '#A78BFA', stroke: '#fff', strokeWidth: 2 }}
                     connectNulls={false} />
                 </ComposedChart>
               </ResponsiveContainer>
@@ -1147,23 +1195,43 @@
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
                   <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip content={<UETooltip blendedKey="blendedCAA" blendedLabel="综合 CAA" />} />
                   <Legend iconType="circle" iconSize={8}
-                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
+                    content={() => (
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: 20, fontSize: 12, paddingTop: 8, flexWrap: 'wrap' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>客资收集</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>应用推广</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>综合</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 12 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> CAA &gt; 0 (盈利)
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#22A856', display: 'inline-block' }}></span> CAA &lt; 0 (亏损)
+                        </span>
+                      </div>
+                    )} />
                   <ReferenceLine y={0} stroke="#E5E7EB" strokeWidth={2} />
                   <Bar dataKey="kzCAA" name="客资收集 CAA" barSize={24}
                     radius={[4, 4, 0, 0]}>
                     {currentData.map((entry, i) => (
                       <Cell key={i}
-                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#22A856' : '#FF2442'}
+                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#FF2442' : '#22A856'}
                         fillOpacity={0.7} />
                     ))}
                   </Bar>
-                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}
+                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}>
+                    {currentData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.yyCAA != null && entry.yyCAA >= 0 ? '#FF2442' : '#22A856'}
+                        fillOpacity={0.7} />
+                    ))}
+                  </Bar>
+                  <Bar dataKey="blendedCAA" name="综合 CAA" barSize={24}
                     radius={[4, 4, 0, 0]}>
                     {currentData.map((entry, i) => (
                       <Cell key={i}
-                        fill={entry.yyCAA != null && entry.yyCAA >= 0 ? '#34D399' : '#F472B6'}
+                        fill={entry.blendedCAA != null && entry.blendedCAA >= 0 ? '#FF2442' : '#22A856'}
                         fillOpacity={0.7} />
                     ))}
                   </Bar>
