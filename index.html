@@ -1089,15 +1089,11 @@
         <div>
           <h2 className="section-title">UE模型</h2>
 
-          {/* Formula explanation */}
-          <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)' }}>
-            <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`客单价 ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% 毛利率`} delay={1} />
-            <KPICard label="单 Lead 销售成本" value={`¥${fmt(config.sales_cost)}`} accent="blue" sub="每条 Lead 固定成本" delay={2} />
-            <KPICard label="返点" value={fmtPct(config.rebate * 100, 0)} accent="orange" sub="广告平台返点比例" delay={3} />
-            <KPICard label="CAC 公式" value="CAC" accent="red" sub="(CPL × (1-返点) + 销售成本) / CVR" delay={4} />
-          </div>
-          <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '50%' }}>
-            <KPICard label="CAA 公式" value="CAA" accent="purple" sub="LTV - CAC" delay={5} />
+          {/* Formula explanation — 3 cards */}
+          <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+            <KPICard label="CAC" value="CAC" accent="red" sub={`(CPL × (1-返点) + 销售成本) / CVR | 返点 ${fmtPct(config.rebate * 100, 0)}，销售成本 ¥${fmt(config.sales_cost)}/lead`} delay={1} />
+            <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`客单价 ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% 毛利率`} delay={2} />
+            <KPICard label="CAA" value="LTV - CAC" accent="purple" sub="CAA > 0 盈利，CAA < 0 亏损" delay={3} />
           </div>
 
           {/* CPL trend */}
