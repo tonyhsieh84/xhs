@@ -1,6 +1,258 @@
 {
-  "generated_at": "2026-03-20 20:32",
+  "generated_at": "2026-03-21 12:07",
   "days": [
+    {
+      "date": "2026-01-01",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 507.6,
+      "yy_spend": 507.6,
+      "total_spend": 1015.21,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-02",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 525.0,
+      "yy_spend": 525.0,
+      "total_spend": 1050.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-03",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 520.33,
+      "yy_spend": 520.33,
+      "total_spend": 1040.65,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-04",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 523.44,
+      "yy_spend": 523.44,
+      "total_spend": 1046.88,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-05",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 525.0,
+      "yy_spend": 525.0,
+      "total_spend": 1050.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-07",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-08",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-09",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-10",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-11",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-12",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-13",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-14",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-15",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 0.0,
+      "total_spend": 0.0,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-16",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 410.11,
+      "yy_spend": 0.0,
+      "total_spend": 410.11,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-17",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 252.37,
+      "yy_spend": 0.0,
+      "total_spend": 252.37,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-18",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 1113.55,
+      "yy_spend": 0.0,
+      "total_spend": 1113.55,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-19",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 1512.04,
+      "yy_spend": 0.0,
+      "total_spend": 1512.04,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-20",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 1114.01,
+      "yy_spend": 0.0,
+      "total_spend": 1114.01,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-21",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 1512.8,
+      "yy_spend": 0.0,
+      "total_spend": 1512.8,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
+    {
+      "date": "2026-01-22",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 1142.01,
+      "yy_spend": 0.0,
+      "total_spend": 1142.01,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
+    },
     {
       "date": "2026-01-23",
       "kz_leads": 0,
@@ -388,14 +640,14 @@
     {
       "date": "2026-02-24",
       "kz_leads": 9,
-      "yy_leads": 0,
-      "total_leads": 9,
+      "yy_leads": 1,
+      "total_leads": 10,
       "kz_spend": 1469.77,
       "yy_spend": 0.0,
       "total_spend": 1469.77,
       "kz_cpl": 163.31,
-      "yy_cpl": null,
-      "total_cpl": 163.31
+      "yy_cpl": 0.0,
+      "total_cpl": 146.98
     },
     {
       "date": "2026-02-25",
@@ -532,14 +784,14 @@
     {
       "date": "2026-03-08",
       "kz_leads": 24,
-      "yy_leads": 1,
-      "total_leads": 25,
+      "yy_leads": 2,
+      "total_leads": 26,
       "kz_spend": 3106.26,
       "yy_spend": 150.02,
       "total_spend": 3256.28,
       "kz_cpl": 129.43,
-      "yy_cpl": 150.02,
-      "total_cpl": 130.25
+      "yy_cpl": 75.01,
+      "total_cpl": 125.24
     },
     {
       "date": "2026-03-09",
@@ -628,14 +880,14 @@
     {
       "date": "2026-03-16",
       "kz_leads": 20,
-      "yy_leads": 18,
-      "total_leads": 38,
+      "yy_leads": 19,
+      "total_leads": 39,
       "kz_spend": 2564.59,
       "yy_spend": 1531.74,
       "total_spend": 4096.33,
       "kz_cpl": 128.23,
-      "yy_cpl": 85.1,
-      "total_cpl": 107.8
+      "yy_cpl": 80.62,
+      "total_cpl": 105.03
     },
     {
       "date": "2026-03-17",
@@ -664,26 +916,26 @@
     {
       "date": "2026-03-19",
       "kz_leads": 31,
-      "yy_leads": 13,
-      "total_leads": 44,
+      "yy_leads": 14,
+      "total_leads": 45,
       "kz_spend": 2531.99,
       "yy_spend": 1510.93,
       "total_spend": 4042.92,
       "kz_cpl": 81.68,
-      "yy_cpl": 116.23,
-      "total_cpl": 91.88
+      "yy_cpl": 107.92,
+      "total_cpl": 89.84
     },
     {
       "date": "2026-03-20",
-      "kz_leads": 0,
-      "yy_leads": 0,
-      "total_leads": 0,
-      "kz_spend": 980.35,
-      "yy_spend": 1163.66,
-      "total_spend": 2144.01,
-      "kz_cpl": null,
-      "yy_cpl": null,
-      "total_cpl": null
+      "kz_leads": 17,
+      "yy_leads": 14,
+      "total_leads": 31,
+      "kz_spend": 2395.76,
+      "yy_spend": 2288.96,
+      "total_spend": 4684.72,
+      "kz_cpl": 140.93,
+      "yy_cpl": 163.5,
+      "total_cpl": 151.12
     }
   ]
 }
