@@ -723,6 +723,8 @@
         yyConvRate: w.yy?.conversion_rate || null,
         kzCPL: w.kz?.cpl || null,
         yyCPL: w.yy?.cpl || null,
+        kzCAC: w.kz?.cac || null,
+        yyCAC: w.yy?.cac || null,
         kzCAA: w.kz?.caa || null,
         yyCAA: w.yy?.caa || null,
         kzSpend: w.kz?.spend || 0,
@@ -1087,21 +1089,25 @@
         <div>
           <h2 className="section-title">UE模型</h2>
 
-          {/* Config info */}
+          {/* Formula explanation */}
           <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)' }}>
             <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`客单价 ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% 毛利率`} delay={1} />
             <KPICard label="单 Lead 销售成本" value={`¥${fmt(config.sales_cost)}`} accent="blue" sub="每条 Lead 固定成本" delay={2} />
             <KPICard label="返点" value={fmtPct(config.rebate * 100, 0)} accent="orange" sub="广告平台返点比例" delay={3} />
-            <KPICard label="计算公式" value="CAA" accent="purple" sub="LTV - (CPL×(1-返点) + 销售成本) / CVR" delay={4} />
+            <KPICard label="CAC 公式" value="CAC" accent="red" sub="(CPL × (1-返点) + 销售成本) / CVR" delay={4} />
+          </div>
+          <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)', maxWidth: '50%' }}>
+            <KPICard label="CAA 公式" value="CAA" accent="purple" sub="LTV - CAC" delay={5} />
           </div>
 
-          <div className="chart-grid animate-in delay-3">
+          {/* CPL trend */}
+          <div className="chart-grid single animate-in delay-3">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 CPL 趋势
               </div>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={360}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
@@ -1124,13 +1130,46 @@
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
+          </div>
 
+          {/* CAC trend */}
+          <div className="chart-grid single animate-in delay-3">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
-                CAA 趋势
+                CAC 趋势
               </div>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={360}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                  <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Legend iconType="circle" iconSize={8}
+                    wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <ReferenceLine y={config.ltv} stroke="#22A856" strokeWidth={1.5} strokeDasharray="8 4"
+                    label={{ value: `LTV ¥${fmt(config.ltv)}`, position: 'right', fill: '#22A856', fontSize: 12 }} />
+                  <Line type="monotone" dataKey="kzCAC" name="客资收集 CAC"
+                    stroke="#5B9BD5" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#5B9BD5', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                  <Line type="monotone" dataKey="yyCAC" name="应用推广 CAC"
+                    stroke="#FF9B4E" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#FF9B4E', stroke: '#fff', strokeWidth: 2 }}
+                    connectNulls={false} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* CAA trend */}
+          <div className="chart-grid single animate-in delay-4">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                CAA 趋势 (LTV - CAC)
+              </div>
+              <ResponsiveContainer width="100%" height={360}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
@@ -1143,7 +1182,7 @@
                     radius={[4, 4, 0, 0]}>
                     {weeklyChartData.map((entry, i) => (
                       <Cell key={i}
-                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#7EC883' : '#FF2442'}
+                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#22A856' : '#FF2442'}
                         fillOpacity={0.7} />
                     ))}
                   </Bar>
@@ -1161,11 +1200,11 @@
           </div>
 
           {/* Spend vs Leads efficiency */}
-          <div className="chart-grid single animate-in delay-4">
+          <div className="chart-grid single animate-in delay-5">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                每周广告花费 vs Leads
+                每周投放消耗 vs Leads
               </div>
               <ResponsiveContainer width="100%" height={360}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 0, left: 0 }}>
