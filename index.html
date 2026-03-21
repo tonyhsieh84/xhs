@@ -441,6 +441,18 @@
       background: var(--color-tint-peach);
       color: #C2410C;
     }
+    .badge-status.converting {
+      background: #DBEAFE;
+      color: #1D4ED8;
+    }
+    .badge-status.pending-class {
+      background: #FEF3C7;
+      color: #B45309;
+    }
+    .badge-status.collecting {
+      background: #EDE9FE;
+      color: #7C3AED;
+    }
 
     /* Footer */
     .footer {
@@ -1153,10 +1165,21 @@
     // ============================================================
     function WeeklyTable({ weeks }) {
       const sorted = [...weeks].reverse();
+      // In-progress weeks sorted oldest-first for status assignment
+      const ipWeeks = weeks.filter(w => !w.is_complete);
+      const ipLabels = ipWeeks.map(w => w.label);
+      // oldest in-progress = 转化中, next = 待开班, newest = 进量中
+      const getStatus = (w) => {
+        if (w.is_complete) return { text: '已完成', cls: 'complete' };
+        const idx = ipLabels.indexOf(w.label);
+        if (idx === 0) return { text: '转化中', cls: 'converting' };
+        if (idx === 1) return { text: '待开班', cls: 'pending-class' };
+        return { text: '进量中', cls: 'collecting' };
+      };
       return (
         <div className="table-card animate-in delay-5">
           <div className="table-card-header">
-            <span className="table-card-title">每周明细</span>
+            <span className="table-card-title">每期明细</span>
           </div>
           <div className="table-scroll">
             <table>
@@ -1182,9 +1205,9 @@
                     <tr key={i}>
                       <td style={{ fontWeight: 600 }}>{w.label}期</td>
                       <td>
-                        <span className={`badge-status ${w.is_complete ? 'complete' : 'in-progress'}`}>
-                          {w.is_complete ? '已完成' : '进行中'}
-                        </span>
+                        {(() => { const s = getStatus(w); return (
+                          <span className={`badge-status ${s.cls}`}>{s.text}</span>
+                        ); })()}
                       </td>
                       <td className="num" style={{ fontWeight: 600 }}>{fmt(w.overall?.leads)}</td>
                       <td className="num">{fmt(w.kz?.leads)}</td>
