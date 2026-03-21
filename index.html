@@ -826,13 +826,8 @@
           {/* Section: Latest Complete Period KPIs */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-sm)', marginBottom: 'var(--space-lg)' }}>
             <h2 className="section-title" style={{ marginBottom: 0 }}>
-              {latestLabel}期
+              {latestLabel}期 上周
             </h2>
-            {inProgressWeeks.length > 0 && (
-              <span className="badge-status in-progress">
-                {inProgressWeeks.map(w => w.label).join(', ')}期 进行中 — 已获 {ipLeads} leads
-              </span>
-            )}
           </div>
 
           <div className="kpi-grid">
