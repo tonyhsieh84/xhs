@@ -716,6 +716,8 @@
         kzSpend: w.kz?.spend || 0,
         yySpend: w.yy?.spend || 0,
         totalSpend: (w.kz?.spend || 0) + (w.yy?.spend || 0),
+        blendedCPL: blendedMetrics(w).cpl,
+        blendedCAA: blendedMetrics(w).caa,
       }));
 
       // Daily chart data — last 14 days with leads > 0
@@ -916,7 +918,7 @@
             </div>
           </div>
 
-          {/* Weekly CPL & CAA Chart */}
+          {/* Weekly CPL & CAA — annotation style */}
           <div className="chart-grid single animate-in delay-3">
             <div className="chart-card">
               <div className="chart-card-title">
@@ -931,46 +933,50 @@
                   </button>
                 ))}
               </div>
-              <ResponsiveContainer width="100%" height={320}>
-                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 0, left: 0 }}>
+              <ResponsiveContainer width="100%" height={360}>
+                <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 60, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
-                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} />
-                  <YAxis yAxisId="cpl" tick={{ fontSize: 12, fill: '#6B7280' }}
-                    tickFormatter={v => `¥${v}`} label={{ value: 'CPL', angle: -90, position: 'insideLeft', style: { fontSize: 11, fill: '#6B7280' } }} />
-                  <YAxis yAxisId="caa" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
-                    tickFormatter={v => `¥${v}`} label={{ value: 'CAA', angle: 90, position: 'insideRight', style: { fontSize: 11, fill: '#6B7280' } }} />
+                  <XAxis dataKey="label" tick={(props) => {
+                    const { x, y, payload } = props;
+                    const entry = weeklyChartData.find(d => d.label === payload.value);
+                    const cplVal = entry ? (channelFilter === 'kz' ? entry.kzCPL : channelFilter === 'yy' ? entry.yyCPL : entry.blendedCPL) : null;
+                    const caaVal = entry ? (channelFilter === 'kz' ? entry.kzCAA : channelFilter === 'yy' ? entry.yyCAA : entry.blendedCAA) : null;
+                    const caaColor = caaVal != null ? (caaVal >= 0 ? '#FF2442' : '#22A856') : '#9CA3AF';
+                    return (
+                      <g transform={`translate(${x},${y})`}>
+                        <text x={0} y={0} dy={14} textAnchor="middle" fill="#6B7280" fontSize={12}>{payload.value}</text>
+                        <text x={0} y={0} dy={30} textAnchor="middle" fill="#6366F1" fontSize={11} fontWeight={500}>
+                          {cplVal != null ? `CPL ¥${Math.round(cplVal)}` : 'CPL N/A'}
+                        </text>
+                        <text x={0} y={0} dy={46} textAnchor="middle" fill={caaColor} fontSize={11} fontWeight={500}>
+                          {caaVal != null ? `CAA ¥${caaVal >= 0 ? '+' : ''}${Math.round(caaVal).toLocaleString()}` : 'CAA N/A'}
+                        </text>
+                      </g>
+                    );
+                  }} interval={0} />
+                  <YAxis yAxisId="leads" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                  <YAxis yAxisId="rate" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
+                    tickFormatter={v => `${v}%`} domain={[0, 'auto']} />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <ReferenceLine yAxisId="caa" y={0} stroke="#E5E7EB" strokeWidth={2} strokeDasharray="4 4" />
-                  <Line yAxisId="cpl" type="monotone"
-                    dataKey={channelFilter === 'yy' ? 'yyCPL' : 'kzCPL'}
-                    name={`CPL (${channelFilter === 'yy' ? '应用推广' : '客资收集'})`}
-                    stroke="#FF9B4E" strokeWidth={2.5}
-                    dot={{ r: 4, fill: '#FF9B4E', stroke: '#fff', strokeWidth: 2 }}
-                    connectNulls={false} />
-                  {channelFilter === 'overall' && (
-                    <Line yAxisId="cpl" type="monotone"
-                      dataKey="yyCPL"
-                      name="CPL (应用推广)"
-                      stroke="#F472B6" strokeWidth={2}
-                      dot={{ r: 3, fill: '#F472B6', stroke: '#fff', strokeWidth: 2 }}
-                      strokeDasharray="5 5"
-                      connectNulls={false} />
-                  )}
-                  <Bar yAxisId="caa"
-                    dataKey={channelFilter === 'yy' ? 'yyCAA' : 'kzCAA'}
-                    name={`CAA (${channelFilter === 'yy' ? '应用推广' : '客资收集'})`}
-                    barSize={28} radius={[4, 4, 0, 0]}>
-                    {weeklyChartData.map((entry, i) => {
-                      const val = channelFilter === 'yy' ? entry.yyCAA : entry.kzCAA;
-                      return (
-                        <Cell key={i}
-                          fill={val != null && val >= 0 ? '#7EC883' : '#FF2442'}
-                          fillOpacity={0.6} />
-                      );
-                    })}
+                  <Bar yAxisId="leads"
+                    dataKey={channelFilter === 'kz' ? 'kzLeads' : channelFilter === 'yy' ? 'yyLeads' : 'leads'}
+                    name="Leads"
+                    fill="#5B9BD5" fillOpacity={0.25} radius={[6, 6, 0, 0]} barSize={40}>
+                    {weeklyChartData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.isComplete ? '#5B9BD5' : '#A8C8E8'}
+                        fillOpacity={entry.isComplete ? 0.3 : 0.18} />
+                    ))}
                   </Bar>
+                  <Line yAxisId="rate" type="monotone"
+                    dataKey={channelFilter === 'kz' ? 'kzConvRate' : channelFilter === 'yy' ? 'yyConvRate' : 'convRate'}
+                    name="Conversion Rate (%)"
+                    stroke="#5B9BD5" strokeWidth={2.5}
+                    dot={{ r: 4, fill: '#5B9BD5', stroke: '#fff', strokeWidth: 2 }}
+                    activeDot={{ r: 6 }}
+                    connectNulls={false} />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
