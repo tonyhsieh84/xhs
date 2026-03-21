@@ -910,8 +910,21 @@
                   <YAxis yAxisId="rate" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
                     tickFormatter={v => `${v}%`} domain={[0, 'auto']} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Legend iconType="circle" iconSize={8} verticalAlign="top" align="center"
-                    wrapperStyle={{ fontSize: 12, paddingBottom: 8 }} />
+                  <Legend verticalAlign="top" align="center"
+                    wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
+                    content={() => (
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: 20, fontSize: 12 }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> Leads
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }}></span> Conversion Rate (%)
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6366F1', fontWeight: 500 }}>Aa CPL</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#22A856', fontWeight: 500 }}>Aa CAA &lt; 0</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#FF2442', fontWeight: 500 }}>Aa CAA &gt; 0</span>
+                      </div>
+                    )} />
                   <Bar yAxisId="leads"
                     dataKey={channelFilter === 'kz' ? 'kzLeads' : channelFilter === 'yy' ? 'yyLeads' : 'leads'}
                     name="Leads"
