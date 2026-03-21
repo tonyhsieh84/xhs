@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>叽里呱啦 × 小红书 Performance Dashboard</title>
+  <title>叽里呱啦 × 小红书 投放数据看板</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -602,7 +602,7 @@
           <div className={`kpi-value ${String(value).length > 6 ? 'smaller' : ''}`}>{value}</div>
           {change != null && (
             <span className={`kpi-change ${changeClass}`}>
-              {arrow} {change > 0 ? '+' : ''}{fmt(change, 1)}% vs prev
+              {arrow} {change > 0 ? '+' : ''}{fmt(change, 1)}% 环比
             </span>
           )}
           {sub && <div className="kpi-sub">{sub}</div>}
@@ -638,13 +638,13 @@
         return (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column', gap: 16 }}>
             <div className="nav-brand-icon" style={{ width: 48, height: 48 }}><img src="apple-touch-icon.png" alt="Logo" /></div>
-            <div style={{ color: 'var(--color-text-secondary)' }}>Loading dashboard data...</div>
+            <div style={{ color: 'var(--color-text-secondary)' }}>正在加载数据...</div>
           </div>
         );
       }
 
       if (!weeklyData || !dailyData) {
-        return <div className="empty-state">Failed to load data. Make sure data/weekly.json and data/daily.json exist.</div>;
+        return <div className="empty-state">数据加载失败，请确认 data/weekly.json 和 data/daily.json 文件存在。</div>;
       }
 
       const weeks = weeklyData.weeks;
@@ -749,22 +749,22 @@
           <nav className="top-nav">
             <div className="nav-brand">
               <div className="nav-brand-icon"><img src="apple-touch-icon.png" alt="Logo" /></div>
-              <span className="nav-brand-text">叽里呱啦 × 小红书 Performance</span>
+              <span className="nav-brand-text">叽里呱啦 × 小红书 投放数据</span>
             </div>
             <div className="nav-tabs">
               <button className={`nav-tab ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
-                Overview
+                每周
               </button>
               <button className={`nav-tab ${activeTab === 'daily' ? 'active' : ''}`} onClick={() => setActiveTab('daily')}>
-                Daily Trends
+                每日
               </button>
               <button className={`nav-tab ${activeTab === 'economics' ? 'active' : ''}`} onClick={() => setActiveTab('economics')}>
-                Unit Economics
+                UE模型
               </button>
             </div>
             <div className="nav-right">
               <span className="badge-info">
-                Updated: {weeklyData.generated_at}
+                数据截至: {weeklyData.generated_at}
               </span>
             </div>
           </nav>
@@ -802,7 +802,7 @@
           </div>
 
           <footer className="footer">
-            Powered by 叽里呱啦 Marketing Team &middot; Data refreshed {weeklyData.generated_at}
+            叽里呱啦市场团队 &middot; 数据更新于 {weeklyData.generated_at}
           </footer>
         </div>
       );
@@ -826,18 +826,18 @@
           {/* Section: Latest Complete Period KPIs */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-sm)', marginBottom: 'var(--space-lg)' }}>
             <h2 className="section-title" style={{ marginBottom: 0 }}>
-              {latestLabel}期 Weekly Summary
+              {latestLabel}期
             </h2>
             {inProgressWeeks.length > 0 && (
               <span className="badge-status in-progress">
-                {inProgressWeeks.map(w => w.label).join(', ')}期 in progress — {ipLeads} leads so far
+                {inProgressWeeks.map(w => w.label).join(', ')}期 进行中 — 已获 {ipLeads} leads
               </span>
             )}
           </div>
 
           <div className="kpi-grid">
             <KPICard
-              label="TOTAL LEADS"
+              label="总 LEADS"
               value={fmt(latestLeads)}
               change={leadsChange}
               accent="red"
@@ -845,7 +845,7 @@
               delay={1}
             />
             <KPICard
-              label="BLENDED CPL"
+              label="综合 CPL"
               value={latestCPL != null ? `¥${fmt(latestCPL)}` : '—'}
               change={cplChange != null ? -cplChange : null}
               accent="orange"
@@ -853,7 +853,7 @@
               delay={2}
             />
             <KPICard
-              label="CONVERSION RATE"
+              label="综合 CVR"
               value={fmtPct(latestConv)}
               change={convChange}
               accent="green"
@@ -861,7 +861,7 @@
               delay={3}
             />
             <KPICard
-              label="BLENDED CAA"
+              label="综合 CAA"
               value={latestCAA != null ? `¥${fmt(latestCAA)}` : '—'}
               change={null}
               accent="purple"
@@ -875,7 +875,7 @@
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                Weekly Leads & Conversion Rate
+                每周 Leads & CVR
               </div>
               <div className="channel-filters">
                 {['overall', 'kz', 'yy'].map(ch => (
@@ -918,7 +918,7 @@
                           <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> Leads
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }}></span> Conversion Rate (%)
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }}></span> CVR (%)
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6366F1', fontWeight: 500 }}>Aa CPL</span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#22A856', fontWeight: 500 }}>Aa CAA &lt; 0</span>
@@ -960,13 +960,13 @@
     function DailyTab({ dailyChartData }) {
       return (
         <div>
-          <h2 className="section-title">Daily Leads Trend</h2>
+          <h2 className="section-title">每日 Leads 趋势</h2>
 
           <div className="chart-grid single animate-in delay-1">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                Daily Leads — Stacked by Sub-Channel
+                每日 Leads — 分渠道堆叠
               </div>
               <ResponsiveContainer width="100%" height={400}>
                 <ComposedChart data={dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
@@ -980,7 +980,7 @@
                     fill="#5B9BD5" />
                   <Bar dataKey="yyLeads" name="应用推广" stackId="leads"
                     fill="#FF9B4E" radius={[4, 4, 0, 0]} />
-                  <Line type="monotone" dataKey="totalLeads" name="Total Leads"
+                  <Line type="monotone" dataKey="totalLeads" name="总 Leads"
                     stroke="#2D2D3F" strokeWidth={2}
                     dot={{ r: 3, fill: '#2D2D3F', stroke: '#fff', strokeWidth: 1.5 }} />
                 </ComposedChart>
@@ -992,7 +992,7 @@
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                Daily Ad Spend
+                每日广告花费
               </div>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
@@ -1002,9 +1002,9 @@
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Bar dataKey="kzSpend" name="客资收集 Spend" stackId="spend"
+                  <Bar dataKey="kzSpend" name="客资收集花费" stackId="spend"
                     fill="#A78BFA" />
-                  <Bar dataKey="yySpend" name="应用推广 Spend" stackId="spend"
+                  <Bar dataKey="yySpend" name="应用推广花费" stackId="spend"
                     fill="#F472B6" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
@@ -1013,7 +1013,7 @@
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                Daily CPL Trend
+                每日 CPL 趋势
               </div>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={dailyChartData.filter(d => d.totalCPL != null)} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
@@ -1029,7 +1029,7 @@
                   <Line type="monotone" dataKey="yyCPL" name="应用推广 CPL"
                     stroke="#FF9B4E" strokeWidth={2}
                     dot={{ r: 3 }} connectNulls={false} />
-                  <Line type="monotone" dataKey="totalCPL" name="Overall CPL"
+                  <Line type="monotone" dataKey="totalCPL" name="综合 CPL"
                     stroke="#2D2D3F" strokeWidth={2} strokeDasharray="5 5"
                     dot={{ r: 3 }} connectNulls={false} />
                 </LineChart>
@@ -1046,21 +1046,21 @@
     function EconomicsTab({ weeklyChartData, config }) {
       return (
         <div>
-          <h2 className="section-title">Unit Economics</h2>
+          <h2 className="section-title">UE模型</h2>
 
           {/* Config info */}
           <div className="kpi-grid" style={{ marginBottom: 'var(--space-2xl)' }}>
-            <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`Unit price ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% margin`} delay={1} />
-            <KPICard label="SALES COST / LEAD" value={`¥${fmt(config.sales_cost)}`} accent="blue" sub="Fixed cost per lead" delay={2} />
-            <KPICard label="REBATE" value={fmtPct(config.rebate * 100, 0)} accent="orange" sub="Ad platform rebate" delay={3} />
-            <KPICard label="FORMULA" value="CAA" accent="purple" sub="LTV - (CPL×(1-rebate) + sales_cost) / conv_rate" delay={4} />
+            <KPICard label="LTV" value={`¥${fmt(config.ltv)}`} accent="green" sub={`客单价 ¥${fmt(config.unit_price)} × ${fmt(config.margin * 100)}% 毛利率`} delay={1} />
+            <KPICard label="单 Lead 销售成本" value={`¥${fmt(config.sales_cost)}`} accent="blue" sub="每条 Lead 固定成本" delay={2} />
+            <KPICard label="返点" value={fmtPct(config.rebate * 100, 0)} accent="orange" sub="广告平台返点比例" delay={3} />
+            <KPICard label="计算公式" value="CAA" accent="purple" sub="LTV - (CPL×(1-返点) + 销售成本) / CVR" delay={4} />
           </div>
 
           <div className="chart-grid animate-in delay-3">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                CPL Trend (Cost Per Lead)
+                CPL 趋势
               </div>
               <ResponsiveContainer width="100%" height={320}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
@@ -1072,7 +1072,7 @@
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Bar yAxisId="spend" dataKey="totalSpend" name="Total Spend"
+                  <Bar yAxisId="spend" dataKey="totalSpend" name="总花费"
                     fill="#E5E7EB" fillOpacity={0.5} radius={[4, 4, 0, 0]} barSize={30} />
                   <Line type="monotone" dataKey="kzCPL" name="客资收集 CPL"
                     stroke="#5B9BD5" strokeWidth={2.5}
@@ -1089,7 +1089,7 @@
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
-                CAA Trend (Customer Acquisition Advantage)
+                CAA 趋势
               </div>
               <ResponsiveContainer width="100%" height={320}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
@@ -1126,7 +1126,7 @@
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                Weekly Ad Spend vs Leads
+                每周广告花费 vs Leads
               </div>
               <ResponsiveContainer width="100%" height={360}>
                 <ComposedChart data={weeklyChartData} margin={{ top: 10, right: 30, bottom: 0, left: 0 }}>
@@ -1138,11 +1138,11 @@
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Bar yAxisId="spend" dataKey="kzSpend" name="客资收集 Spend" stackId="spend"
+                  <Bar yAxisId="spend" dataKey="kzSpend" name="客资收集花费" stackId="spend"
                     fill="#A78BFA" fillOpacity={0.6} />
-                  <Bar yAxisId="spend" dataKey="yySpend" name="应用推广 Spend" stackId="spend"
+                  <Bar yAxisId="spend" dataKey="yySpend" name="应用推广花费" stackId="spend"
                     fill="#F472B6" fillOpacity={0.6} radius={[4, 4, 0, 0]} />
-                  <Line yAxisId="leads" type="monotone" dataKey="leads" name="Total Leads"
+                  <Line yAxisId="leads" type="monotone" dataKey="leads" name="总 Leads"
                     stroke="#FF2442" strokeWidth={2.5}
                     dot={{ r: 5, fill: '#FF2442', stroke: '#fff', strokeWidth: 2 }} />
                 </ComposedChart>
@@ -1161,21 +1161,21 @@
       return (
         <div className="table-card animate-in delay-5">
           <div className="table-card-header">
-            <span className="table-card-title">Weekly Detail</span>
+            <span className="table-card-title">每周明细</span>
           </div>
           <div className="table-scroll">
             <table>
               <thead>
                 <tr>
-                  <th>Period</th>
-                  <th>Status</th>
-                  <th className="num">Total Leads</th>
+                  <th>期次</th>
+                  <th>状态</th>
+                  <th className="num">总 Leads</th>
                   <th className="num">客资收集</th>
                   <th className="num">应用推广</th>
                   <th className="num">综合 CVR</th>
                   <th className="num">客资 CVR</th>
                   <th className="num">应用 CVR</th>
-                  <th className="num">Total Spend</th>
+                  <th className="num">总花费</th>
                   <th className="num">综合 CPL</th>
                   <th className="num">综合 CAA</th>
                 </tr>
@@ -1188,7 +1188,7 @@
                       <td style={{ fontWeight: 600 }}>{w.label}期</td>
                       <td>
                         <span className={`badge-status ${w.is_complete ? 'complete' : 'in-progress'}`}>
-                          {w.is_complete ? 'Complete' : 'In Progress'}
+                          {w.is_complete ? '已完成' : '进行中'}
                         </span>
                       </td>
                       <td className="num" style={{ fontWeight: 600 }}>{fmt(w.overall?.leads)}</td>
