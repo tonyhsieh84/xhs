@@ -614,7 +614,7 @@
           fontSize: 13, lineHeight: 1.6
         }}>
           <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
-          {payload.map((p, i) => (
+          {payload.filter(p => p.dataKey !== blendedKey).map((p, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{
                 width: 10, height: 10, borderRadius: '50%',
