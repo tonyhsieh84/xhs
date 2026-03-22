@@ -1200,20 +1200,14 @@
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
                     content={() => (
                       <div style={{ display: 'flex', justifyContent: 'center', gap: 20, fontSize: 12, paddingTop: 8, flexWrap: 'wrap' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 12, height: 12, borderRadius: 2, border: '2px solid #5B9BD5', background: 'transparent', display: 'inline-block' }}></span> 客资收集
-                        </span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 12, height: 12, borderRadius: 2, border: '2px solid #FF9B4E', background: 'transparent', display: 'inline-block' }}></span> 应用推广
-                        </span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 12, height: 12, borderRadius: 2, border: '2px solid #A78BFA', background: 'transparent', display: 'inline-block' }}></span> 综合
-                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>客资收集</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>应用推广</span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>综合</span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 12 }}>
-                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> 盈利
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> CAA &gt; 0 (盈利)
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#22A856', display: 'inline-block' }}></span> 亏损
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#22A856', display: 'inline-block' }}></span> CAA &lt; 0 (亏损)
                         </span>
                       </div>
                     )} />
@@ -1226,11 +1220,18 @@
                         fillOpacity={0.7} />
                     ))}
                   </Bar>
-                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}
-                    radius={[4, 4, 0, 0]}>
+                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}>
                     {currentData.map((entry, i) => (
                       <Cell key={i}
                         fill={entry.yyCAA != null && entry.yyCAA >= 0 ? '#FF2442' : '#22A856'}
+                        fillOpacity={0.7} />
+                    ))}
+                  </Bar>
+                  <Bar dataKey="blendedCAA" name="综合 CAA" barSize={24}
+                    radius={[4, 4, 0, 0]}>
+                    {currentData.map((entry, i) => (
+                      <Cell key={i}
+                        fill={entry.blendedCAA != null && entry.blendedCAA >= 0 ? '#FF2442' : '#22A856'}
                         fillOpacity={0.7} />
                     ))}
                   </Bar>
