@@ -891,7 +891,7 @@
 
           <div className="kpi-grid">
             <KPICard
-              label="总 LEADS"
+              label="总 Leads"
               value={fmt(latestLeads)}
               change={leadsChange}
               accent="red"
@@ -1200,41 +1200,29 @@
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
                     content={() => (
                       <div style={{ display: 'flex', justifyContent: 'center', gap: 20, fontSize: 12, paddingTop: 8, flexWrap: 'wrap' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>客资收集</span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>应用推广</span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6B7280' }}>综合</span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 12 }}>
-                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> CAA &gt; 0 (盈利)
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#5B9BD5', display: 'inline-block' }}></span> 客资收集
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#22A856', display: 'inline-block' }}></span> CAA &lt; 0 (亏损)
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF9B4E', display: 'inline-block' }}></span> 应用推广
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#A78BFA', display: 'inline-block' }}></span> 综合
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 12, color: '#6B7280' }}>
+                          ▲ 0 线以上 = 盈利 · ▼ 0 线以下 = 亏损
                         </span>
                       </div>
                     )} />
                   <ReferenceLine y={0} stroke="#E5E7EB" strokeWidth={2} />
                   <Bar dataKey="kzCAA" name="客资收集 CAA" barSize={24}
-                    radius={[4, 4, 0, 0]}>
-                    {currentData.map((entry, i) => (
-                      <Cell key={i}
-                        fill={entry.kzCAA != null && entry.kzCAA >= 0 ? '#FF2442' : '#22A856'}
-                        fillOpacity={0.7} />
-                    ))}
-                  </Bar>
-                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}>
-                    {currentData.map((entry, i) => (
-                      <Cell key={i}
-                        fill={entry.yyCAA != null && entry.yyCAA >= 0 ? '#FF2442' : '#22A856'}
-                        fillOpacity={0.7} />
-                    ))}
-                  </Bar>
+                    fill="#5B9BD5" fillOpacity={0.8}
+                    radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="yyCAA" name="应用推广 CAA" barSize={24}
+                    fill="#FF9B4E" fillOpacity={0.8} />
                   <Bar dataKey="blendedCAA" name="综合 CAA" barSize={24}
-                    radius={[4, 4, 0, 0]}>
-                    {currentData.map((entry, i) => (
-                      <Cell key={i}
-                        fill={entry.blendedCAA != null && entry.blendedCAA >= 0 ? '#FF2442' : '#22A856'}
-                        fillOpacity={0.7} />
-                    ))}
-                  </Bar>
+                    fill="#A78BFA" fillOpacity={0.8}
+                    radius={[4, 4, 0, 0]} />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
@@ -1273,8 +1261,8 @@
                   <th>期次</th>
                   <th>状态</th>
                   <th className="num">总 Leads</th>
-                  <th className="num">客资收集</th>
-                  <th className="num">应用推广</th>
+                  <th className="num">客资 Leads</th>
+                  <th className="num">应用 Leads</th>
                   <th className="num">综合 CVR</th>
                   <th className="num">客资 CVR</th>
                   <th className="num">应用 CVR</th>
