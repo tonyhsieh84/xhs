@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21",
+  "generated_at": "2026-03-22",
   "config": {
     "rebate": 0.05,
     "sales_cost": 12,
@@ -98,9 +98,9 @@
       "label": "3/2",
       "is_complete": true,
       "overall": {
-        "leads": 69,
-        "conversions": 3,
-        "conversion_rate": 4.35
+        "leads": 70,
+        "conversions": 4,
+        "conversion_rate": 5.71
       },
       "kz": {
         "leads": 66,
@@ -114,15 +114,15 @@
         "caa": -1642.47
       },
       "yy": {
-        "leads": 3,
-        "conversions": 0,
-        "conversion_rate": 0.0,
-        "friend_rate": 66.67,
-        "lesson1_rate": 66.67,
+        "leads": 4,
+        "conversions": 1,
+        "conversion_rate": 25.0,
+        "friend_rate": 75.0,
+        "lesson1_rate": 75.0,
         "spend": 0.71,
-        "cpl": 0.24,
-        "cac": null,
-        "caa": null
+        "cpl": 0.18,
+        "cac": 48.68,
+        "caa": 1431.32
       }
     },
     {
@@ -130,9 +130,9 @@
       "label": "3/9",
       "is_complete": true,
       "overall": {
-        "leads": 106,
+        "leads": 107,
         "conversions": 7,
-        "conversion_rate": 6.6
+        "conversion_rate": 6.54
       },
       "kz": {
         "leads": 97,
@@ -146,47 +146,47 @@
         "caa": -2057.81
       },
       "yy": {
-        "leads": 9,
+        "leads": 10,
         "conversions": 3,
-        "conversion_rate": 33.33,
-        "friend_rate": 77.78,
-        "lesson1_rate": 66.67,
+        "conversion_rate": 30.0,
+        "friend_rate": 80.0,
+        "lesson1_rate": 70.0,
         "spend": 13.57,
-        "cpl": 1.51,
-        "cac": 40.3,
-        "caa": 1439.7
+        "cpl": 1.36,
+        "cac": 44.3,
+        "caa": 1435.7
       }
     },
     {
       "period": "2026-03-16",
       "label": "3/16",
-      "is_complete": false,
+      "is_complete": true,
       "overall": {
-        "leads": 175,
-        "conversions": 13,
-        "conversion_rate": 7.43
+        "leads": 176,
+        "conversions": 14,
+        "conversion_rate": 7.95
       },
       "kz": {
         "leads": 136,
-        "conversions": 8,
-        "conversion_rate": 5.88,
+        "conversions": 9,
+        "conversion_rate": 6.62,
         "friend_rate": 40.44,
         "lesson1_rate": 26.47,
         "spend": 17851.07,
         "cpl": 131.26,
-        "cac": 2323.81,
-        "caa": -843.81
+        "cac": 2065.61,
+        "caa": -585.61
       },
       "yy": {
-        "leads": 39,
+        "leads": 40,
         "conversions": 5,
-        "conversion_rate": 12.82,
-        "friend_rate": 51.28,
-        "lesson1_rate": 23.08,
+        "conversion_rate": 12.5,
+        "friend_rate": 52.5,
+        "lesson1_rate": 25.0,
         "spend": 5248.88,
-        "cpl": 134.59,
-        "cac": 1090.89,
-        "caa": 389.11
+        "cpl": 131.22,
+        "cac": 1093.29,
+        "caa": 386.71
       }
     },
     {
@@ -202,7 +202,7 @@
         "leads": 144,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 34.72,
+        "friend_rate": 36.81,
         "lesson1_rate": 0.0,
         "spend": 17814.91,
         "cpl": 123.71,
@@ -226,29 +226,29 @@
       "label": "3/30",
       "is_complete": false,
       "overall": {
-        "leads": 63,
+        "leads": 87,
         "conversions": 0,
         "conversion_rate": 0.0
       },
       "kz": {
-        "leads": 30,
+        "leads": 44,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 16.67,
+        "friend_rate": 29.55,
         "lesson1_rate": 0.0,
-        "spend": 3929.49,
-        "cpl": 130.98,
+        "spend": 5469.68,
+        "cpl": 124.31,
         "cac": null,
         "caa": null
       },
       "yy": {
-        "leads": 33,
+        "leads": 43,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 48.48,
+        "friend_rate": 53.49,
         "lesson1_rate": 0.0,
-        "spend": 5037.61,
-        "cpl": 152.65,
+        "spend": 6540.78,
+        "cpl": 152.11,
         "cac": null,
         "caa": null
       }
