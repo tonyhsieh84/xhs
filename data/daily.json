@@ -966,12 +966,24 @@
       "kz_leads": 14,
       "yy_leads": 15,
       "total_leads": 29,
-      "kz_spend": 0,
-      "yy_spend": 0,
-      "total_spend": 0,
-      "kz_cpl": 0.0,
-      "yy_cpl": 0.0,
-      "total_cpl": 0.0
+      "kz_spend": 1555.18,
+      "yy_spend": 2268.82,
+      "total_spend": 3824.0,
+      "kz_cpl": 111.08,
+      "yy_cpl": 151.25,
+      "total_cpl": 131.86
+    },
+    {
+      "date": "2026-03-24",
+      "kz_leads": 0,
+      "yy_leads": 0,
+      "total_leads": 0,
+      "kz_spend": 0.0,
+      "yy_spend": 79.92,
+      "total_spend": 79.92,
+      "kz_cpl": null,
+      "yy_cpl": null,
+      "total_cpl": null
     }
   ]
 }
