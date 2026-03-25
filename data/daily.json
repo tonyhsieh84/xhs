@@ -978,12 +978,12 @@
       "kz_leads": 18,
       "yy_leads": 14,
       "total_leads": 32,
-      "kz_spend": 0.0,
-      "yy_spend": 79.92,
-      "total_spend": 79.92,
-      "kz_cpl": 0.0,
-      "yy_cpl": 5.71,
-      "total_cpl": 2.5
+      "kz_spend": 2040.05,
+      "yy_spend": 2136.29,
+      "total_spend": 4176.34,
+      "kz_cpl": 113.34,
+      "yy_cpl": 152.59,
+      "total_cpl": 130.51
     }
   ]
 }
