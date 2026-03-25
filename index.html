@@ -967,8 +967,12 @@
                   <Tooltip content={({ active, payload, label }) => {
                     if (!active || !payload || !payload.length) return null;
                     const entry = payload[0]?.payload;
+                    const leads = entry ? (channelFilter === 'kz' ? entry.kzLeads : channelFilter === 'yy' ? entry.yyLeads : entry.leads) : 0;
+                    const cvr = entry ? (channelFilter === 'kz' ? entry.kzConvRate : channelFilter === 'yy' ? entry.yyConvRate : entry.convRate) : null;
+                    const paidUsers = (leads && cvr != null) ? Math.round(leads * cvr / 100) : null;
                     const cpl = entry ? (channelFilter === 'kz' ? entry.kzCPL : channelFilter === 'yy' ? entry.yyCPL : entry.blendedCPL) : null;
                     const breakEvenCVR = (cpl != null && config) ? ((cpl * (1 - config.rebate) + config.sales_cost) / config.ltv * 100) : null;
+                    const breakEvenOrders = (leads && breakEvenCVR != null) ? Math.ceil(leads * breakEvenCVR / 100) : null;
                     return (
                       <div style={{ background: '#2D2D3F', color: '#fff', borderRadius: 8, padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', fontSize: 13, lineHeight: 1.6 }}>
                         <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
@@ -981,11 +985,27 @@
                             </span>
                           </div>
                         ))}
+                        {paidUsers != null && (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>转正订单:</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmt(paidUsers)}</span>
+                          </div>
+                        )}
                         {breakEvenCVR != null && (
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, borderTop: '1px solid rgba(255,255,255,0.15)', marginTop: 6, paddingTop: 6 }}>
-                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#6366F1', display: 'inline-block' }} />
-                            <span style={{ color: '#ccc' }}>打平 CVR:</span>
-                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmtPct(breakEvenCVR)}</span>
+                          <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', marginTop: 6, paddingTop: 6 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                              <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#6366F1', display: 'inline-block' }} />
+                              <span style={{ color: '#ccc' }}>打平 CVR:</span>
+                              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmtPct(breakEvenCVR)}</span>
+                            </div>
+                            {breakEvenOrders != null && (
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#6366F1', display: 'inline-block' }} />
+                                <span style={{ color: '#ccc' }}>打平订单数:</span>
+                                <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmt(breakEvenOrders)}</span>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
@@ -1019,7 +1039,7 @@
                   </Bar>
                   <Line yAxisId="rate" type="monotone"
                     dataKey={channelFilter === 'kz' ? 'kzConvRate' : channelFilter === 'yy' ? 'yyConvRate' : 'convRate'}
-                    name="Conversion Rate (%)"
+                    name="转正率"
                     stroke="#7EC883" strokeWidth={2.5}
                     dot={{ r: 4, fill: '#7EC883', stroke: '#fff', strokeWidth: 2 }}
                     activeDot={{ r: 6 }}
