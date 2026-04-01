@@ -13,9 +13,9 @@
       "label": "2/2",
       "is_complete": true,
       "overall": {
-        "leads": 71,
+        "leads": 72,
         "conversions": 4,
-        "conversion_rate": 5.63
+        "conversion_rate": 5.56
       },
       "kz": {
         "leads": 71,
@@ -37,6 +37,17 @@
           "conversions": 0,
           "conversion_rate": 0.0
         }
+      },
+      "yy": {
+        "leads": 1,
+        "conversions": 0,
+        "conversion_rate": 0.0,
+        "friend_rate": 0.0,
+        "lesson1_rate": 0.0,
+        "spend": 0.0,
+        "cpl": null,
+        "cac": null,
+        "caa": null
       }
     },
     {
@@ -128,9 +139,9 @@
       "label": "3/2",
       "is_complete": true,
       "overall": {
-        "leads": 70,
+        "leads": 72,
         "conversions": 4,
-        "conversion_rate": 5.71
+        "conversion_rate": 5.56
       },
       "kz": {
         "leads": 66,
@@ -154,15 +165,15 @@
         }
       },
       "yy": {
-        "leads": 4,
+        "leads": 6,
         "conversions": 1,
-        "conversion_rate": 25.0,
-        "friend_rate": 75.0,
-        "lesson1_rate": 75.0,
+        "conversion_rate": 16.67,
+        "friend_rate": 66.67,
+        "lesson1_rate": 66.67,
         "spend": 0.71,
-        "cpl": 0.18,
-        "cac": 48.68,
-        "caa": 1431.32
+        "cpl": 0.12,
+        "cac": 72.68,
+        "caa": 1407.32
       }
     },
     {
@@ -170,9 +181,9 @@
       "label": "3/9",
       "is_complete": true,
       "overall": {
-        "leads": 107,
+        "leads": 110,
         "conversions": 7,
-        "conversion_rate": 6.54
+        "conversion_rate": 6.36
       },
       "kz": {
         "leads": 97,
@@ -196,15 +207,15 @@
         }
       },
       "yy": {
-        "leads": 10,
+        "leads": 13,
         "conversions": 3,
-        "conversion_rate": 30.0,
-        "friend_rate": 80.0,
-        "lesson1_rate": 70.0,
+        "conversion_rate": 23.08,
+        "friend_rate": 76.92,
+        "lesson1_rate": 53.85,
         "spend": 13.57,
-        "cpl": 1.36,
-        "cac": 44.3,
-        "caa": 1435.7
+        "cpl": 1.04,
+        "cac": 56.3,
+        "caa": 1423.7
       }
     },
     {
@@ -212,9 +223,9 @@
       "label": "3/16",
       "is_complete": true,
       "overall": {
-        "leads": 181,
+        "leads": 182,
         "conversions": 15,
-        "conversion_rate": 8.29
+        "conversion_rate": 8.24
       },
       "kz": {
         "leads": 136,
@@ -238,15 +249,15 @@
         }
       },
       "yy": {
-        "leads": 45,
+        "leads": 46,
         "conversions": 6,
-        "conversion_rate": 13.33,
-        "friend_rate": 57.78,
-        "lesson1_rate": 31.11,
+        "conversion_rate": 13.04,
+        "friend_rate": 58.7,
+        "lesson1_rate": 32.61,
         "spend": 5248.88,
-        "cpl": 116.64,
-        "cac": 921.07,
-        "caa": 558.93
+        "cpl": 114.11,
+        "cac": 923.07,
+        "caa": 556.93
       }
     },
     {
@@ -254,9 +265,9 @@
       "label": "3/23",
       "is_complete": true,
       "overall": {
-        "leads": 256,
+        "leads": 260,
         "conversions": 17,
-        "conversion_rate": 6.64
+        "conversion_rate": 6.54
       },
       "kz": {
         "leads": 144,
@@ -280,15 +291,15 @@
         }
       },
       "yy": {
-        "leads": 113,
+        "leads": 116,
         "conversions": 11,
-        "conversion_rate": 9.73,
-        "friend_rate": 52.21,
-        "lesson1_rate": 24.78,
+        "conversion_rate": 9.48,
+        "friend_rate": 50.86,
+        "lesson1_rate": 25.0,
         "spend": 10678.75,
-        "cpl": 94.5,
-        "cac": 1045.53,
-        "caa": 434.47
+        "cpl": 92.06,
+        "cac": 1048.8,
+        "caa": 431.2
       }
     },
     {
@@ -296,9 +307,9 @@
       "label": "3/30",
       "is_complete": false,
       "overall": {
-        "leads": 211,
+        "leads": 218,
         "conversions": 7,
-        "conversion_rate": 3.32
+        "conversion_rate": 3.21
       },
       "kz": {
         "leads": 100,
@@ -322,15 +333,15 @@
         }
       },
       "yy": {
-        "leads": 111,
+        "leads": 118,
         "conversions": 6,
-        "conversion_rate": 5.41,
-        "friend_rate": 54.05,
-        "lesson1_rate": 18.92,
+        "conversion_rate": 5.08,
+        "friend_rate": 55.08,
+        "lesson1_rate": 20.34,
         "spend": 13870.09,
-        "cpl": 124.96,
-        "cac": 2418.1,
-        "caa": -938.1
+        "cpl": 117.54,
+        "cac": 2432.1,
+        "caa": -952.1
       }
     },
     {
@@ -338,7 +349,7 @@
       "label": "4/6",
       "is_complete": false,
       "overall": {
-        "leads": 141,
+        "leads": 159,
         "conversions": 0,
         "conversion_rate": 0.0
       },
@@ -359,13 +370,13 @@
         }
       },
       "yy": {
-        "leads": 69,
+        "leads": 87,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 47.83,
+        "friend_rate": 51.72,
         "lesson1_rate": 0.0,
         "spend": 5822.34,
-        "cpl": 84.38,
+        "cpl": 66.92,
         "cac": null,
         "caa": null
       }
