@@ -349,7 +349,7 @@
       "label": "4/6",
       "is_complete": false,
       "overall": {
-        "leads": 177,
+        "leads": 187,
         "conversions": 0,
         "conversion_rate": 0.0
       },
@@ -375,13 +375,13 @@
         }
       },
       "yy": {
-        "leads": 91,
+        "leads": 101,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 50.55,
+        "friend_rate": 50.5,
         "lesson1_rate": 0.0,
         "spend": 6708.74,
-        "cpl": 73.72,
+        "cpl": 66.42,
         "cac": null,
         "caa": null
       }
