@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02",
+  "generated_at": "2026-04-03",
   "days": [
     {
       "date": "2026-01-01",
@@ -1132,16 +1132,16 @@
     {
       "date": "2026-03-28",
       "kz_leads": 9,
-      "yy_leads": 19,
-      "total_leads": 28,
+      "yy_leads": 20,
+      "total_leads": 29,
       "kz_kol_first_leads": 9,
       "kz_kol_second_leads": 0,
       "kz_spend": 1526.66,
       "yy_spend": 1132.49,
       "total_spend": 2659.15,
       "kz_cpl": 169.63,
-      "yy_cpl": 59.6,
-      "total_cpl": 94.97
+      "yy_cpl": 56.62,
+      "total_cpl": 91.69
     },
     {
       "date": "2026-03-29",
@@ -1160,16 +1160,16 @@
     {
       "date": "2026-03-30",
       "kz_leads": 24,
-      "yy_leads": 16,
-      "total_leads": 40,
+      "yy_leads": 17,
+      "total_leads": 41,
       "kz_kol_first_leads": 19,
       "kz_kol_second_leads": 0,
       "kz_spend": 2224.11,
       "yy_spend": 1379.02,
       "total_spend": 3603.13,
       "kz_cpl": 92.67,
-      "yy_cpl": 86.19,
-      "total_cpl": 90.08
+      "yy_cpl": 81.12,
+      "total_cpl": 87.88
     },
     {
       "date": "2026-03-31",
@@ -1188,16 +1188,16 @@
     {
       "date": "2026-04-01",
       "kz_leads": 14,
-      "yy_leads": 15,
-      "total_leads": 29,
+      "yy_leads": 16,
+      "total_leads": 30,
       "kz_kol_first_leads": 11,
       "kz_kol_second_leads": 1,
       "kz_spend": 1577.27,
       "yy_spend": 886.4,
       "total_spend": 2463.67,
       "kz_cpl": 112.66,
-      "yy_cpl": 59.09,
-      "total_cpl": 84.95
+      "yy_cpl": 55.4,
+      "total_cpl": 82.12
     },
     {
       "date": "2026-04-02",
@@ -1215,13 +1215,15 @@
     },
     {
       "date": "2026-04-03",
-      "kz_leads": 0,
-      "yy_leads": 1,
-      "total_leads": 1,
+      "kz_leads": 12,
+      "yy_leads": 16,
+      "total_leads": 28,
+      "kz_kol_first_leads": 12,
+      "kz_kol_second_leads": 0,
       "kz_spend": 0,
       "yy_spend": 0,
       "total_spend": 0,
-      "kz_cpl": null,
+      "kz_cpl": 0.0,
       "yy_cpl": 0.0,
       "total_cpl": 0.0
     }
