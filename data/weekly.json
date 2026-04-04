@@ -401,8 +401,8 @@
         "conversion_rate": 0.0,
         "friend_rate": 50.0,
         "lesson1_rate": 0.0,
-        "spend": 0.0,
-        "cpl": null,
+        "spend": 1853.73,
+        "cpl": 154.48,
         "cac": null,
         "caa": null,
         "kol_first": {
@@ -417,8 +417,8 @@
         "conversion_rate": 0.0,
         "friend_rate": 50.0,
         "lesson1_rate": 0.0,
-        "spend": 0.0,
-        "cpl": null,
+        "spend": 1097.16,
+        "cpl": 68.57,
         "cac": null,
         "caa": null
       }

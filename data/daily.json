@@ -1220,12 +1220,12 @@
       "total_leads": 28,
       "kz_kol_first_leads": 12,
       "kz_kol_second_leads": 0,
-      "kz_spend": 0,
-      "yy_spend": 0,
-      "total_spend": 0,
-      "kz_cpl": 0.0,
-      "yy_cpl": 0.0,
-      "total_cpl": 0.0
+      "kz_spend": 1853.73,
+      "yy_spend": 1097.16,
+      "total_spend": 2950.89,
+      "kz_cpl": 154.48,
+      "yy_cpl": 68.57,
+      "total_cpl": 105.39
     }
   ]
 }
