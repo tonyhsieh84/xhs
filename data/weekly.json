@@ -36,6 +36,11 @@
           "leads": 3,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 5,
+          "conversions": 0,
+          "conversion_rate": 0.0
         }
       },
       "yy": {
@@ -78,6 +83,11 @@
           "leads": 4,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 10,
+          "conversions": 2,
+          "conversion_rate": 20.0
         }
       },
       "yy": {
@@ -120,6 +130,11 @@
           "leads": 7,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 14,
+          "conversions": 2,
+          "conversion_rate": 14.29
         }
       },
       "yy": {
@@ -162,6 +177,11 @@
           "leads": 2,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 7,
+          "conversions": 1,
+          "conversion_rate": 14.29
         }
       },
       "yy": {
@@ -204,6 +224,11 @@
           "leads": 2,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 4,
+          "conversions": 1,
+          "conversion_rate": 25.0
         }
       },
       "yy": {
@@ -288,6 +313,16 @@
           "leads": 6,
           "conversions": 2,
           "conversion_rate": 33.33
+        },
+        "bijityk_first": {
+          "leads": 12,
+          "conversions": 0,
+          "conversion_rate": 0.0
+        },
+        "bijityk_second": {
+          "leads": 1,
+          "conversions": 0,
+          "conversion_rate": 0.0
         }
       },
       "yy": {
@@ -330,6 +365,11 @@
           "leads": 3,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 8,
+          "conversions": 2,
+          "conversion_rate": 25.0
         }
       },
       "yy": {
@@ -372,6 +412,16 @@
           "leads": 2,
           "conversions": 0,
           "conversion_rate": 0.0
+        },
+        "bijityk_first": {
+          "leads": 9,
+          "conversions": 0,
+          "conversion_rate": 0.0
+        },
+        "bijityk_second": {
+          "leads": 1,
+          "conversions": 0,
+          "conversion_rate": 0.0
         }
       },
       "yy": {
@@ -409,6 +459,11 @@
           "leads": 68,
           "conversions": 1,
           "conversion_rate": 1.47
+        },
+        "bijityk_first": {
+          "leads": 3,
+          "conversions": 0,
+          "conversion_rate": 0.0
         }
       },
       "yy": {

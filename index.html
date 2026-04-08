@@ -1190,7 +1190,7 @@
 
           {/* CAC trend — only up to current week (has conversion data) */}
           {(() => {
-            const currentData = weeklyChartData.filter(d => d.isComplete || (d.kzCAC != null && d.kzCAC > 0) || (d.yyCAC != null && d.yyCAC > 0));
+            const currentData = weeklyChartData.filter(d => d.isComplete);
             return (
           <div className="chart-grid single animate-in delay-3">
             <div className="chart-card">
@@ -1229,7 +1229,7 @@
 
           {/* CAA trend — only up to current week */}
           {(() => {
-            const currentData = weeklyChartData.filter(d => d.isComplete || (d.kzCAA != null && d.kzCAA !== 0) || (d.yyCAA != null && d.yyCAA !== 0));
+            const currentData = weeklyChartData.filter(d => d.isComplete);
             return (
           <div className="chart-grid single animate-in delay-4">
             <div className="chart-card">
