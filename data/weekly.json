@@ -2,7 +2,7 @@
   "generated_at": "2026-04-07",
   "config": {
     "rebate": 0.05,
-    "sales_cost": 12,
+    "sales_cost": 10,
     "unit_price": 2000,
     "margin": 0.755,
     "ltv": 1510.0
@@ -25,8 +25,8 @@
         "lesson1_rate": 23.94,
         "spend": 12042.31,
         "cpl": 169.61,
-        "cac": 3073.05,
-        "caa": -1563.05,
+        "cac": 3037.55,
+        "caa": -1527.55,
         "kol_first": {
           "leads": 63,
           "conversions": 4,
@@ -72,8 +72,8 @@
         "lesson1_rate": 20.89,
         "spend": 26151.07,
         "cpl": 165.51,
-        "cac": 2673.95,
-        "caa": -1163.95,
+        "cac": 2642.35,
+        "caa": -1132.35,
         "kol_first": {
           "leads": 144,
           "conversions": 8,
@@ -119,8 +119,8 @@
         "lesson1_rate": 10.84,
         "spend": 9019.66,
         "cpl": 54.34,
-        "cac": 1508.67,
-        "caa": 1.33,
+        "cac": 1461.24,
+        "caa": 48.76,
         "kol_first": {
           "leads": 145,
           "conversions": 5,
@@ -145,8 +145,8 @@
         "lesson1_rate": 100.0,
         "spend": 0.0,
         "cpl": null,
-        "cac": 18.0,
-        "caa": 1492.0
+        "cac": 15.0,
+        "caa": 1495.0
       }
     },
     {
@@ -166,8 +166,8 @@
         "lesson1_rate": 26.47,
         "spend": 9026.76,
         "cpl": 132.75,
-        "cac": 3130.47,
-        "caa": -1620.47,
+        "cac": 3085.14,
+        "caa": -1575.14,
         "kol_first": {
           "leads": 59,
           "conversions": 2,
@@ -192,8 +192,8 @@
         "lesson1_rate": 66.67,
         "spend": 0.71,
         "cpl": 0.12,
-        "cac": 72.68,
-        "caa": 1437.32
+        "cac": 60.68,
+        "caa": 1449.32
       }
     },
     {
@@ -213,8 +213,8 @@
         "lesson1_rate": 30.61,
         "spend": 13670.8,
         "cpl": 139.5,
-        "cac": 2832.65,
-        "caa": -1322.65,
+        "cac": 2793.45,
+        "caa": -1283.45,
         "kol_first": {
           "leads": 92,
           "conversions": 4,
@@ -239,8 +239,8 @@
         "lesson1_rate": 50.0,
         "spend": 13.57,
         "cpl": 0.97,
-        "cac": 60.3,
-        "caa": 1449.7
+        "cac": 50.97,
+        "caa": 1459.03
       }
     },
     {
@@ -260,8 +260,8 @@
         "lesson1_rate": 26.47,
         "spend": 17851.07,
         "cpl": 131.26,
-        "cac": 2065.61,
-        "caa": -555.61,
+        "cac": 2035.39,
+        "caa": -525.39,
         "kol_first": {
           "leads": 130,
           "conversions": 7,
@@ -281,8 +281,8 @@
         "lesson1_rate": 32.61,
         "spend": 5248.88,
         "cpl": 114.11,
-        "cac": 923.07,
-        "caa": 586.93
+        "cac": 907.74,
+        "caa": 602.26
       }
     },
     {
@@ -302,8 +302,8 @@
         "lesson1_rate": 23.61,
         "spend": 17814.91,
         "cpl": 123.71,
-        "cac": 3108.69,
-        "caa": -1598.69,
+        "cac": 3060.69,
+        "caa": -1550.69,
         "kol_first": {
           "leads": 125,
           "conversions": 4,
@@ -333,8 +333,8 @@
         "lesson1_rate": 25.0,
         "spend": 10678.75,
         "cpl": 92.06,
-        "cac": 1048.8,
-        "caa": 461.2
+        "cac": 1027.71,
+        "caa": 482.29
       }
     },
     {
@@ -354,8 +354,8 @@
         "lesson1_rate": 34.65,
         "spend": 12373.84,
         "cpl": 122.51,
-        "cac": 1296.71,
-        "caa": 213.29,
+        "cac": 1276.51,
+        "caa": 233.49,
         "kol_first": {
           "leads": 90,
           "conversions": 8,
@@ -380,8 +380,8 @@
         "lesson1_rate": 22.88,
         "spend": 13870.09,
         "cpl": 117.54,
-        "cac": 1824.07,
-        "caa": -314.07
+        "cac": 1794.57,
+        "caa": -284.57
       }
     },
     {
@@ -401,8 +401,8 @@
         "lesson1_rate": 14.71,
         "spend": 12542.05,
         "cpl": 122.96,
-        "cac": 3284.74,
-        "caa": -1774.74,
+        "cac": 3233.74,
+        "caa": -1723.74,
         "kol_first": {
           "leads": 90,
           "conversions": 4,
@@ -432,8 +432,8 @@
         "lesson1_rate": 20.97,
         "spend": 7631.39,
         "cpl": 61.54,
-        "cac": 2912.61,
-        "caa": -1402.61
+        "cac": 2829.94,
+        "caa": -1319.94
       }
     },
     {
@@ -453,8 +453,8 @@
         "lesson1_rate": 0.0,
         "spend": 9042.91,
         "cpl": 127.36,
-        "cac": 9442.76,
-        "caa": -7932.76,
+        "cac": 9300.76,
+        "caa": -7790.76,
         "kol_first": {
           "leads": 68,
           "conversions": 1,
@@ -474,8 +474,8 @@
         "lesson1_rate": 0.0,
         "spend": 6136.28,
         "cpl": 84.06,
-        "cac": 6705.47,
-        "caa": -5195.47
+        "cac": 6559.47,
+        "caa": -5049.47
       }
     }
   ]
