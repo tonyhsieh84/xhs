@@ -1050,7 +1050,7 @@
           </div>
 
           {/* Data Table */}
-          <WeeklyTable weeks={weeks} />
+          <WeeklyTable weeks={weeks} config={config} />
         </div>
       );
     }
@@ -1283,7 +1283,7 @@
     // ============================================================
     // Weekly Data Table
     // ============================================================
-    function WeeklyTable({ weeks }) {
+    function WeeklyTable({ weeks, config }) {
       const sorted = [...weeks].reverse();
       // In-progress weeks sorted oldest-first for status assignment
       const ipWeeks = weeks.filter(w => !w.is_complete);
@@ -1321,6 +1321,14 @@
               <tbody>
                 {sorted.map((w, i) => {
                   const totalSpend = (w.kz?.spend || 0) + (w.yy?.spend || 0);
+                  const totalLeads = w.overall?.leads || 0;
+                  const blendedCPL = totalLeads > 0 && totalSpend > 0 ? totalSpend / totalLeads : null;
+                  const overallCVR = (w.overall?.conversion_rate || 0) / 100;
+                  let blendedCAA = null;
+                  if (blendedCPL != null && overallCVR > 0 && config) {
+                    const blendedCAC = (blendedCPL * (1 - config.rebate) + config.sales_cost) / overallCVR;
+                    blendedCAA = config.ltv - blendedCAC;
+                  }
                   return (
                     <tr key={i}>
                       <td style={{ fontWeight: 600 }}>{w.label}期</td>
@@ -1338,12 +1346,12 @@
                       <td className="num">{fmtPct(w.kz?.conversion_rate)}</td>
                       <td className="num">{fmtPct(w.yy?.conversion_rate)}</td>
                       <td className="num">{totalSpend > 0 ? `¥${fmt(totalSpend)}` : '—'}</td>
-                      <td className="num">{w.kz?.cpl != null ? `¥${fmt(w.kz.cpl)}` : '—'}</td>
+                      <td className="num">{blendedCPL != null ? `¥${fmt(Math.round(blendedCPL))}` : '—'}</td>
                       <td className="num" style={{
-                        color: w.kz?.caa != null ? (w.kz.caa >= 0 ? 'var(--color-positive)' : 'var(--color-negative)') : 'inherit',
-                        fontWeight: w.kz?.caa != null ? 600 : 400
+                        color: blendedCAA != null ? (blendedCAA >= 0 ? 'var(--color-positive)' : 'var(--color-negative)') : 'inherit',
+                        fontWeight: blendedCAA != null ? 600 : 400
                       }}>
-                        {w.kz?.caa != null ? `¥${fmt(w.kz.caa)}` : '—'}
+                        {blendedCAA != null ? `¥${fmt(Math.round(blendedCAA))}` : '—'}
                       </td>
                     </tr>
                   );
