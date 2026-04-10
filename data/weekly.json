@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-08",
+  "generated_at": "2026-04-09",
   "config": {
     "rebate": 0.05,
     "sales_cost": 10,
@@ -390,23 +390,23 @@
       "is_complete": false,
       "overall": {
         "leads": 227,
-        "conversions": 8,
-        "conversion_rate": 3.52
+        "conversions": 11,
+        "conversion_rate": 4.85
       },
       "kz": {
         "leads": 102,
-        "conversions": 4,
-        "conversion_rate": 3.92,
+        "conversions": 6,
+        "conversion_rate": 5.88,
         "friend_rate": 30.39,
-        "lesson1_rate": 16.67,
+        "lesson1_rate": 17.65,
         "spend": 12542.05,
         "cpl": 122.96,
-        "cac": 3233.74,
-        "caa": -1723.74,
+        "cac": 2155.82,
+        "caa": -645.82,
         "kol_first": {
           "leads": 90,
-          "conversions": 4,
-          "conversion_rate": 4.44
+          "conversions": 6,
+          "conversion_rate": 6.67
         },
         "kol_second": {
           "leads": 2,
@@ -426,14 +426,14 @@
       },
       "yy": {
         "leads": 125,
-        "conversions": 4,
-        "conversion_rate": 3.2,
+        "conversions": 5,
+        "conversion_rate": 4.0,
         "friend_rate": 53.6,
         "lesson1_rate": 21.6,
         "spend": 7631.39,
         "cpl": 61.05,
-        "cac": 2124.96,
-        "caa": -614.96
+        "cac": 1699.96,
+        "caa": -189.96
       }
     },
     {
@@ -441,24 +441,24 @@
       "label": "4/13",
       "is_complete": false,
       "overall": {
-        "leads": 175,
+        "leads": 211,
         "conversions": 3,
-        "conversion_rate": 1.71
+        "conversion_rate": 1.42
       },
       "kz": {
-        "leads": 84,
+        "leads": 101,
         "conversions": 1,
-        "conversion_rate": 1.19,
-        "friend_rate": 32.14,
+        "conversion_rate": 0.99,
+        "friend_rate": 30.69,
         "lesson1_rate": 0.0,
-        "spend": 10931.6,
-        "cpl": 130.14,
-        "cac": 11225.02,
-        "caa": -9715.02,
+        "spend": 12580.22,
+        "cpl": 124.56,
+        "cac": 12961.21,
+        "caa": -11451.21,
         "kol_first": {
-          "leads": 80,
+          "leads": 94,
           "conversions": 1,
-          "conversion_rate": 1.25
+          "conversion_rate": 1.06
         },
         "kol_second": {
           "leads": 1,
@@ -466,21 +466,21 @@
           "conversion_rate": 0.0
         },
         "bijityk_first": {
-          "leads": 3,
+          "leads": 6,
           "conversions": 0,
           "conversion_rate": 0.0
         }
       },
       "yy": {
-        "leads": 91,
+        "leads": 110,
         "conversions": 2,
-        "conversion_rate": 2.2,
-        "friend_rate": 60.44,
+        "conversion_rate": 1.82,
+        "friend_rate": 60.0,
         "lesson1_rate": 0.0,
-        "spend": 8780.69,
-        "cpl": 96.49,
-        "cac": 4625.83,
-        "caa": -3115.83
+        "spend": 12350.02,
+        "cpl": 112.27,
+        "cac": 6416.26,
+        "caa": -4906.26
       }
     }
   ]
