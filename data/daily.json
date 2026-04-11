@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-09",
+  "generated_at": "2026-04-10",
   "days": [
     {
       "date": "2026-01-01",
@@ -1146,8 +1146,8 @@
     {
       "date": "2026-03-26",
       "kz_leads": 13,
-      "yy_leads": 9,
-      "total_leads": 22,
+      "yy_leads": 8,
+      "total_leads": 21,
       "kz_kol_first_leads": 11,
       "kz_kol_second_leads": 0,
       "kz_bijityk_first_leads": 2,
@@ -1156,8 +1156,8 @@
       "yy_spend": 1507.72,
       "total_spend": 3173.47,
       "kz_cpl": 128.13,
-      "yy_cpl": 167.52,
-      "total_cpl": 144.25
+      "yy_cpl": 188.46,
+      "total_cpl": 151.12
     },
     {
       "date": "2026-03-27",
@@ -1298,16 +1298,16 @@
     {
       "date": "2026-04-05",
       "kz_leads": 13,
-      "yy_leads": 13,
-      "total_leads": 26,
+      "yy_leads": 14,
+      "total_leads": 27,
       "kz_kol_first_leads": 13,
       "kz_kol_second_leads": 0,
       "kz_spend": 1919.55,
       "yy_spend": 935.95,
       "total_spend": 2855.5,
       "kz_cpl": 147.66,
-      "yy_cpl": 72.0,
-      "total_cpl": 109.83
+      "yy_cpl": 66.85,
+      "total_cpl": 105.76
     },
     {
       "date": "2026-04-06",
@@ -1342,16 +1342,16 @@
     {
       "date": "2026-04-08",
       "kz_leads": 13,
-      "yy_leads": 17,
-      "total_leads": 30,
+      "yy_leads": 18,
+      "total_leads": 31,
       "kz_kol_first_leads": 12,
       "kz_kol_second_leads": 1,
       "kz_spend": 1888.69,
       "yy_spend": 2644.41,
       "total_spend": 4533.1,
       "kz_cpl": 145.28,
-      "yy_cpl": 155.55,
-      "total_cpl": 151.1
+      "yy_cpl": 146.91,
+      "total_cpl": 146.23
     },
     {
       "date": "2026-04-09",
@@ -1368,6 +1368,22 @@
       "kz_cpl": 96.98,
       "yy_cpl": 187.86,
       "total_cpl": 144.94
+    },
+    {
+      "date": "2026-04-10",
+      "kz_leads": 18,
+      "yy_leads": 23,
+      "total_leads": 41,
+      "kz_kol_first_leads": 15,
+      "kz_kol_second_leads": 0,
+      "kz_bijityk_first_leads": 3,
+      "kz_bijityk_second_leads": 0,
+      "kz_spend": 2002.81,
+      "yy_spend": 2533.74,
+      "total_spend": 4536.55,
+      "kz_cpl": 111.27,
+      "yy_cpl": 110.16,
+      "total_cpl": 110.65
     }
   ]
 }
