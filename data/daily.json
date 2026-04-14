@@ -1428,18 +1428,6 @@
       "kz_cpl": 128.36,
       "yy_cpl": 84.73,
       "total_cpl": 100.96
-    },
-    {
-      "date": "2026-04-14",
-      "kz_leads": 0,
-      "yy_leads": 1,
-      "total_leads": 1,
-      "kz_spend": 0,
-      "yy_spend": 0,
-      "total_spend": 0,
-      "kz_cpl": null,
-      "yy_cpl": 0.0,
-      "total_cpl": 0.0
     }
   ]
 }
