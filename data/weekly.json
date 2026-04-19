@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17",
+  "generated_at": "2026-04-18",
   "config": {
     "rebate": 0.05,
     "sales_cost": 10,
@@ -535,39 +535,44 @@
       "label": "4/27",
       "is_complete": false,
       "overall": {
-        "leads": 59,
+        "leads": 121,
         "conversions": 0,
         "conversion_rate": 0.0
       },
       "kz": {
-        "leads": 23,
+        "leads": 44,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 26.09,
+        "friend_rate": 31.82,
         "lesson1_rate": 0.0,
-        "spend": 2339.64,
-        "cpl": 101.72,
+        "spend": 4559.09,
+        "cpl": 103.62,
         "cac": null,
         "caa": null,
         "kol_first": {
-          "leads": 22,
+          "leads": 38,
+          "conversions": 0,
+          "conversion_rate": 0.0
+        },
+        "kol_second": {
+          "leads": 4,
           "conversions": 0,
           "conversion_rate": 0.0
         },
         "bijityk_first": {
-          "leads": 1,
+          "leads": 2,
           "conversions": 0,
           "conversion_rate": 0.0
         }
       },
       "yy": {
-        "leads": 36,
+        "leads": 77,
         "conversions": 0,
         "conversion_rate": 0.0,
-        "friend_rate": 50.0,
+        "friend_rate": 53.25,
         "lesson1_rate": 0.0,
-        "spend": 3057.61,
-        "cpl": 84.93,
+        "spend": 6799.67,
+        "cpl": 88.31,
         "cac": null,
         "caa": null
       }
