@@ -782,10 +782,22 @@
         // KOL (聚才) / KOB (灵动) / 应用推广 (reuses yyLeads) / 自然量
         kolLeads: w.kz?.kol?.leads ?? null,
         kolConvRate: w.kz?.kol?.conversion_rate ?? null,
+        kolSpend: w.kz?.kol?.spend ?? null,
+        kolCPL: w.kz?.kol?.cpl ?? null,
+        kolCAC: w.kz?.kol?.cac ?? null,
+        kolCAA: w.kz?.kol?.caa ?? null,
         kobLeads: w.kz?.kob?.leads ?? null,
         kobConvRate: w.kz?.kob?.conversion_rate ?? null,
+        kobSpend: w.kz?.kob?.spend ?? null,
+        kobCPL: w.kz?.kob?.cpl ?? null,
+        kobCAC: w.kz?.kob?.cac ?? null,
+        kobCAA: w.kz?.kob?.caa ?? null,
         organicLeads: w.kz?.organic?.leads ?? null,
         organicConvRate: w.kz?.organic?.conversion_rate ?? null,
+        organicSpend: w.kz?.organic?.spend ?? null,
+        organicCPL: w.kz?.organic?.cpl ?? null,
+        organicCAC: w.kz?.organic?.cac ?? null,
+        organicCAA: w.kz?.organic?.caa ?? null,
       }));
 
       // Daily chart data — last 14 days with leads > 0
@@ -1081,10 +1093,14 @@
     // ============================================================
     function SubchannelTab({ weeklyChartData, subchannelFilter, setSubchannelFilter }) {
       const subchannelOptions = [
-        { key: 'kol',     label: '客资收集 - KOL (聚才)',   leadsKey: 'kolLeads',     cvrKey: 'kolConvRate' },
-        { key: 'kob',     label: '客资收集 - KOB (灵动)',   leadsKey: 'kobLeads',     cvrKey: 'kobConvRate' },
-        { key: 'yy',      label: '应用推广',                 leadsKey: 'yyLeads',      cvrKey: 'yyConvRate' },
-        { key: 'organic', label: '自然量',                   leadsKey: 'organicLeads', cvrKey: 'organicConvRate' },
+        { key: 'kol',     label: '客资收集 - KOL (聚才)',   leadsKey: 'kolLeads',     cvrKey: 'kolConvRate',
+          spendKey: 'kolSpend',     cplKey: 'kolCPL',     cacKey: 'kolCAC',     caaKey: 'kolCAA'     },
+        { key: 'kob',     label: '客资收集 - KOB (灵动)',   leadsKey: 'kobLeads',     cvrKey: 'kobConvRate',
+          spendKey: 'kobSpend',     cplKey: 'kobCPL',     cacKey: 'kobCAC',     caaKey: 'kobCAA'     },
+        { key: 'yy',      label: '应用推广',                 leadsKey: 'yyLeads',      cvrKey: 'yyConvRate',
+          spendKey: 'yySpend',      cplKey: 'yyCPL',      cacKey: 'yyCAC',      caaKey: 'yyCAA'      },
+        { key: 'organic', label: '自然量',                   leadsKey: 'organicLeads', cvrKey: 'organicConvRate',
+          spendKey: 'organicSpend', cplKey: 'organicCPL', cacKey: 'organicCAC', caaKey: 'organicCAA' },
       ];
       const active = subchannelOptions.find(o => o.key === subchannelFilter) || subchannelOptions[0];
 
@@ -1166,6 +1182,9 @@
                       const leads = entry ? entry[active.leadsKey] : 0;
                       const cvr = entry ? entry[active.cvrKey] : null;
                       const paidUsers = (leads && cvr != null) ? Math.round(leads * cvr / 100) : null;
+                      const spend = entry ? entry[active.spendKey] : null;
+                      const cpl = entry ? entry[active.cplKey] : null;
+                      const caa = entry ? entry[active.caaKey] : null;
                       return (
                         <div style={{ background: '#2D2D3F', color: '#fff', borderRadius: 8, padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', fontSize: 13, lineHeight: 1.6 }}>
                           <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}期 — {active.label}</div>
@@ -1184,6 +1203,24 @@
                               <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#6366F1', display: 'inline-block' }} />
                               <span style={{ color: '#ccc' }}>转正订单:</span>
                               <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmt(paidUsers)}</span>
+                            </div>
+                          )}
+                          {spend != null && spend > 0 && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 4, paddingTop: 4, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                              <span style={{ color: '#ccc' }}>花费:</span>
+                              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(Math.round(spend))}</span>
+                            </div>
+                          )}
+                          {cpl != null && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                              <span style={{ color: '#ccc' }}>CPL:</span>
+                              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(Math.round(cpl))}</span>
+                            </div>
+                          )}
+                          {caa != null && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                              <span style={{ color: '#ccc' }}>CAA:</span>
+                              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)', color: caa >= 0 ? '#7EC883' : '#FF6B6B' }}>¥{fmt(Math.round(caa))}</span>
                             </div>
                           )}
                         </div>
@@ -1244,6 +1281,10 @@
                   <th className="num">Leads</th>
                   <th className="num">转正率</th>
                   <th className="num">转正订单</th>
+                  <th className="num">花费</th>
+                  <th className="num">CPL</th>
+                  <th className="num">CAC</th>
+                  <th className="num">CAA</th>
                 </tr>
               </thead>
               <tbody>
@@ -1251,6 +1292,10 @@
                   const leads = d[active.leadsKey];
                   const cvr = d[active.cvrKey];
                   const paid = (leads && cvr != null) ? Math.round(leads * cvr / 100) : null;
+                  const spend = d[active.spendKey];
+                  const cpl = d[active.cplKey];
+                  const cac = d[active.cacKey];
+                  const caa = d[active.caaKey];
                   const statusText = d.isComplete ? '已完成' : '进行中';
                   const statusCls = d.isComplete ? 'complete' : 'collecting';
                   return (
@@ -1260,6 +1305,12 @@
                       <td className="num">{leads != null ? fmt(leads) : '—'}</td>
                       <td className="num">{cvr != null ? fmtPct(cvr) : '—'}</td>
                       <td className="num">{paid != null ? fmt(paid) : '—'}</td>
+                      <td className="num">{spend != null ? `¥${fmt(Math.round(spend))}` : '—'}</td>
+                      <td className="num">{cpl != null ? `¥${fmt(Math.round(cpl))}` : '—'}</td>
+                      <td className="num">{cac != null ? `¥${fmt(Math.round(cac))}` : '—'}</td>
+                      <td className="num" style={caa != null ? { color: caa >= 0 ? '#16A34A' : '#DC2626', fontWeight: 600 } : {}}>
+                        {caa != null ? `¥${fmt(Math.round(caa))}` : '—'}
+                      </td>
                     </tr>
                   );
                 })}
