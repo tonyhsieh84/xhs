@@ -673,7 +673,7 @@
       const [dailyData, setDailyData] = React.useState(null);
       const [activeTab, setActiveTab] = React.useState('overview');
       const [channelFilter, setChannelFilter] = React.useState('overall');
-      const [subchannelFilter, setSubchannelFilter] = React.useState('kz_paid');
+      const [subchannelFilter, setSubchannelFilter] = React.useState('kol');
       const [loading, setLoading] = React.useState(true);
 
       React.useEffect(() => {
@@ -779,14 +779,13 @@
         blendedCAC: blendedMetrics(w).cac,
         blendedCAA: blendedMetrics(w).caa,
         // Sub-channel data (populated for 2026-04-13+ only)
-        kzPaidLeads: w.kz?.paid?.leads ?? null,
-        kzPaidConvRate: w.kz?.paid?.conversion_rate ?? null,
-        kzOrganicLeads: w.kz?.organic?.leads ?? null,
-        kzOrganicConvRate: w.kz?.organic?.conversion_rate ?? null,
-        yyFirstLeads: w.yy?.first_experience?.leads ?? null,
-        yyFirstConvRate: w.yy?.first_experience?.conversion_rate ?? null,
-        yySecondLeads: w.yy?.second_experience?.leads ?? null,
-        yySecondConvRate: w.yy?.second_experience?.conversion_rate ?? null,
+        // KOL (聚才) / KOB (灵动) / 应用推广 (reuses yyLeads) / 自然量
+        kolLeads: w.kz?.kol?.leads ?? null,
+        kolConvRate: w.kz?.kol?.conversion_rate ?? null,
+        kobLeads: w.kz?.kob?.leads ?? null,
+        kobConvRate: w.kz?.kob?.conversion_rate ?? null,
+        organicLeads: w.kz?.organic?.leads ?? null,
+        organicConvRate: w.kz?.organic?.conversion_rate ?? null,
       }));
 
       // Daily chart data — last 14 days with leads > 0
@@ -1082,15 +1081,16 @@
     // ============================================================
     function SubchannelTab({ weeklyChartData, subchannelFilter, setSubchannelFilter }) {
       const subchannelOptions = [
-        { key: 'kz_paid',    label: '客资-投放',     leadsKey: 'kzPaidLeads',    cvrKey: 'kzPaidConvRate' },
-        { key: 'kz_organic', label: '客资-自然',     leadsKey: 'kzOrganicLeads', cvrKey: 'kzOrganicConvRate' },
-        { key: 'yy_first',   label: '应用推广-首次体验', leadsKey: 'yyFirstLeads',   cvrKey: 'yyFirstConvRate' },
-        { key: 'yy_second',  label: '应用推广-二次体验', leadsKey: 'yySecondLeads',  cvrKey: 'yySecondConvRate' },
+        { key: 'kol',     label: '客资收集 - KOL (聚才)',   leadsKey: 'kolLeads',     cvrKey: 'kolConvRate' },
+        { key: 'kob',     label: '客资收集 - KOB (灵动)',   leadsKey: 'kobLeads',     cvrKey: 'kobConvRate' },
+        { key: 'yy',      label: '应用推广',                 leadsKey: 'yyLeads',      cvrKey: 'yyConvRate' },
+        { key: 'organic', label: '自然量',                   leadsKey: 'organicLeads', cvrKey: 'organicConvRate' },
       ];
       const active = subchannelOptions.find(o => o.key === subchannelFilter) || subchannelOptions[0];
 
-      // Only keep rows where the active sub-channel has data (i.e. 4/13+)
-      const chartData = weeklyChartData.filter(d => d[active.leadsKey] != null);
+      // Filter to 4/13期 onward — sub-channel tab is only meaningful from the cutover
+      const CUTOVER = '2026-04-13';
+      const chartData = weeklyChartData.filter(d => d.period >= CUTOVER);
 
       // Quick latest snapshot
       const completed = chartData.filter(d => d.isComplete);

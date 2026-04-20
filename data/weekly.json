@@ -470,7 +470,7 @@
           "conversions": 1,
           "conversion_rate": 16.67
         },
-        "paid": {
+        "kol": {
           "leads": 85,
           "conversions": 5,
           "conversion_rate": 5.88,
@@ -494,21 +494,7 @@
         "spend": 12350.02,
         "cpl": 122.28,
         "cac": 2548.5,
-        "caa": -1038.5,
-        "first_experience": {
-          "leads": 85,
-          "conversions": 4,
-          "conversion_rate": 4.71,
-          "friend_rate": 57.65,
-          "lesson1_rate": 20.0
-        },
-        "second_experience": {
-          "leads": 16,
-          "conversions": 1,
-          "conversion_rate": 6.25,
-          "friend_rate": 62.5,
-          "lesson1_rate": 31.25
-        }
+        "caa": -1038.5
       }
     },
     {
@@ -545,11 +531,18 @@
           "conversions": 0,
           "conversion_rate": 0.0
         },
-        "paid": {
-          "leads": 92,
+        "kol": {
+          "leads": 83,
           "conversions": 0,
           "conversion_rate": 0.0,
-          "friend_rate": 48.91,
+          "friend_rate": 45.78,
+          "lesson1_rate": 0.0
+        },
+        "kob": {
+          "leads": 9,
+          "conversions": 0,
+          "conversion_rate": 0.0,
+          "friend_rate": 77.78,
           "lesson1_rate": 0.0
         },
         "organic": {
@@ -569,21 +562,7 @@
         "spend": 15669.16,
         "cpl": 97.93,
         "cac": null,
-        "caa": null,
-        "first_experience": {
-          "leads": 136,
-          "conversions": 0,
-          "conversion_rate": 0.0,
-          "friend_rate": 52.21,
-          "lesson1_rate": 0.0
-        },
-        "second_experience": {
-          "leads": 24,
-          "conversions": 0,
-          "conversion_rate": 0.0,
-          "friend_rate": 50.0,
-          "lesson1_rate": 0.0
-        }
+        "caa": null
       }
     },
     {
@@ -625,18 +604,25 @@
           "conversions": 0,
           "conversion_rate": 0.0
         },
-        "paid": {
-          "leads": 50,
+        "kol": {
+          "leads": 35,
           "conversions": 0,
           "conversion_rate": 0.0,
-          "friend_rate": 30.0,
+          "friend_rate": 20.0,
+          "lesson1_rate": 0.0
+        },
+        "kob": {
+          "leads": 14,
+          "conversions": 0,
+          "conversion_rate": 0.0,
+          "friend_rate": 57.14,
           "lesson1_rate": 0.0
         },
         "organic": {
-          "leads": 9,
+          "leads": 10,
           "conversions": 0,
           "conversion_rate": 0.0,
-          "friend_rate": 33.33,
+          "friend_rate": 30.0,
           "lesson1_rate": 0.0
         }
       },
@@ -649,21 +635,7 @@
         "spend": 10841.26,
         "cpl": 85.36,
         "cac": null,
-        "caa": null,
-        "first_experience": {
-          "leads": 115,
-          "conversions": 0,
-          "conversion_rate": 0.0,
-          "friend_rate": 50.43,
-          "lesson1_rate": 0.0
-        },
-        "second_experience": {
-          "leads": 12,
-          "conversions": 0,
-          "conversion_rate": 0.0,
-          "friend_rate": 41.67,
-          "lesson1_rate": 0.0
-        }
+        "caa": null
       }
     }
   ]
