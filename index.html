@@ -673,6 +673,7 @@
       const [dailyData, setDailyData] = React.useState(null);
       const [activeTab, setActiveTab] = React.useState('overview');
       const [channelFilter, setChannelFilter] = React.useState('overall');
+      const [subchannelFilter, setSubchannelFilter] = React.useState('kz_paid');
       const [loading, setLoading] = React.useState(true);
 
       React.useEffect(() => {
@@ -777,6 +778,15 @@
         blendedCPL: blendedMetrics(w).cpl,
         blendedCAC: blendedMetrics(w).cac,
         blendedCAA: blendedMetrics(w).caa,
+        // Sub-channel data (populated for 2026-04-13+ only)
+        kzPaidLeads: w.kz?.paid?.leads ?? null,
+        kzPaidConvRate: w.kz?.paid?.conversion_rate ?? null,
+        kzOrganicLeads: w.kz?.organic?.leads ?? null,
+        kzOrganicConvRate: w.kz?.organic?.conversion_rate ?? null,
+        yyFirstLeads: w.yy?.first_experience?.leads ?? null,
+        yyFirstConvRate: w.yy?.first_experience?.conversion_rate ?? null,
+        yySecondLeads: w.yy?.second_experience?.leads ?? null,
+        yySecondConvRate: w.yy?.second_experience?.conversion_rate ?? null,
       }));
 
       // Daily chart data — last 14 days with leads > 0
@@ -820,6 +830,9 @@
               <button className={`nav-tab ${activeTab === 'economics' ? 'active' : ''}`} onClick={() => setActiveTab('economics')}>
                 UE模型
               </button>
+              <button className={`nav-tab ${activeTab === 'subchannel' ? 'active' : ''}`} onClick={() => setActiveTab('subchannel')}>
+                每期 by 子渠道
+              </button>
             </div>
             <div className="nav-right">
               <span className="badge-info">
@@ -852,6 +865,13 @@
             )}
             {activeTab === 'daily' && (
               <DailyTab dailyChartData={dailyChartData} />
+            )}
+            {activeTab === 'subchannel' && (
+              <SubchannelTab
+                weeklyChartData={weeklyChartData}
+                subchannelFilter={subchannelFilter}
+                setSubchannelFilter={setSubchannelFilter}
+              />
             )}
             {activeTab === 'economics' && (
               <EconomicsTab
@@ -1051,6 +1071,201 @@
 
           {/* Data Table */}
           <WeeklyTable weeks={weeks} config={config} />
+        </div>
+      );
+    }
+
+    // ============================================================
+    // Sub-channel Tab (每期 by 子渠道) — mirrors 每期表现 widget
+    // Chips: 客资-投放 / 客资-自然 / 应用推广-首次体验 / 应用推广-二次体验
+    // Data only available starting 4/13期 (Feishu cutover).
+    // ============================================================
+    function SubchannelTab({ weeklyChartData, subchannelFilter, setSubchannelFilter }) {
+      const subchannelOptions = [
+        { key: 'kz_paid',    label: '客资-投放',     leadsKey: 'kzPaidLeads',    cvrKey: 'kzPaidConvRate' },
+        { key: 'kz_organic', label: '客资-自然',     leadsKey: 'kzOrganicLeads', cvrKey: 'kzOrganicConvRate' },
+        { key: 'yy_first',   label: '应用推广-首次体验', leadsKey: 'yyFirstLeads',   cvrKey: 'yyFirstConvRate' },
+        { key: 'yy_second',  label: '应用推广-二次体验', leadsKey: 'yySecondLeads',  cvrKey: 'yySecondConvRate' },
+      ];
+      const active = subchannelOptions.find(o => o.key === subchannelFilter) || subchannelOptions[0];
+
+      // Only keep rows where the active sub-channel has data (i.e. 4/13+)
+      const chartData = weeklyChartData.filter(d => d[active.leadsKey] != null);
+
+      // Quick latest snapshot
+      const completed = chartData.filter(d => d.isComplete);
+      const latest = completed[completed.length - 1];
+      const prev = completed.length > 1 ? completed[completed.length - 2] : null;
+      const latestLeads = latest ? latest[active.leadsKey] : null;
+      const prevLeads = prev ? prev[active.leadsKey] : null;
+      const leadsChange = pctChange(latestLeads, prevLeads);
+      const latestCvr = latest ? latest[active.cvrKey] : null;
+      const prevCvr = prev ? prev[active.cvrKey] : null;
+      const cvrChange = pctChange(latestCvr, prevCvr);
+
+      return (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-sm)', marginBottom: 'var(--space-lg)' }}>
+            <h2 className="section-title" style={{ marginBottom: 0 }}>
+              每期 by 子渠道 — {active.label}
+            </h2>
+            <span style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>
+              数据起自 4/13期
+            </span>
+          </div>
+
+          <div className="kpi-grid">
+            <KPICard
+              label={`${active.label} — Leads`}
+              value={latestLeads != null ? fmt(latestLeads) : '—'}
+              change={leadsChange}
+              accent="red"
+              sub={latest ? `${latest.label}期` : ''}
+              delay={1}
+            />
+            <KPICard
+              label={`${active.label} — CVR`}
+              value={latestCvr != null ? fmtPct(latestCvr) : '—'}
+              change={cvrChange}
+              accent="green"
+              sub={latest ? `${latest.label}期` : ''}
+              delay={2}
+            />
+          </div>
+
+          <div className="chart-grid single animate-in delay-3">
+            <div className="chart-card">
+              <div className="chart-card-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                每期 by 子渠道
+              </div>
+              <div className="channel-filters">
+                {subchannelOptions.map(opt => (
+                  <button key={opt.key}
+                    className={`channel-btn ${subchannelFilter === opt.key ? 'active' : ''}`}
+                    onClick={() => setSubchannelFilter(opt.key)}>
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {chartData.length === 0 ? (
+                <div className="empty-state" style={{ padding: 40 }}>
+                  该子渠道暂无数据（4/13期起有效）
+                </div>
+              ) : (
+                <ResponsiveContainer width="100%" height={400}>
+                  <ComposedChart data={chartData} margin={{ top: 10, right: 30, bottom: 20, left: 0 }}>
+                    <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
+                    <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7280' }} interval={0} />
+                    <YAxis yAxisId="leads" tick={{ fontSize: 12, fill: '#6B7280' }} />
+                    <YAxis yAxisId="rate" orientation="right" tick={{ fontSize: 12, fill: '#6B7280' }}
+                      tickFormatter={v => `${v}%`} domain={[0, 'auto']} />
+                    <Tooltip content={({ active: act, payload, label }) => {
+                      if (!act || !payload || !payload.length) return null;
+                      const entry = payload[0]?.payload;
+                      const leads = entry ? entry[active.leadsKey] : 0;
+                      const cvr = entry ? entry[active.cvrKey] : null;
+                      const paidUsers = (leads && cvr != null) ? Math.round(leads * cvr / 100) : null;
+                      return (
+                        <div style={{ background: '#2D2D3F', color: '#fff', borderRadius: 8, padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', fontSize: 13, lineHeight: 1.6 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}期 — {active.label}</div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>Leads:</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmt(leads)}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>转正率:</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{cvr != null ? fmtPct(cvr) : '—'}</span>
+                          </div>
+                          {paidUsers != null && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                              <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#6366F1', display: 'inline-block' }} />
+                              <span style={{ color: '#ccc' }}>转正订单:</span>
+                              <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>{fmt(paidUsers)}</span>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }} />
+                    <Legend verticalAlign="top" align="center"
+                      wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
+                      content={() => (
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, fontSize: 12 }}>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF2442', display: 'inline-block' }}></span> Leads
+                          </span>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#7EC883', display: 'inline-block' }}></span> CVR (%)
+                          </span>
+                        </div>
+                      )} />
+                    <Bar yAxisId="leads" dataKey={active.leadsKey} name="Leads"
+                      fill="#FF2442" fillOpacity={0.15} stroke="#FF2442" strokeWidth={0}
+                      radius={[6, 6, 0, 0]} barSize={40}>
+                      {chartData.map((entry, i) => (
+                        <Cell key={i}
+                          fill={entry.isComplete ? '#FF2442' : '#FFB3BF'}
+                          fillOpacity={entry.isComplete ? 0.2 : 0.12} />
+                      ))}
+                    </Bar>
+                    <Line yAxisId="rate" type="monotone" dataKey={active.cvrKey} name="转正率"
+                      stroke="#7EC883" strokeWidth={2.5}
+                      dot={{ r: 4, fill: '#7EC883', stroke: '#fff', strokeWidth: 2 }}
+                      activeDot={{ r: 6 }}
+                      connectNulls={false} />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              )}
+            </div>
+          </div>
+
+          {/* Data Table */}
+          <SubchannelTable chartData={chartData} active={active} />
+        </div>
+      );
+    }
+
+    function SubchannelTable({ chartData, active }) {
+      if (!chartData || chartData.length === 0) return null;
+      const sorted = [...chartData].reverse();
+      return (
+        <div className="table-card animate-in delay-5">
+          <div className="table-card-header">
+            <span className="table-card-title">每期明细 — {active.label}</span>
+          </div>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>期次</th>
+                  <th>状态</th>
+                  <th className="num">Leads</th>
+                  <th className="num">转正率</th>
+                  <th className="num">转正订单</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sorted.map((d, i) => {
+                  const leads = d[active.leadsKey];
+                  const cvr = d[active.cvrKey];
+                  const paid = (leads && cvr != null) ? Math.round(leads * cvr / 100) : null;
+                  const statusText = d.isComplete ? '已完成' : '进行中';
+                  const statusCls = d.isComplete ? 'complete' : 'collecting';
+                  return (
+                    <tr key={i}>
+                      <td>{d.label}</td>
+                      <td><span className={`badge-status ${statusCls}`}>{statusText}</span></td>
+                      <td className="num">{leads != null ? fmt(leads) : '—'}</td>
+                      <td className="num">{cvr != null ? fmtPct(cvr) : '—'}</td>
+                      <td className="num">{paid != null ? fmt(paid) : '—'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       );
     }
