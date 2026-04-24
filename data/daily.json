@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22",
+  "generated_at": "2026-04-23",
   "days": [
     {
       "date": "2026-02-01",
@@ -1210,6 +1210,22 @@
       "kz_cpl": 150.74,
       "yy_cpl": 74.53,
       "total_cpl": 109.84
+    },
+    {
+      "date": "2026-04-23",
+      "kz_leads": 25,
+      "yy_leads": 16,
+      "total_leads": 41,
+      "kz_kol_first_leads": 23,
+      "kz_kol_second_leads": 0,
+      "kz_bijityk_first_leads": 2,
+      "kz_bijityk_second_leads": 0,
+      "kz_spend": 2566.96,
+      "yy_spend": 1744.65,
+      "total_spend": 4311.61,
+      "kz_cpl": 102.68,
+      "yy_cpl": 109.04,
+      "total_cpl": 105.16
     }
   ]
 }
