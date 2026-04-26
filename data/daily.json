@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24",
+  "generated_at": "2026-04-25",
   "days": [
     {
       "date": "2026-02-01",
@@ -582,16 +582,16 @@
     {
       "date": "2026-03-12",
       "kz_leads": 20,
-      "yy_leads": 8,
-      "total_leads": 28,
+      "yy_leads": 7,
+      "total_leads": 27,
       "kz_kol_first_leads": 20,
       "kz_kol_second_leads": 0,
       "kz_spend": 2547.03,
       "yy_spend": 1517.24,
       "total_spend": 4064.27,
       "kz_cpl": 127.35,
-      "yy_cpl": 189.66,
-      "total_cpl": 145.15
+      "yy_cpl": 216.75,
+      "total_cpl": 150.53
     },
     {
       "date": "2026-03-13",
@@ -878,8 +878,8 @@
     {
       "date": "2026-04-01",
       "kz_leads": 14,
-      "yy_leads": 14,
-      "total_leads": 28,
+      "yy_leads": 13,
+      "total_leads": 27,
       "kz_kol_first_leads": 11,
       "kz_kol_second_leads": 1,
       "kz_bijityk_first_leads": 2,
@@ -888,8 +888,8 @@
       "yy_spend": 886.4,
       "total_spend": 2463.67,
       "kz_cpl": 112.66,
-      "yy_cpl": 63.31,
-      "total_cpl": 87.99
+      "yy_cpl": 68.18,
+      "total_cpl": 91.25
     },
     {
       "date": "2026-04-02",
@@ -1242,6 +1242,22 @@
       "kz_cpl": 111.88,
       "yy_cpl": 102.23,
       "total_cpl": 107.54
+    },
+    {
+      "date": "2026-04-25",
+      "kz_leads": 16,
+      "yy_leads": 26,
+      "total_leads": 42,
+      "kz_kol_first_leads": 15,
+      "kz_kol_second_leads": 0,
+      "kz_bijityk_first_leads": 1,
+      "kz_bijityk_second_leads": 0,
+      "kz_spend": 2242.07,
+      "yy_spend": 1368.39,
+      "total_spend": 3610.46,
+      "kz_cpl": 140.13,
+      "yy_cpl": 52.63,
+      "total_cpl": 85.96
     }
   ]
 }
