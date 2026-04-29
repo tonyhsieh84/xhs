@@ -1,5 +1,6 @@
 {
   "generated_at": "2026-04-28",
+  "subchannel_cutover": "2026-04-03",
   "days": [
     {
       "date": "2026-01-07",
@@ -9,9 +10,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-08",
@@ -21,9 +28,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-09",
@@ -33,9 +46,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-10",
@@ -45,9 +64,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-11",
@@ -57,9 +82,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-12",
@@ -69,9 +100,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-13",
@@ -81,9 +118,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-14",
@@ -93,9 +136,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-15",
@@ -105,9 +154,15 @@
       "kz_spend": 0.0,
       "yy_spend": 0.0,
       "total_spend": 0.0,
+      "kol_kz_spend": 0.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-16",
@@ -117,9 +172,15 @@
       "kz_spend": 410.11,
       "yy_spend": 0.0,
       "total_spend": 410.11,
+      "kol_kz_spend": 410.11,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-17",
@@ -129,9 +190,15 @@
       "kz_spend": 252.37,
       "yy_spend": 0.0,
       "total_spend": 252.37,
+      "kol_kz_spend": 252.37,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-18",
@@ -141,9 +208,15 @@
       "kz_spend": 1113.55,
       "yy_spend": 0.0,
       "total_spend": 1113.55,
+      "kol_kz_spend": 1113.55,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-19",
@@ -153,9 +226,15 @@
       "kz_spend": 1512.04,
       "yy_spend": 0.0,
       "total_spend": 1512.04,
+      "kol_kz_spend": 1512.04,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-20",
@@ -165,9 +244,15 @@
       "kz_spend": 1114.01,
       "yy_spend": 0.0,
       "total_spend": 1114.01,
+      "kol_kz_spend": 1114.01,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-21",
@@ -177,9 +262,15 @@
       "kz_spend": 1512.8,
       "yy_spend": 0.0,
       "total_spend": 1512.8,
+      "kol_kz_spend": 1512.8,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-22",
@@ -189,9 +280,15 @@
       "kz_spend": 1142.01,
       "yy_spend": 0.0,
       "total_spend": 1142.01,
+      "kol_kz_spend": 1142.01,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-23",
@@ -201,9 +298,15 @@
       "kz_spend": 1512.81,
       "yy_spend": 0.0,
       "total_spend": 1512.81,
+      "kol_kz_spend": 1512.81,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-24",
@@ -213,9 +316,15 @@
       "kz_spend": 1511.24,
       "yy_spend": 0.0,
       "total_spend": 1511.24,
+      "kol_kz_spend": 1511.24,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-25",
@@ -225,9 +334,15 @@
       "kz_spend": 1505.57,
       "yy_spend": 0.0,
       "total_spend": 1505.57,
+      "kol_kz_spend": 1505.57,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-26",
@@ -237,9 +352,15 @@
       "kz_spend": 1502.37,
       "yy_spend": 0.0,
       "total_spend": 1502.37,
+      "kol_kz_spend": 1502.37,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-27",
@@ -249,9 +370,15 @@
       "kz_spend": 1574.89,
       "yy_spend": 0.0,
       "total_spend": 1574.89,
+      "kol_kz_spend": 1574.89,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-28",
@@ -261,9 +388,15 @@
       "kz_spend": 1907.91,
       "yy_spend": 0.0,
       "total_spend": 1907.91,
+      "kol_kz_spend": 1907.91,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-29",
@@ -273,9 +406,15 @@
       "kz_spend": 2527.52,
       "yy_spend": 0.0,
       "total_spend": 2527.52,
+      "kol_kz_spend": 2527.52,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-30",
@@ -285,9 +424,15 @@
       "kz_spend": 4569.5,
       "yy_spend": 0.0,
       "total_spend": 4569.5,
+      "kol_kz_spend": 4569.5,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-01-31",
@@ -297,9 +442,15 @@
       "kz_spend": 3328.09,
       "yy_spend": 0.0,
       "total_spend": 3328.09,
+      "kol_kz_spend": 3328.09,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-01",
@@ -309,9 +460,15 @@
       "kz_spend": 5266.89,
       "yy_spend": 0.0,
       "total_spend": 5266.89,
+      "kol_kz_spend": 5266.89,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": null,
       "yy_cpl": null,
-      "total_cpl": null
+      "total_cpl": null,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-02",
@@ -325,9 +482,15 @@
       "kz_spend": 6346.29,
       "yy_spend": 0.0,
       "total_spend": 6346.29,
+      "kol_kz_spend": 6346.29,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 211.54,
       "yy_cpl": 0.0,
-      "total_cpl": 204.72
+      "total_cpl": 204.72,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-03",
@@ -339,9 +502,15 @@
       "kz_spend": 2583.24,
       "yy_spend": 0.0,
       "total_spend": 2583.24,
+      "kol_kz_spend": 2583.24,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 135.96,
       "yy_cpl": null,
-      "total_cpl": 135.96
+      "total_cpl": 135.96,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-04",
@@ -355,9 +524,15 @@
       "kz_spend": 2035.76,
       "yy_spend": 0.0,
       "total_spend": 2035.76,
+      "kol_kz_spend": 2035.76,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 88.51,
       "yy_cpl": null,
-      "total_cpl": 88.51
+      "total_cpl": 88.51,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-05",
@@ -371,9 +546,15 @@
       "kz_spend": 2021.3,
       "yy_spend": 0.0,
       "total_spend": 2021.3,
+      "kol_kz_spend": 2021.3,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 144.38,
       "yy_cpl": null,
-      "total_cpl": 144.38
+      "total_cpl": 144.38,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-06",
@@ -387,9 +568,15 @@
       "kz_spend": 2043.14,
       "yy_spend": 0.0,
       "total_spend": 2043.14,
+      "kol_kz_spend": 2043.14,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 145.94,
       "yy_cpl": null,
-      "total_cpl": 145.94
+      "total_cpl": 145.94,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-07",
@@ -403,9 +590,15 @@
       "kz_spend": 2016.63,
       "yy_spend": 0.0,
       "total_spend": 2016.63,
+      "kol_kz_spend": 2016.63,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 155.13,
       "yy_cpl": 0.0,
-      "total_cpl": 144.05
+      "total_cpl": 144.05,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-08",
@@ -419,9 +612,15 @@
       "kz_spend": 2063.44,
       "yy_spend": 0.0,
       "total_spend": 2063.44,
+      "kol_kz_spend": 2063.44,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 98.26,
       "yy_cpl": 0.0,
-      "total_cpl": 93.79
+      "total_cpl": 93.79,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-09",
@@ -435,9 +634,15 @@
       "kz_spend": 2009.18,
       "yy_spend": 0.0,
       "total_spend": 2009.18,
+      "kol_kz_spend": 2009.18,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 133.95,
       "yy_cpl": 0.0,
-      "total_cpl": 125.57
+      "total_cpl": 125.57,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-10",
@@ -449,9 +654,15 @@
       "kz_spend": 2027.63,
       "yy_spend": 1.9,
       "total_spend": 2029.53,
+      "kol_kz_spend": 2027.63,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1.9,
+      "yy_hx_spend": 1.9,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 168.97,
       "yy_cpl": null,
-      "total_cpl": 169.13
+      "total_cpl": 169.13,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-11",
@@ -465,9 +676,15 @@
       "kz_spend": 2027.38,
       "yy_spend": 0.0,
       "total_spend": 2027.38,
+      "kol_kz_spend": 2027.38,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 144.81,
       "yy_cpl": null,
-      "total_cpl": 144.81
+      "total_cpl": 144.81,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-12",
@@ -479,9 +696,15 @@
       "kz_spend": 2080.35,
       "yy_spend": 5.21,
       "total_spend": 2085.56,
+      "kol_kz_spend": 2080.35,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 5.21,
+      "yy_hx_spend": 5.21,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 148.6,
       "yy_cpl": null,
-      "total_cpl": 148.97
+      "total_cpl": 148.97,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-13",
@@ -495,9 +718,15 @@
       "kz_spend": 2024.92,
       "yy_spend": 0.0,
       "total_spend": 2024.92,
+      "kol_kz_spend": 2024.92,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 119.11,
       "yy_cpl": null,
-      "total_cpl": 119.11
+      "total_cpl": 119.11,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-14",
@@ -511,9 +740,15 @@
       "kz_spend": 2055.3,
       "yy_spend": 0.0,
       "total_spend": 2055.3,
+      "kol_kz_spend": 2055.3,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 128.46,
       "yy_cpl": null,
-      "total_cpl": 128.46
+      "total_cpl": 128.46,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-15",
@@ -525,9 +760,15 @@
       "kz_spend": 921.96,
       "yy_spend": 0.0,
       "total_spend": 921.96,
+      "kol_kz_spend": 921.96,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 184.39,
       "yy_cpl": null,
-      "total_cpl": 184.39
+      "total_cpl": 184.39,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-16",
@@ -539,9 +780,15 @@
       "kz_spend": 925.11,
       "yy_spend": 0.0,
       "total_spend": 925.11,
+      "kol_kz_spend": 925.11,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 154.18,
       "yy_cpl": null,
-      "total_cpl": 154.18
+      "total_cpl": 154.18,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-17",
@@ -553,9 +800,15 @@
       "kz_spend": 934.87,
       "yy_spend": 0.0,
       "total_spend": 934.87,
+      "kol_kz_spend": 934.87,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 133.55,
       "yy_cpl": null,
-      "total_cpl": 133.55
+      "total_cpl": 133.55,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-18",
@@ -567,9 +820,15 @@
       "kz_spend": 908.42,
       "yy_spend": 0.0,
       "total_spend": 908.42,
+      "kol_kz_spend": 908.42,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 151.4,
       "yy_cpl": null,
-      "total_cpl": 151.4
+      "total_cpl": 151.4,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-19",
@@ -581,9 +840,15 @@
       "kz_spend": 928.54,
       "yy_spend": 0.0,
       "total_spend": 928.54,
+      "kol_kz_spend": 928.54,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 154.76,
       "yy_cpl": null,
-      "total_cpl": 154.76
+      "total_cpl": 154.76,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-20",
@@ -597,9 +862,15 @@
       "kz_spend": 918.43,
       "yy_spend": 0.0,
       "total_spend": 918.43,
+      "kol_kz_spend": 918.43,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 229.61,
       "yy_cpl": 0.0,
-      "total_cpl": 183.69
+      "total_cpl": 183.69,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-21",
@@ -611,9 +882,15 @@
       "kz_spend": 938.31,
       "yy_spend": 0.0,
       "total_spend": 938.31,
+      "kol_kz_spend": 938.31,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 156.38,
       "yy_cpl": null,
-      "total_cpl": 156.38
+      "total_cpl": 156.38,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-22",
@@ -625,9 +902,15 @@
       "kz_spend": 922.91,
       "yy_spend": 0.0,
       "total_spend": 922.91,
+      "kol_kz_spend": 922.91,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 102.55,
       "yy_cpl": null,
-      "total_cpl": 102.55
+      "total_cpl": 102.55,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-23",
@@ -641,9 +924,15 @@
       "kz_spend": 944.92,
       "yy_spend": 0.0,
       "total_spend": 944.92,
+      "kol_kz_spend": 944.92,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 94.49,
       "yy_cpl": null,
-      "total_cpl": 94.49
+      "total_cpl": 94.49,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-24",
@@ -655,9 +944,15 @@
       "kz_spend": 1259.94,
       "yy_spend": 0.0,
       "total_spend": 1259.94,
+      "kol_kz_spend": 1259.94,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 139.99,
       "yy_cpl": 0.0,
-      "total_cpl": 105.0
+      "total_cpl": 105.0,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-25",
@@ -671,9 +966,15 @@
       "kz_spend": 1421.93,
       "yy_spend": 0.53,
       "total_spend": 1422.46,
+      "kol_kz_spend": 1421.93,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.53,
+      "yy_hx_spend": 0.53,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 109.38,
       "yy_cpl": 0.26,
-      "total_cpl": 94.83
+      "total_cpl": 94.83,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-26",
@@ -687,9 +988,15 @@
       "kz_spend": 1457.54,
       "yy_spend": 0.09,
       "total_spend": 1457.63,
+      "kol_kz_spend": 1457.54,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.09,
+      "yy_hx_spend": 0.09,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 85.74,
       "yy_cpl": null,
-      "total_cpl": 85.74
+      "total_cpl": 85.74,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-27",
@@ -703,9 +1010,15 @@
       "kz_spend": 1414.45,
       "yy_spend": 1.14,
       "total_spend": 1415.59,
+      "kol_kz_spend": 1414.45,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1.14,
+      "yy_hx_spend": 1.14,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 141.44,
       "yy_cpl": 1.14,
-      "total_cpl": 128.69
+      "total_cpl": 128.69,
+      "has_subchannel": false
     },
     {
       "date": "2026-02-28",
@@ -717,9 +1030,15 @@
       "kz_spend": 1509.65,
       "yy_spend": 0.71,
       "total_spend": 1510.36,
+      "kol_kz_spend": 1509.65,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.71,
+      "yy_hx_spend": 0.71,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 125.8,
       "yy_cpl": 0.71,
-      "total_cpl": 116.18
+      "total_cpl": 116.18,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-01",
@@ -731,9 +1050,15 @@
       "kz_spend": 1550.45,
       "yy_spend": 0.0,
       "total_spend": 1550.45,
+      "kol_kz_spend": 1550.45,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 140.95,
       "yy_cpl": 0.0,
-      "total_cpl": 103.36
+      "total_cpl": 103.36,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-02",
@@ -747,9 +1072,15 @@
       "kz_spend": 2059.08,
       "yy_spend": 10.12,
       "total_spend": 2069.2,
+      "kol_kz_spend": 2059.08,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 10.12,
+      "yy_hx_spend": 10.12,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 98.05,
       "yy_cpl": 3.37,
-      "total_cpl": 86.22
+      "total_cpl": 86.22,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-03",
@@ -763,9 +1094,15 @@
       "kz_spend": 2025.53,
       "yy_spend": 1.11,
       "total_spend": 2026.64,
+      "kol_kz_spend": 2025.53,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1.11,
+      "yy_hx_spend": 1.11,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 155.81,
       "yy_cpl": 0.56,
-      "total_cpl": 135.11
+      "total_cpl": 135.11,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-04",
@@ -777,9 +1114,15 @@
       "kz_spend": 2065.69,
       "yy_spend": 0.0,
       "total_spend": 2065.69,
+      "kol_kz_spend": 2065.69,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 147.55,
       "yy_cpl": null,
-      "total_cpl": 147.55
+      "total_cpl": 147.55,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-05",
@@ -791,9 +1134,15 @@
       "kz_spend": 2547.48,
       "yy_spend": 0.0,
       "total_spend": 2547.48,
+      "kol_kz_spend": 2547.48,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 0.0,
+      "yy_hx_spend": 0.0,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 149.85,
       "yy_cpl": 0.0,
-      "total_cpl": 127.37
+      "total_cpl": 127.37,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-06",
@@ -805,9 +1154,15 @@
       "kz_spend": 2516.75,
       "yy_spend": 27.81,
       "total_spend": 2544.56,
+      "kol_kz_spend": 2516.75,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 27.81,
+      "yy_hx_spend": 27.81,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 139.82,
       "yy_cpl": 13.9,
-      "total_cpl": 127.23
+      "total_cpl": 127.23,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-07",
@@ -819,9 +1174,15 @@
       "kz_spend": 2378.11,
       "yy_spend": 130.13,
       "total_spend": 2508.24,
+      "kol_kz_spend": 2378.11,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 130.13,
+      "yy_hx_spend": 130.13,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 158.54,
       "yy_cpl": 65.06,
-      "total_cpl": 147.54
+      "total_cpl": 147.54,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-08",
@@ -833,9 +1194,15 @@
       "kz_spend": 3106.26,
       "yy_spend": 150.02,
       "total_spend": 3256.28,
+      "kol_kz_spend": 3106.26,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 150.02,
+      "yy_hx_spend": 150.02,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 129.43,
       "yy_cpl": 30.0,
-      "total_cpl": 112.29
+      "total_cpl": 112.29,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-09",
@@ -847,9 +1214,15 @@
       "kz_spend": 2270.28,
       "yy_spend": 132.97,
       "total_spend": 2403.25,
+      "kol_kz_spend": 2270.28,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 132.97,
+      "yy_hx_spend": 132.97,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 126.13,
       "yy_cpl": 66.48,
-      "total_cpl": 120.16
+      "total_cpl": 120.16,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-10",
@@ -861,9 +1234,15 @@
       "kz_spend": 2513.54,
       "yy_spend": 918.61,
       "total_spend": 3432.15,
+      "kol_kz_spend": 2513.54,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 918.61,
+      "yy_hx_spend": 918.61,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 125.68,
       "yy_cpl": 83.51,
-      "total_cpl": 110.71
+      "total_cpl": 110.71,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-11",
@@ -875,9 +1254,15 @@
       "kz_spend": 2519.1,
       "yy_spend": 2372.1,
       "total_spend": 4891.2,
+      "kol_kz_spend": 2519.1,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2372.1,
+      "yy_hx_spend": 2372.1,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 119.96,
       "yy_cpl": 148.26,
-      "total_cpl": 132.19
+      "total_cpl": 132.19,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-12",
@@ -889,9 +1274,15 @@
       "kz_spend": 2547.03,
       "yy_spend": 1517.24,
       "total_spend": 4064.27,
+      "kol_kz_spend": 2547.03,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1517.24,
+      "yy_hx_spend": 1517.24,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 127.35,
       "yy_cpl": 216.75,
-      "total_cpl": 150.53
+      "total_cpl": 150.53,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-13",
@@ -903,9 +1294,15 @@
       "kz_spend": 2513.12,
       "yy_spend": 1574.86,
       "total_spend": 4087.98,
+      "kol_kz_spend": 2513.12,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1574.86,
+      "yy_hx_spend": 1574.86,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 139.62,
       "yy_cpl": 131.24,
-      "total_cpl": 136.27
+      "total_cpl": 136.27,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-14",
@@ -917,9 +1314,15 @@
       "kz_spend": 2574.55,
       "yy_spend": 1522.04,
       "total_spend": 4096.59,
+      "kol_kz_spend": 2574.55,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1522.04,
+      "yy_hx_spend": 1522.04,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 135.5,
       "yy_cpl": 117.08,
-      "total_cpl": 128.02
+      "total_cpl": 128.02,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-15",
@@ -931,9 +1334,15 @@
       "kz_spend": 2536.69,
       "yy_spend": 1505.73,
       "total_spend": 4042.42,
+      "kol_kz_spend": 2536.69,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1505.73,
+      "yy_hx_spend": 1505.73,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 120.79,
       "yy_cpl": 125.48,
-      "total_cpl": 122.5
+      "total_cpl": 122.5,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-16",
@@ -945,9 +1354,15 @@
       "kz_spend": 2564.59,
       "yy_spend": 1531.74,
       "total_spend": 4096.33,
+      "kol_kz_spend": 2564.59,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1531.74,
+      "yy_hx_spend": 1531.74,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 128.23,
       "yy_cpl": 72.94,
-      "total_cpl": 99.91
+      "total_cpl": 99.91,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-17",
@@ -959,9 +1374,15 @@
       "kz_spend": 2552.97,
       "yy_spend": 1517.72,
       "total_spend": 4070.69,
+      "kol_kz_spend": 2552.97,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1517.72,
+      "yy_hx_spend": 1517.72,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 150.17,
       "yy_cpl": 63.24,
-      "total_cpl": 99.29
+      "total_cpl": 99.29,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-18",
@@ -973,9 +1394,15 @@
       "kz_spend": 2541.0,
       "yy_spend": 1515.73,
       "total_spend": 4056.73,
+      "kol_kz_spend": 2541.0,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1515.73,
+      "yy_hx_spend": 1515.73,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 141.17,
       "yy_cpl": 94.73,
-      "total_cpl": 119.32
+      "total_cpl": 119.32,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-19",
@@ -989,9 +1416,15 @@
       "kz_spend": 2531.99,
       "yy_spend": 1510.93,
       "total_spend": 4042.92,
+      "kol_kz_spend": 2531.99,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1510.93,
+      "yy_hx_spend": 1510.93,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 81.68,
       "yy_cpl": 88.88,
-      "total_cpl": 84.23
+      "total_cpl": 84.23,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-20",
@@ -1005,9 +1438,15 @@
       "kz_spend": 2395.76,
       "yy_spend": 2288.96,
       "total_spend": 4684.72,
+      "kol_kz_spend": 2395.76,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2288.96,
+      "yy_hx_spend": 2288.96,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 140.93,
       "yy_cpl": 152.6,
-      "total_cpl": 146.4
+      "total_cpl": 146.4,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-21",
@@ -1021,9 +1460,15 @@
       "kz_spend": 1533.73,
       "yy_spend": 2748.65,
       "total_spend": 4282.38,
+      "kol_kz_spend": 1533.73,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2748.65,
+      "yy_hx_spend": 2748.65,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 117.98,
       "yy_cpl": 119.51,
-      "total_cpl": 118.96
+      "total_cpl": 118.96,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-22",
@@ -1035,9 +1480,15 @@
       "kz_spend": 1540.19,
       "yy_spend": 1503.17,
       "total_spend": 3043.36,
+      "kol_kz_spend": 1540.19,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1503.17,
+      "yy_hx_spend": 1503.17,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 110.01,
       "yy_cpl": 150.32,
-      "total_cpl": 126.81
+      "total_cpl": 126.81,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-23",
@@ -1049,9 +1500,15 @@
       "kz_spend": 1555.18,
       "yy_spend": 2268.82,
       "total_spend": 3824.0,
+      "kol_kz_spend": 1555.18,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2268.82,
+      "yy_hx_spend": 2268.82,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 111.08,
       "yy_cpl": 98.64,
-      "total_cpl": 103.35
+      "total_cpl": 103.35,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-24",
@@ -1063,9 +1520,15 @@
       "kz_spend": 2040.05,
       "yy_spend": 2136.29,
       "total_spend": 4176.34,
+      "kol_kz_spend": 2040.05,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2136.29,
+      "yy_hx_spend": 2136.29,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 113.34,
       "yy_cpl": 79.12,
-      "total_cpl": 92.81
+      "total_cpl": 92.81,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-25",
@@ -1079,9 +1542,15 @@
       "kz_spend": 1643.18,
       "yy_spend": 1416.48,
       "total_spend": 3059.66,
+      "kol_kz_spend": 1643.18,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1416.48,
+      "yy_hx_spend": 1416.48,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 136.93,
       "yy_cpl": 128.77,
-      "total_cpl": 133.03
+      "total_cpl": 133.03,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-26",
@@ -1095,9 +1564,15 @@
       "kz_spend": 1665.75,
       "yy_spend": 1507.72,
       "total_spend": 3173.47,
+      "kol_kz_spend": 1665.75,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1507.72,
+      "yy_hx_spend": 1507.72,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 128.13,
       "yy_cpl": 188.46,
-      "total_cpl": 151.12
+      "total_cpl": 151.12,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-27",
@@ -1111,9 +1586,15 @@
       "kz_spend": 1584.38,
       "yy_spend": 1073.57,
       "total_spend": 2657.95,
+      "kol_kz_spend": 1584.38,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1073.57,
+      "yy_hx_spend": 1073.57,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 132.03,
       "yy_cpl": 97.6,
-      "total_cpl": 115.56
+      "total_cpl": 115.56,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-28",
@@ -1125,9 +1606,15 @@
       "kz_spend": 1526.66,
       "yy_spend": 1132.49,
       "total_spend": 2659.15,
+      "kol_kz_spend": 1526.66,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1132.49,
+      "yy_hx_spend": 1132.49,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 169.63,
       "yy_cpl": 56.62,
-      "total_cpl": 91.69
+      "total_cpl": 91.69,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-29",
@@ -1139,9 +1626,15 @@
       "kz_spend": 1508.28,
       "yy_spend": 1261.04,
       "total_spend": 2769.32,
+      "kol_kz_spend": 1508.28,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1261.04,
+      "yy_hx_spend": 1261.04,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 150.83,
       "yy_cpl": 52.54,
-      "total_cpl": 81.45
+      "total_cpl": 81.45,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-30",
@@ -1155,9 +1648,15 @@
       "kz_spend": 2224.11,
       "yy_spend": 1379.02,
       "total_spend": 3603.13,
+      "kol_kz_spend": 2224.11,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1379.02,
+      "yy_hx_spend": 1379.02,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 92.67,
       "yy_cpl": 86.19,
-      "total_cpl": 90.08
+      "total_cpl": 90.08,
+      "has_subchannel": false
     },
     {
       "date": "2026-03-31",
@@ -1171,9 +1670,15 @@
       "kz_spend": 2262.47,
       "yy_spend": 976.22,
       "total_spend": 3238.69,
+      "kol_kz_spend": 2262.47,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 976.22,
+      "yy_hx_spend": 976.22,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 133.09,
       "yy_cpl": 61.01,
-      "total_cpl": 98.14
+      "total_cpl": 98.14,
+      "has_subchannel": false
     },
     {
       "date": "2026-04-01",
@@ -1187,9 +1692,15 @@
       "kz_spend": 1577.27,
       "yy_spend": 886.4,
       "total_spend": 2463.67,
+      "kol_kz_spend": 1577.27,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 886.4,
+      "yy_hx_spend": 886.4,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 112.66,
       "yy_cpl": 73.87,
-      "total_cpl": 94.76
+      "total_cpl": 94.76,
+      "has_subchannel": false
     },
     {
       "date": "2026-04-02",
@@ -1201,9 +1712,15 @@
       "kz_spend": 1858.88,
       "yy_spend": 922.65,
       "total_spend": 2781.53,
+      "kol_kz_spend": 1858.88,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 922.65,
+      "yy_hx_spend": 922.65,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 116.18,
       "yy_cpl": 57.67,
-      "total_cpl": 86.92
+      "total_cpl": 86.92,
+      "has_subchannel": false
     },
     {
       "date": "2026-04-03",
@@ -1215,9 +1732,25 @@
       "kz_spend": 1853.73,
       "yy_spend": 1097.16,
       "total_spend": 2950.89,
+      "kol_kz_spend": 1853.73,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1097.16,
+      "yy_hx_spend": 1097.16,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 154.48,
       "yy_cpl": 73.14,
-      "total_cpl": 109.29
+      "total_cpl": 109.29,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 15,
+      "organic_jlgl_leads": 1,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 168.52,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 73.14,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-04",
@@ -1231,9 +1764,25 @@
       "kz_spend": 1635.5,
       "yy_spend": 897.77,
       "total_spend": 2533.27,
+      "kol_kz_spend": 1635.5,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 897.77,
+      "yy_hx_spend": 897.77,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 116.82,
       "yy_cpl": 99.75,
-      "total_cpl": 110.14
+      "total_cpl": 110.14,
+      "kol_kz_juzhi_leads": 10,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 9,
+      "organic_jlgl_leads": 4,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 163.55,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 99.75,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-05",
@@ -1245,9 +1794,25 @@
       "kz_spend": 1919.55,
       "yy_spend": 935.95,
       "total_spend": 2855.5,
+      "kol_kz_spend": 1919.55,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 935.95,
+      "yy_hx_spend": 935.95,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 147.66,
       "yy_cpl": 85.09,
-      "total_cpl": 118.98
+      "total_cpl": 118.98,
+      "kol_kz_juzhi_leads": 13,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 11,
+      "organic_jlgl_leads": 0,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 147.66,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 85.09,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-06",
@@ -1259,9 +1824,25 @@
       "kz_spend": 1741.03,
       "yy_spend": 1135.02,
       "total_spend": 2876.05,
+      "kol_kz_spend": 1741.03,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1135.02,
+      "yy_hx_spend": 1135.02,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 102.41,
       "yy_cpl": 141.88,
-      "total_cpl": 115.04
+      "total_cpl": 115.04,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 8,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 124.36,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 141.88,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-07",
@@ -1275,9 +1856,25 @@
       "kz_spend": 1893.1,
       "yy_spend": 2070.38,
       "total_spend": 3963.48,
+      "kol_kz_spend": 1893.1,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2070.38,
+      "yy_hx_spend": 2070.38,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 126.21,
       "yy_cpl": 90.02,
-      "total_cpl": 104.3
+      "total_cpl": 104.3,
+      "kol_kz_juzhi_leads": 13,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 23,
+      "organic_jlgl_leads": 2,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 145.62,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 90.02,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-08",
@@ -1289,9 +1886,25 @@
       "kz_spend": 1888.69,
       "yy_spend": 2644.41,
       "total_spend": 4533.1,
+      "kol_kz_spend": 1888.69,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2644.41,
+      "yy_hx_spend": 2644.41,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 145.28,
       "yy_cpl": 165.28,
-      "total_cpl": 156.31
+      "total_cpl": 156.31,
+      "kol_kz_juzhi_leads": 13,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 16,
+      "organic_jlgl_leads": 0,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 145.28,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 165.28,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-09",
@@ -1305,9 +1918,25 @@
       "kz_spend": 1648.62,
       "yy_spend": 3569.33,
       "total_spend": 5217.95,
+      "kol_kz_spend": 1648.62,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 3569.33,
+      "yy_hx_spend": 3569.33,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 96.98,
       "yy_cpl": 187.86,
-      "total_cpl": 144.94
+      "total_cpl": 144.94,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 20,
+      "organic_jlgl_leads": 5,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 149.87,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 178.47,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-10",
@@ -1321,9 +1950,25 @@
       "kz_spend": 2002.81,
       "yy_spend": 2533.74,
       "total_spend": 4536.55,
+      "kol_kz_spend": 2002.81,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 2533.74,
+      "yy_hx_spend": 2533.74,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 111.27,
       "yy_cpl": 110.16,
-      "total_cpl": 110.65
+      "total_cpl": 110.65,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 23,
+      "organic_jlgl_leads": 4,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 143.06,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 110.16,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-11",
@@ -1337,9 +1982,25 @@
       "kz_spend": 1898.71,
       "yy_spend": 1910.28,
       "total_spend": 3808.99,
+      "kol_kz_spend": 1898.71,
+      "kob_kz_spend": 0.0,
+      "yy_combined_spend": 1910.28,
+      "yy_hx_spend": 1910.28,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 118.67,
       "yy_cpl": 112.37,
-      "total_cpl": 115.42
+      "total_cpl": 115.42,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 17,
+      "organic_jlgl_leads": 5,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 172.61,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 112.37,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-12",
@@ -1351,9 +2012,25 @@
       "kz_spend": 2065.39,
       "yy_spend": 1516.86,
       "total_spend": 3582.25,
+      "kol_kz_spend": 2035.99,
+      "kob_kz_spend": 29.4,
+      "yy_combined_spend": 1516.86,
+      "yy_hx_spend": 1516.86,
+      "yy_lingdong_spend": 0.0,
       "kz_cpl": 129.09,
       "yy_cpl": 94.8,
-      "total_cpl": 111.95
+      "total_cpl": 111.95,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 16,
+      "organic_jlgl_leads": 2,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 145.43,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 94.8,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-13",
@@ -1365,9 +2042,25 @@
       "kz_spend": 2270.48,
       "yy_spend": 2315.32,
       "total_spend": 4585.8,
+      "kol_kz_spend": 2053.7,
+      "kob_kz_spend": 216.78,
+      "yy_combined_spend": 2315.32,
+      "yy_hx_spend": 2287.79,
+      "yy_lingdong_spend": 27.53,
       "kz_cpl": 141.9,
       "yy_cpl": 85.75,
-      "total_cpl": 106.65
+      "total_cpl": 106.65,
+      "kol_kz_juzhi_leads": 12,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 27,
+      "organic_jlgl_leads": 4,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 171.14,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 85.75,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-14",
@@ -1381,9 +2074,25 @@
       "kz_spend": 2880.01,
       "yy_spend": 2891.97,
       "total_spend": 5771.98,
+      "kol_kz_spend": 2575.93,
+      "kob_kz_spend": 304.08,
+      "yy_combined_spend": 2891.97,
+      "yy_hx_spend": 2811.12,
+      "yy_lingdong_spend": 80.85,
       "kz_cpl": 144.0,
       "yy_cpl": 115.68,
-      "total_cpl": 128.27
+      "total_cpl": 128.27,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 0,
+      "yy_combined_leads": 25,
+      "organic_jlgl_leads": 5,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 183.99,
+      "kob_kz_lingdong_cpl": null,
+      "yy_combined_cpl": 115.68,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-15",
@@ -1397,9 +2106,25 @@
       "kz_spend": 2614.6,
       "yy_spend": 1604.13,
       "total_spend": 4218.73,
+      "kol_kz_spend": 1901.01,
+      "kob_kz_spend": 713.59,
+      "yy_combined_spend": 1604.13,
+      "yy_hx_spend": 1509.34,
+      "yy_lingdong_spend": 94.79,
       "kz_cpl": 113.68,
       "yy_cpl": 64.17,
-      "total_cpl": 87.89
+      "total_cpl": 87.89,
+      "kol_kz_juzhi_leads": 12,
+      "kob_kz_lingdong_leads": 5,
+      "yy_combined_leads": 25,
+      "organic_jlgl_leads": 6,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 158.42,
+      "kob_kz_lingdong_cpl": 142.72,
+      "yy_combined_cpl": 64.17,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-16",
@@ -1411,9 +2136,25 @@
       "kz_spend": 2532.67,
       "yy_spend": 3490.81,
       "total_spend": 6023.48,
+      "kol_kz_spend": 1582.05,
+      "kob_kz_spend": 950.62,
+      "yy_combined_spend": 3490.81,
+      "yy_hx_spend": 3100.03,
+      "yy_lingdong_spend": 390.78,
       "kz_cpl": 140.7,
       "yy_cpl": 129.29,
-      "total_cpl": 133.86
+      "total_cpl": 133.86,
+      "kol_kz_juzhi_leads": 9,
+      "kob_kz_lingdong_leads": 6,
+      "yy_combined_leads": 27,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 175.78,
+      "kob_kz_lingdong_cpl": 158.44,
+      "yy_combined_cpl": 129.29,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-17",
@@ -1427,9 +2168,25 @@
       "kz_spend": 3385.01,
       "yy_spend": 3372.35,
       "total_spend": 6757.36,
+      "kol_kz_spend": 2339.64,
+      "kob_kz_spend": 1045.37,
+      "yy_combined_spend": 3372.35,
+      "yy_hx_spend": 3057.61,
+      "yy_lingdong_spend": 314.74,
       "kz_cpl": 147.17,
       "yy_cpl": 93.68,
-      "total_cpl": 114.53
+      "total_cpl": 114.53,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 5,
+      "yy_combined_leads": 37,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 167.12,
+      "kob_kz_lingdong_cpl": 209.07,
+      "yy_combined_cpl": 91.14,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-18",
@@ -1443,9 +2200,25 @@
       "kz_spend": 3251.84,
       "yy_spend": 4088.97,
       "total_spend": 7340.81,
+      "kol_kz_spend": 2219.45,
+      "kob_kz_spend": 1032.39,
+      "yy_combined_spend": 4088.97,
+      "yy_hx_spend": 3742.06,
+      "yy_lingdong_spend": 346.91,
       "kz_cpl": 154.85,
       "yy_cpl": 102.22,
-      "total_cpl": 120.34
+      "total_cpl": 120.34,
+      "kol_kz_juzhi_leads": 14,
+      "kob_kz_lingdong_leads": 4,
+      "yy_combined_leads": 40,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 158.53,
+      "kob_kz_lingdong_cpl": 258.1,
+      "yy_combined_cpl": 102.22,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-19",
@@ -1459,9 +2232,25 @@
       "kz_spend": 2923.89,
       "yy_spend": 5044.65,
       "total_spend": 7968.54,
+      "kol_kz_spend": 1873.9,
+      "kob_kz_spend": 1049.99,
+      "yy_combined_spend": 5044.65,
+      "yy_hx_spend": 4041.59,
+      "yy_lingdong_spend": 1003.06,
       "kz_cpl": 194.93,
       "yy_cpl": 98.91,
-      "total_cpl": 120.74
+      "total_cpl": 120.74,
+      "kol_kz_juzhi_leads": 7,
+      "kob_kz_lingdong_leads": 5,
+      "yy_combined_leads": 51,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 267.7,
+      "kob_kz_lingdong_cpl": 210.0,
+      "yy_combined_cpl": 98.91,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-20",
@@ -1475,9 +2264,25 @@
       "kz_spend": 3082.1,
       "yy_spend": 3569.0,
       "total_spend": 6651.1,
+      "kol_kz_spend": 2034.25,
+      "kob_kz_spend": 1047.85,
+      "yy_combined_spend": 3569.0,
+      "yy_hx_spend": 2764.19,
+      "yy_lingdong_spend": 804.81,
       "kz_cpl": 162.22,
       "yy_cpl": 108.15,
-      "total_cpl": 127.91
+      "total_cpl": 127.91,
+      "kol_kz_juzhi_leads": 10,
+      "kob_kz_lingdong_leads": 5,
+      "yy_combined_leads": 33,
+      "organic_jlgl_leads": 4,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 203.43,
+      "kob_kz_lingdong_cpl": 209.57,
+      "yy_combined_cpl": 108.15,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-21",
@@ -1491,9 +2296,25 @@
       "kz_spend": 2215.35,
       "yy_spend": 2770.63,
       "total_spend": 4985.98,
+      "kol_kz_spend": 1184.53,
+      "kob_kz_spend": 1030.82,
+      "yy_combined_spend": 2770.63,
+      "yy_hx_spend": 1263.45,
+      "yy_lingdong_spend": 1507.18,
       "kz_cpl": 88.61,
       "yy_cpl": 79.16,
-      "total_cpl": 83.1
+      "total_cpl": 83.1,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 3,
+      "yy_combined_leads": 36,
+      "organic_jlgl_leads": 8,
+      "organic_yyguanfang_leads": 2,
+      "kol_kz_juzhi_cpl": 107.68,
+      "kob_kz_lingdong_cpl": 343.61,
+      "yy_combined_cpl": 76.96,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-22",
@@ -1507,9 +2328,25 @@
       "kz_spend": 2863.98,
       "yy_spend": 1639.57,
       "total_spend": 4503.55,
+      "kol_kz_spend": 1510.7,
+      "kob_kz_spend": 1353.28,
+      "yy_combined_spend": 1639.57,
+      "yy_hx_spend": 1240.9,
+      "yy_lingdong_spend": 398.67,
       "kz_cpl": 150.74,
       "yy_cpl": 74.53,
-      "total_cpl": 109.84
+      "total_cpl": 109.84,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 5,
+      "yy_combined_leads": 22,
+      "organic_jlgl_leads": 2,
+      "organic_yyguanfang_leads": 1,
+      "kol_kz_juzhi_cpl": 137.34,
+      "kob_kz_lingdong_cpl": 270.66,
+      "yy_combined_cpl": 74.53,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-23",
@@ -1523,9 +2360,25 @@
       "kz_spend": 2566.96,
       "yy_spend": 1744.65,
       "total_spend": 4311.61,
+      "kol_kz_spend": 1403.63,
+      "kob_kz_spend": 1163.33,
+      "yy_combined_spend": 1744.65,
+      "yy_hx_spend": 1187.72,
+      "yy_lingdong_spend": 556.93,
       "kz_cpl": 102.68,
       "yy_cpl": 109.04,
-      "total_cpl": 105.16
+      "total_cpl": 105.16,
+      "kol_kz_juzhi_leads": 13,
+      "kob_kz_lingdong_leads": 6,
+      "yy_combined_leads": 16,
+      "organic_jlgl_leads": 5,
+      "organic_yyguanfang_leads": 1,
+      "kol_kz_juzhi_cpl": 107.97,
+      "kob_kz_lingdong_cpl": 193.89,
+      "yy_combined_cpl": 109.04,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-24",
@@ -1539,9 +2392,25 @@
       "kz_spend": 2461.38,
       "yy_spend": 1840.09,
       "total_spend": 4301.47,
+      "kol_kz_spend": 1243.2,
+      "kob_kz_spend": 1218.18,
+      "yy_combined_spend": 1840.09,
+      "yy_hx_spend": 1284.44,
+      "yy_lingdong_spend": 555.65,
       "kz_cpl": 111.88,
       "yy_cpl": 102.23,
-      "total_cpl": 107.54
+      "total_cpl": 107.54,
+      "kol_kz_juzhi_leads": 11,
+      "kob_kz_lingdong_leads": 7,
+      "yy_combined_leads": 20,
+      "organic_jlgl_leads": 2,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 113.02,
+      "kob_kz_lingdong_cpl": 174.03,
+      "yy_combined_cpl": 92.0,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-25",
@@ -1555,9 +2424,25 @@
       "kz_spend": 2242.07,
       "yy_spend": 1368.39,
       "total_spend": 3610.46,
+      "kol_kz_spend": 1010.79,
+      "kob_kz_spend": 1231.28,
+      "yy_combined_spend": 1368.39,
+      "yy_hx_spend": 845.88,
+      "yy_lingdong_spend": 522.51,
       "kz_cpl": 140.13,
       "yy_cpl": 52.63,
-      "total_cpl": 85.96
+      "total_cpl": 85.96,
+      "kol_kz_juzhi_leads": 7,
+      "kob_kz_lingdong_leads": 6,
+      "yy_combined_leads": 26,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 144.4,
+      "kob_kz_lingdong_cpl": 205.21,
+      "yy_combined_cpl": 52.63,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-26",
@@ -1571,9 +2456,25 @@
       "kz_spend": 2297.43,
       "yy_spend": 1436.02,
       "total_spend": 3733.45,
+      "kol_kz_spend": 1009.08,
+      "kob_kz_spend": 1288.35,
+      "yy_combined_spend": 1436.02,
+      "yy_hx_spend": 891.62,
+      "yy_lingdong_spend": 544.4,
       "kz_cpl": 382.9,
       "yy_cpl": 75.58,
-      "total_cpl": 149.34
+      "total_cpl": 149.34,
+      "kol_kz_juzhi_leads": 1,
+      "kob_kz_lingdong_leads": 3,
+      "yy_combined_leads": 19,
+      "organic_jlgl_leads": 1,
+      "organic_yyguanfang_leads": 1,
+      "kol_kz_juzhi_cpl": 1009.08,
+      "kob_kz_lingdong_cpl": 429.45,
+      "yy_combined_cpl": 75.58,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-27",
@@ -1587,9 +2488,25 @@
       "kz_spend": 2140.34,
       "yy_spend": 1189.51,
       "total_spend": 3329.85,
+      "kol_kz_spend": 1008.57,
+      "kob_kz_spend": 1131.77,
+      "yy_combined_spend": 1189.51,
+      "yy_hx_spend": 584.12,
+      "yy_lingdong_spend": 605.39,
       "kz_cpl": 142.69,
       "yy_cpl": 108.14,
-      "total_cpl": 128.07
+      "total_cpl": 128.07,
+      "kol_kz_juzhi_leads": 4,
+      "kob_kz_lingdong_leads": 6,
+      "yy_combined_leads": 11,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 2,
+      "kol_kz_juzhi_cpl": 252.14,
+      "kob_kz_lingdong_cpl": 188.63,
+      "yy_combined_cpl": 108.14,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     },
     {
       "date": "2026-04-28",
@@ -1603,9 +2520,25 @@
       "kz_spend": 1431.83,
       "yy_spend": 2427.85,
       "total_spend": 3859.68,
+      "kol_kz_spend": 885.01,
+      "kob_kz_spend": 546.82,
+      "yy_combined_spend": 2427.85,
+      "yy_hx_spend": 1892.7,
+      "yy_lingdong_spend": 535.15,
       "kz_cpl": 159.09,
       "yy_cpl": 115.61,
-      "total_cpl": 128.66
+      "total_cpl": 128.66,
+      "kol_kz_juzhi_leads": 4,
+      "kob_kz_lingdong_leads": 2,
+      "yy_combined_leads": 21,
+      "organic_jlgl_leads": 3,
+      "organic_yyguanfang_leads": 0,
+      "kol_kz_juzhi_cpl": 221.25,
+      "kob_kz_lingdong_cpl": 273.41,
+      "yy_combined_cpl": 115.61,
+      "organic_jlgl_cpl": null,
+      "organic_yyguanfang_cpl": null,
+      "has_subchannel": true
     }
   ]
 }

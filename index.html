@@ -674,6 +674,7 @@
       const [activeTab, setActiveTab] = React.useState('overview');
       const [channelFilter, setChannelFilter] = React.useState('overall');
       const [subchannelFilter, setSubchannelFilter] = React.useState('kol');
+      const [dailyView, setDailyView] = React.useState('overall'); // 'overall' | 'subchannel'
       const [loading, setLoading] = React.useState(true);
 
       React.useEffect(() => {
@@ -820,6 +821,19 @@
           kzCPL: d.kz_cpl,
           yyCPL: d.yy_cpl,
           totalCPL: d.total_cpl,
+          // 6-bucket sub-channel breakdown (≥ 04/03)
+          hasSubchannel: d.has_subchannel === true,
+          kolKzLeads: d.kol_kz_juzhi_leads ?? 0,
+          kobKzLeads: d.kob_kz_lingdong_leads ?? 0,
+          yyCombinedLeads: d.yy_combined_leads ?? 0,
+          organicJlglLeads: d.organic_jlgl_leads ?? 0,
+          organicYyguanfangLeads: d.organic_yyguanfang_leads ?? 0,
+          kolKzSpend: d.kol_kz_spend ?? 0,
+          kobKzSpend: d.kob_kz_spend ?? 0,
+          yyCombinedSpend: d.yy_combined_spend ?? 0,
+          kolKzCPL: d.kol_kz_juzhi_cpl ?? null,
+          kobKzCPL: d.kob_kz_lingdong_cpl ?? null,
+          yyCombinedCPL: d.yy_combined_cpl ?? null,
         };
       });
 
@@ -875,7 +889,9 @@
               />
             )}
             {activeTab === 'daily' && (
-              <DailyTab dailyChartData={dailyChartData} />
+              <DailyTab dailyChartData={dailyChartData}
+                        dailyView={dailyView}
+                        setDailyView={setDailyView} />
             )}
             {activeTab === 'subchannel' && (
               <SubchannelTab
@@ -1324,42 +1340,95 @@
     // ============================================================
     // Daily Tab
     // ============================================================
-    function DailyTab({ dailyChartData }) {
+    function DailyTab({ dailyChartData, dailyView, setDailyView }) {
+      // Sub-channel view only renders rows that have sub-channel data
+      const subChartData = dailyChartData.filter(d => d.hasSubchannel);
+      const isSubView = dailyView === 'subchannel';
+
+      // Color palette for the 5 sub-channels
+      const SUB_COLORS = {
+        kolKz: '#5B9BD5',           // KOL 客资 (聚智) — blue
+        kobKz: '#22A856',           // KOB 客资 (灵动) — green
+        yyCombined: '#FF9B4E',      // 应用推广 — orange
+        organicJlgl: '#A78BFA',     // 自然量 - 叽里呱啦 — purple
+        organicYy: '#F472B6',       // 自然量 - 灵动 — pink
+      };
+
       return (
         <div>
-          <h2 className="section-title">每日流量</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-md)' }}>
+            <h2 className="section-title" style={{ marginBottom: 0 }}>每日流量</h2>
+            <div className="channel-filter">
+              <button className={`channel-btn ${dailyView === 'overall' ? 'active' : ''}`}
+                onClick={() => setDailyView('overall')}>整体</button>
+              <button className={`channel-btn ${dailyView === 'subchannel' ? 'active' : ''}`}
+                onClick={() => setDailyView('subchannel')}>子渠道</button>
+            </div>
+          </div>
 
+          {isSubView && (
+            <div style={{ background: 'rgba(167, 139, 250, 0.08)', border: '1px solid rgba(167, 139, 250, 0.3)',
+                          borderRadius: 8, padding: '8px 12px', marginBottom: 16, fontSize: 12, color: '#6B7280' }}>
+              💡 子渠道归因从 <strong>2026-04-03</strong> 开始（4/13期 起）。早期日期归类不完整，已隐藏。
+            </div>
+          )}
+
+          {/* Leads chart */}
           <div className="chart-grid single animate-in delay-1">
             <div className="chart-card">
               <div className="chart-card-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                Leads by 链路
+                Leads by {isSubView ? '子渠道' : '链路'}
               </div>
               <ResponsiveContainer width="100%" height={400}>
-                <ComposedChart data={dailyChartData} margin={{ top: 20, right: 20, bottom: 0, left: 0 }}>
+                <ComposedChart data={isSubView ? subChartData : dailyChartData} margin={{ top: 20, right: 20, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={0} angle={-45} textAnchor="end" height={50} />
                   <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Bar dataKey="kzLeads" name="客资收集" stackId="leads"
-                    fill="#5B9BD5" />
-                  <Bar dataKey="yyLeads" name="应用推广" stackId="leads"
-                    fill="#FF9B4E" radius={[4, 4, 0, 0]}
-                    label={({ x, y, width, value, index }) => {
-                      const total = (dailyChartData[index]?.kzLeads || 0) + (dailyChartData[index]?.yyLeads || 0);
-                      return value != null ? (
-                        <text x={x + width / 2} y={y - 6} textAnchor="middle" fill="#6B7280" fontSize={10} fontWeight={500}>
-                          {total}
-                        </text>
-                      ) : null;
-                    }} />
+                  {isSubView ? (
+                    <>
+                      <Bar dataKey="kolKzLeads" name="KOL 客资 (聚智)" stackId="leads" fill={SUB_COLORS.kolKz} />
+                      <Bar dataKey="kobKzLeads" name="KOB 客资 (灵动)" stackId="leads" fill={SUB_COLORS.kobKz} />
+                      <Bar dataKey="yyCombinedLeads" name="应用推广 (合计)" stackId="leads" fill={SUB_COLORS.yyCombined} />
+                      <Bar dataKey="organicJlglLeads" name="自然量 - 叽里呱啦" stackId="leads" fill={SUB_COLORS.organicJlgl} />
+                      <Bar dataKey="organicYyguanfangLeads" name="自然量 - 叽里呱啦英语官方" stackId="leads"
+                        fill={SUB_COLORS.organicYy} radius={[4, 4, 0, 0]}
+                        label={({ x, y, width, value, index }) => {
+                          const r = subChartData[index];
+                          if (!r) return null;
+                          const total = (r.kolKzLeads||0) + (r.kobKzLeads||0) + (r.yyCombinedLeads||0)
+                                      + (r.organicJlglLeads||0) + (r.organicYyguanfangLeads||0);
+                          return total > 0 ? (
+                            <text x={x + width / 2} y={y - 6} textAnchor="middle" fill="#6B7280" fontSize={10} fontWeight={500}>
+                              {total}
+                            </text>
+                          ) : null;
+                        }} />
+                    </>
+                  ) : (
+                    <>
+                      <Bar dataKey="kzLeads" name="客资收集" stackId="leads" fill="#5B9BD5" />
+                      <Bar dataKey="yyLeads" name="应用推广" stackId="leads"
+                        fill="#FF9B4E" radius={[4, 4, 0, 0]}
+                        label={({ x, y, width, value, index }) => {
+                          const total = (dailyChartData[index]?.kzLeads || 0) + (dailyChartData[index]?.yyLeads || 0);
+                          return value != null ? (
+                            <text x={x + width / 2} y={y - 6} textAnchor="middle" fill="#6B7280" fontSize={10} fontWeight={500}>
+                              {total}
+                            </text>
+                          ) : null;
+                        }} />
+                    </>
+                  )}
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
           </div>
 
+          {/* CPL chart */}
           <div className="chart-grid single animate-in delay-2">
             <div className="chart-card">
               <div className="chart-card-title">
@@ -1367,22 +1436,41 @@
                 CPL
               </div>
               <ResponsiveContainer width="100%" height={400}>
-                <LineChart data={dailyChartData.filter(d => d.totalCPL != null)} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                <LineChart data={isSubView ? subChartData : dailyChartData.filter(d => d.totalCPL != null)} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={0} angle={-45} textAnchor="end" height={50} />
                   <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${v}`} />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Line type="monotone" dataKey="kzCPL" name="客资收集 CPL"
-                    stroke="#5B9BD5" strokeWidth={2}
-                    dot={{ r: 3 }} connectNulls={false} />
-                  <Line type="monotone" dataKey="yyCPL" name="应用推广 CPL"
-                    stroke="#FF9B4E" strokeWidth={2}
-                    dot={{ r: 3 }} connectNulls={false} />
-                  <Line type="monotone" dataKey="totalCPL" name="综合 CPL"
-                    stroke="#10B981" strokeWidth={2} strokeDasharray="5 5"
-                    dot={{ r: 3 }} connectNulls={false} />
+                  {isSubView ? (
+                    <>
+                      <Line type="monotone" dataKey="kolKzCPL" name="KOL 客资 (聚智) CPL"
+                        stroke={SUB_COLORS.kolKz} strokeWidth={2}
+                        dot={{ r: 3 }} connectNulls={false} />
+                      <Line type="monotone" dataKey="kobKzCPL" name="KOB 客资 (灵动) CPL"
+                        stroke={SUB_COLORS.kobKz} strokeWidth={2}
+                        dot={{ r: 3 }} connectNulls={false} />
+                      <Line type="monotone" dataKey="yyCombinedCPL" name="应用推广 CPL"
+                        stroke={SUB_COLORS.yyCombined} strokeWidth={2}
+                        dot={{ r: 3 }} connectNulls={false} />
+                      <Line type="monotone" dataKey="totalCPL" name="综合 CPL"
+                        stroke="#10B981" strokeWidth={2} strokeDasharray="5 5"
+                        dot={{ r: 3 }} connectNulls={false} />
+                    </>
+                  ) : (
+                    <>
+                      <Line type="monotone" dataKey="kzCPL" name="客资收集 CPL"
+                        stroke="#5B9BD5" strokeWidth={2}
+                        dot={{ r: 3 }} connectNulls={false} />
+                      <Line type="monotone" dataKey="yyCPL" name="应用推广 CPL"
+                        stroke="#FF9B4E" strokeWidth={2}
+                        dot={{ r: 3 }} connectNulls={false} />
+                      <Line type="monotone" dataKey="totalCPL" name="综合 CPL"
+                        stroke="#10B981" strokeWidth={2} strokeDasharray="5 5"
+                        dot={{ r: 3 }} connectNulls={false} />
+                    </>
+                  )}
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -1395,12 +1483,43 @@
                 投放消耗
               </div>
               <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+                <BarChart data={isSubView ? subChartData : dailyChartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke="#E5E7EB" strokeDasharray="4 4" strokeWidth={0.5} />
                   <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7280' }} interval={0} angle={-45} textAnchor="end" height={50} />
                   <YAxis tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={v => `¥${(v/1000).toFixed(0)}k`} />
                   <Tooltip content={({ active, payload, label }) => {
                     if (!active || !payload || !payload.length) return null;
+                    if (isSubView) {
+                      const kol = payload.find(p => p.dataKey === 'kolKzSpend')?.value || 0;
+                      const kob = payload.find(p => p.dataKey === 'kobKzSpend')?.value || 0;
+                      const yy = payload.find(p => p.dataKey === 'yyCombinedSpend')?.value || 0;
+                      const total = kol + kob + yy;
+                      return (
+                        <div style={{ background: '#2D2D3F', color: '#fff', borderRadius: 8, padding: '12px 16px', boxShadow: '0 8px 24px rgba(0,0,0,0.2)', fontSize: 13, lineHeight: 1.6 }}>
+                          <div style={{ fontWeight: 600, marginBottom: 4 }}>{label}</div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#5B9BD5', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>KOL 客资 (聚智):</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(kol)}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#22A856', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>KOB 客资 (灵动):</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(kob)}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF9B4E', display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>应用推广:</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(yy)}</span>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8, borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: 4, marginTop: 4 }}>
+                            <span style={{ width: 10, height: 10, display: 'inline-block' }} />
+                            <span style={{ color: '#ccc' }}>总消耗:</span>
+                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>¥{fmt(total)}</span>
+                          </div>
+                        </div>
+                      );
+                    }
                     const kz = payload.find(p => p.dataKey === 'kzSpend')?.value || 0;
                     const yy = payload.find(p => p.dataKey === 'yySpend')?.value || 0;
                     const total = kz + yy;
@@ -1427,10 +1546,20 @@
                   }} />
                   <Legend iconType="circle" iconSize={8}
                     wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Bar dataKey="kzSpend" name="客资收集" stackId="spend"
-                    fill="#A78BFA" />
-                  <Bar dataKey="yySpend" name="应用推广" stackId="spend"
-                    fill="#F472B6" radius={[4, 4, 0, 0]} />
+                  {isSubView ? (
+                    <>
+                      <Bar dataKey="kolKzSpend" name="KOL 客资 (聚智)" stackId="spend" fill={SUB_COLORS.kolKz} />
+                      <Bar dataKey="kobKzSpend" name="KOB 客资 (灵动)" stackId="spend" fill={SUB_COLORS.kobKz} />
+                      <Bar dataKey="yyCombinedSpend" name="应用推广 (合计)" stackId="spend"
+                        fill={SUB_COLORS.yyCombined} radius={[4, 4, 0, 0]} />
+                    </>
+                  ) : (
+                    <>
+                      <Bar dataKey="kzSpend" name="客资收集" stackId="spend" fill="#A78BFA" />
+                      <Bar dataKey="yySpend" name="应用推广" stackId="spend"
+                        fill="#F472B6" radius={[4, 4, 0, 0]} />
+                    </>
+                  )}
                 </BarChart>
               </ResponsiveContainer>
             </div>
